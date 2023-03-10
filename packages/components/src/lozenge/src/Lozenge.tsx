@@ -106,7 +106,6 @@ InnerLozenge.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/lozenge--default-story)
 */
-
 export const Lozenge = slot("lozenge", forwardRef<any, OmitInternalProps<InnerLozengeProps>>((props, ref) => (
     <InnerLozenge {...props} forwardedRef={ref} />
 )));

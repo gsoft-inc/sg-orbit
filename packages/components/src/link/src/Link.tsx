@@ -112,7 +112,6 @@ InnerLink.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/link--default-story)
 */
-
 export const Link = forwardRef<any, OmitInternalProps<InnerLinkProps>>((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));

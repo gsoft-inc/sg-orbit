@@ -54,7 +54,6 @@ InnerText.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/text--size)
 */
-
 export const Text = slot("text", forwardRef<any, OmitInternalProps<InnerTextProps>>((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));

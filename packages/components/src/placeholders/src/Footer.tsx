@@ -35,7 +35,6 @@ InnerFooter.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/footer--example)
 */
-
 export const Footer = slot("footer", forwardRef<any, OmitInternalProps<InnerFooterProps>>((props, ref) => (
     <InnerFooter {...props} forwardedRef={ref} />
 )));

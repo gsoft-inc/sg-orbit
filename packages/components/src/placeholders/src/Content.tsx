@@ -35,7 +35,6 @@ InnerContent.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/content--example)
 */
-
 export const Content = slot("content", forwardRef<any, OmitInternalProps<InnerContentProps>>((props, ref) => (
     <InnerContent {...props} forwardedRef={ref} />
 )));

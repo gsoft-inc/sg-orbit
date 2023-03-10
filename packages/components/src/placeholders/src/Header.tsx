@@ -35,7 +35,6 @@ InnerHeader.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/header--example)
 */
-
 export const Header = slot("header", forwardRef<any, OmitInternalProps<InnerHeaderProps>>((props, ref) => (
     <InnerHeader {...props} forwardedRef={ref} />
 )));

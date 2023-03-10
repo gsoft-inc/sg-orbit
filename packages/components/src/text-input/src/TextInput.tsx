@@ -194,7 +194,6 @@ InnerTextInput.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/text-input--default-story)
 */
-
 export const TextInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerTextInputProps>>((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));

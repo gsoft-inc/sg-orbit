@@ -39,7 +39,6 @@ InnerBox.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/box--page)
 */
-
 export const Box = forwardRef<any, OmitInternalProps<InnerBoxProps>>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));

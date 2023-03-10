@@ -131,7 +131,6 @@ InnerCard.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/card--default-story)
 */
-
 export const Card = slot("card", forwardRef<any, OmitInternalProps<InnerCardProps>>((props, ref) => (
     <InnerCard {...props} forwardedRef={ref} />
 )));

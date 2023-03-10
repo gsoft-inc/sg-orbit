@@ -25,7 +25,6 @@ InnerCrossButton.defaultElement = InnerIconButton.defaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/cross-button--default-story)
 */
-
 export const CrossButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerCrossButtonProps>>((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));

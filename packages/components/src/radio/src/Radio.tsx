@@ -202,7 +202,6 @@ InnerRadio.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/radio-group--default-story)
 */
-
 export const Radio = forwardRef<any, OmitInternalProps<InnerRadioProps>>((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />
 ));

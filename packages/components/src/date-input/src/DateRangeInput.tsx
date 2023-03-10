@@ -559,7 +559,6 @@ InnerDateRangeInput.defaultElement = "input";
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/date-range-input--default-story)
 */
-
 export const DateRangeInput = forwardRef<any, OmitInternalProps<InnerDateRangeInputProps>>((props, ref) => (
     <InnerDateRangeInput {...props} forwardedRef={ref} />
 ));

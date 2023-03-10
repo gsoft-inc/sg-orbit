@@ -88,7 +88,6 @@ InnerField.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/field--input)
 */
-
 export const Field = forwardRef<any, OmitInternalProps<InnerFieldProps>>((props, ref) => (
     <InnerField {...props} forwardedRef={ref} />
 ));

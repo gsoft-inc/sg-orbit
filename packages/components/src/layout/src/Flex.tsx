@@ -193,7 +193,6 @@ InnerFlex.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/flex--horizontal)
 */
-
 export const Flex = forwardRef<any, OmitInternalProps<InnerFlexProps>>((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));

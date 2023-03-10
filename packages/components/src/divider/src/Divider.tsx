@@ -60,7 +60,6 @@ InnerDivider.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/divider--horizontal)
 */
-
 export const Divider = forwardRef<any, OmitInternalProps<InnerDividerProps>>((props, ref) => (
     <InnerDivider {...props} forwardedRef={ref} />
 ));

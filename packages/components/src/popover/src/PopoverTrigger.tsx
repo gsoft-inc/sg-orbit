@@ -130,10 +130,8 @@ export function InnerPopoverTrigger({
 InnerPopoverTrigger.defaultElement = DefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/popover--default-story)
 */
-
 export const PopoverTrigger = forwardRef<any, OmitInternalProps<InnerPopoverTriggerProps>>((props, ref) => (
     <InnerPopoverTrigger {...props} forwardedRef={ref} />
 ));

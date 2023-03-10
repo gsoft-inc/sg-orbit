@@ -92,7 +92,6 @@ InnerOverlay.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/overlay--page)
 */
-
 export const Overlay = forwardRef<any, OmitInternalProps<InnerOverlayProps>>((props, ref) => (
     <InnerOverlay {...props} forwardedRef={ref} />
 ));

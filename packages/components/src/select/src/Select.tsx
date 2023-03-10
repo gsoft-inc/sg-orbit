@@ -268,7 +268,6 @@ InnerSelect.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/select--default-story)
 */
-
 export const Select = forwardRef<any, OmitInternalProps<InnerSelectProps>>((props, ref) => (
     <InnerSelect {...props} forwardedRef={ref} />
 ));

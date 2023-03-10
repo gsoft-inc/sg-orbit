@@ -86,7 +86,6 @@ InnerThemeProvider.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/theme-provider--page)
 */
-
 export const ThemeProvider = forwardRef<any, OmitInternalProps<InnerThemeProviderProps>>((props, ref) => (
     <InnerThemeProvider {...props} forwardedRef={ref} />
 ));

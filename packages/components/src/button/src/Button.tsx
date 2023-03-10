@@ -174,7 +174,6 @@ InnerButton.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/button--default-story)
 */
-
 export const Button = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerButtonProps>>((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
@@ -184,9 +183,7 @@ export type ButtonProps = ComponentProps<typeof Button>;
 ///////////
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/button--default-story)
 */
-
 export const ButtonAsLink = slot("button", as(Button, "a"));
 export type ButtonAsLinkProps = ComponentProps<typeof ButtonAsLink>;

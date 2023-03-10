@@ -32,10 +32,8 @@ export function InnerHelpMessage(props: SharedFieldMessageProps) {
 InnerHelpMessage.defaultElement = FieldMessageDefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/field--input)
 */
-
 export const HelpMessage = forwardRef<any, OmitInternalProps<SharedFieldMessageProps>>((props, ref) => (
     <InnerHelpMessage {...props} forwardedRef={ref} />
 ));

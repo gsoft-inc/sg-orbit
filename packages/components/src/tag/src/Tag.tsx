@@ -137,7 +137,6 @@ InnerTag.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/tag--default-story)
 */
-
 export const Tag = forwardRef<any, OmitInternalProps<InnerTagProps>>((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));

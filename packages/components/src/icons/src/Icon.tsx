@@ -59,7 +59,6 @@ export const InnerIcon = ((props: InnerIconProps) => {
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/icon--default-story)
 */
-
 export const Icon = slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerIconProps>>((props, ref) => (
     <InnerIcon {...props} forwardedRef={ref} />)
 ));

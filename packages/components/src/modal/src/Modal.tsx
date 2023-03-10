@@ -134,7 +134,6 @@ InnerModal.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/modal--default-story)
 */
-
 export const Modal = forwardRef<any, OmitInternalProps<InnerModalProps>>((props, ref) => (
     <InnerModal {...props} forwardedRef={ref} />
 ));

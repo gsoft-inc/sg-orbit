@@ -42,7 +42,6 @@ InnerTooltip.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/tooltip--default-story)
 */
-
 export const Tooltip = forwardRef<any, OmitInternalProps<InnerTooltipProps>>((props, ref) => (
     <InnerTooltip {...props} forwardedRef={ref} />
 ));

@@ -44,10 +44,8 @@ export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
 InnerAccordionPanel.defaultElement = DefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/accordion--default-story)
 */
-
 export const AccordionPanel = forwardRef<any, OmitInternalProps<InnerAccordionPanelProps>>((props, ref) => (
     <InnerAccordionPanel {...props} forwardedRef={ref} />
 ));

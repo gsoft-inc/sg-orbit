@@ -10,7 +10,6 @@ import { isNil } from "../../shared";
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-address--example)
 */
-
 export const Address = htmlElement("html-address", "address");
 
 /**
@@ -18,7 +17,6 @@ export const Address = htmlElement("html-address", "address");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-article--page)
 */
-
 export const Article = htmlElement("html-article", "article");
 
 /**
@@ -26,7 +24,6 @@ export const Article = htmlElement("html-article", "article");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-aside--page)
 */
-
 export const Aside = htmlElement("html-aside", "aside");
 
 /**
@@ -34,7 +31,6 @@ export const Aside = htmlElement("html-aside", "aside");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-footer--page)
 */
-
 export const HtmlFooter = htmlElement("html-footer", "footer");
 
 export const HtmlH1 = htmlElement("html-h1", "h1");
@@ -49,7 +45,6 @@ export const HtmlH6 = htmlElement("html-h6", "h6");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-header--page)
 */
-
 export const HtmlHeader = htmlElement("html-header", "header");
 
 /**
@@ -57,7 +52,6 @@ export const HtmlHeader = htmlElement("html-header", "header");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-main--page)
 */
-
 export const Main = htmlElement("html-main", "main");
 
 /**
@@ -65,7 +59,6 @@ export const Main = htmlElement("html-main", "main");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-nav--page)
 */
-
 export const Nav = htmlElement("html-nav", "nav");
 
 /**
@@ -73,7 +66,6 @@ export const Nav = htmlElement("html-nav", "nav");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-section--page)
 */
-
 export const HtmlSection = htmlElement("html-section", "section");
 
 export type AddressProps = ComponentProps<typeof Address>;
@@ -98,7 +90,6 @@ export type HtmlSectionProps = ComponentProps<typeof HtmlSection>;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-div--example)
 */
-
 export const Div = htmlElement("html-div", "div");
 
 export const HtmlParagraph = htmlElement("html-p", "p");
@@ -120,7 +111,6 @@ export type LIProps = ComponentProps<typeof LI>;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-anchor--example)
 */
-
 export const A = htmlElement("html-a", "a");
 
 /**
@@ -128,7 +118,6 @@ export const A = htmlElement("html-a", "a");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-span--example)
 */
-
 export const Span = htmlElement("html-span", "span");
 
 export type AProps = ComponentProps<typeof A>;
@@ -141,7 +130,6 @@ export type SpanProps = ComponentProps<typeof Span>;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-img--example)
 */
-
 export const Img = htmlElement("html-img", "img");
 
 export type ImgProps = ComponentProps<typeof Img>;
@@ -153,7 +141,6 @@ export type ImgProps = ComponentProps<typeof Img>;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-span--example)
 */
-
 export const Table = htmlElement("html-table", "table");
 
 /**
@@ -161,7 +148,6 @@ export const Table = htmlElement("html-table", "table");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
 */
-
 export const THead = htmlElement("html-thead", "thead");
 
 /**
@@ -169,7 +155,6 @@ export const THead = htmlElement("html-thead", "thead");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
 */
-
 export const TBody = htmlElement("html-tbody", "tbody");
 
 /**
@@ -177,7 +162,6 @@ export const TBody = htmlElement("html-tbody", "tbody");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
 */
-
 export const TFoot = htmlElement("html-tfoot", "tfoot");
 
 /**
@@ -185,7 +169,6 @@ export const TFoot = htmlElement("html-tfoot", "tfoot");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
 */
-
 export const TH = htmlElement("html-th", "th");
 
 /**
@@ -193,7 +176,6 @@ export const TH = htmlElement("html-th", "th");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
 */
-
 export const TR = htmlElement("html-tr", "tr");
 
 /**
@@ -201,7 +183,6 @@ export const TR = htmlElement("html-tr", "tr");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
 */
-
 export const TD = htmlElement("html-td", "td");
 
 export type TableProps = ComponentProps<typeof Table>;
@@ -218,7 +199,6 @@ export type TDProps = ComponentProps<typeof TD>;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-button--example)
 */
-
 export const HtmlButton = htmlElement("html-button", "button");
 
 export const HtmlForm = htmlElement("html-form", "form");
@@ -228,7 +208,6 @@ export const HtmlForm = htmlElement("html-form", "form");
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/html-input--example)
 */
-
 export const HtmlInput = htmlElement("html-input", "input");
 
 export const HtmlLabel = htmlElement("html-label", "label");

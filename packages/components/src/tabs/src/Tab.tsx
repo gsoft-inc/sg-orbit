@@ -128,7 +128,6 @@ InnerTab.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/tabs--default-story)
 */
-
 export const Tab = forwardRef<any, OmitInternalProps<InnerTabProps>>((props, ref) => (
     <InnerTab {...props} forwardedRef={ref} />
 ));

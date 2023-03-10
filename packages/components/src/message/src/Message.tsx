@@ -149,7 +149,6 @@ InnerMessage.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/message--default-story)
 */
-
 export const Message = forwardRef<any, OmitInternalProps<InnerMessageProps>>((props, ref) => (
     <InnerMessage {...props} forwardedRef={ref} />
 ));

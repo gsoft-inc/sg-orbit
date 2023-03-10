@@ -174,10 +174,8 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
 InnerMenuTrigger.defaultElement = DefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/menu--default-story)
 */
-
 export const MenuTrigger = forwardRef<any, OmitInternalProps<InnerMenuTriggerProps>>((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));

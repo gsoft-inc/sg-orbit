@@ -67,7 +67,6 @@ InnerParagraph.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/paragraph--size)
 */
-
 export const Paragraph = forwardRef<any, OmitInternalProps<InnerParagraphProps>>((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));

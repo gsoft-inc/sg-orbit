@@ -75,7 +75,6 @@ InnerIllustratedMessage.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/illustration--default-story)
 */
-
 export const IllustratedMessage = forwardRef<any, OmitInternalProps<InnerIllustratedMessageProps>>((props, ref) => (
     <InnerIllustratedMessage {...props} forwardedRef={ref} />
 ));

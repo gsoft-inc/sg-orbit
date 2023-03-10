@@ -213,10 +213,8 @@ export function InnerTooltipTrigger({
 InnerTooltipTrigger.defaultElement = DefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/tooltip--default-story)
 */
-
 export const TooltipTrigger = forwardRef<any, OmitInternalProps<InnerTooltipTriggerProps>>((props, ref) => (
     <InnerTooltipTrigger {...props} forwardedRef={ref} />
 ));

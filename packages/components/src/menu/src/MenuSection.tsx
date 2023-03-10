@@ -57,10 +57,8 @@ export function InnerMenuSection({
 InnerMenuSection.defaultElement = DefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/menu--default-story)
 */
-
 export const MenuSection = forwardRef<any, OmitInternalProps<InnerMenuSectionProps>>((props, ref) => (
     <InnerMenuSection {...props} forwardedRef={ref} />
 ));

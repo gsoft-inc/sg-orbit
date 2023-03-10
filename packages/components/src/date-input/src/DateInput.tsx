@@ -267,7 +267,6 @@ InnerDateInput.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/date-input--default-story)
 */
-
 export const DateInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerDateInputProps>>((props, ref) => (
     <InnerDateInput {...props} forwardedRef={ref} />
 ));

@@ -183,7 +183,6 @@ InnerGrid.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/grid--areas)
 */
-
 export const Grid = forwardRef<any, OmitInternalProps<InnerGridProps>>((props, ref) => (
     <InnerGrid {...props} forwardedRef={ref} />
 ));

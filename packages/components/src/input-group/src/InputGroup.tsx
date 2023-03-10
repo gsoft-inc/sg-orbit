@@ -131,7 +131,6 @@ InnerInputGroup.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/input-group--default-story)
 */
-
 export const InputGroup = forwardRef<any, OmitInternalProps<InnerInputGroupProps>>((props, ref) => (
     <InnerInputGroup {...props} forwardedRef={ref} />
 ));

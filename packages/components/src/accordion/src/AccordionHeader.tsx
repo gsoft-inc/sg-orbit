@@ -104,10 +104,8 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
 InnerAccordionHeader.defaultElement = DefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/accordion--default-story)
 */
-
 export const AccordionHeader = forwardRef<any, OmitInternalProps<InnerAccordionHeaderProps>>((props, ref) => (
     <InnerAccordionHeader {...props} forwardedRef={ref} />
 ));

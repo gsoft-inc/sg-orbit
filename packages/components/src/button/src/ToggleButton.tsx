@@ -83,10 +83,8 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
 InnerToggleButton.defaultElement = DefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/button--default-story)
 */
-
 export const ToggleButton = forwardRef<HTMLButtonElement, OmitInternalProps<InnerToggleButtonProps>>((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />
 ));

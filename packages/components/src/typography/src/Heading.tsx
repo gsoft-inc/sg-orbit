@@ -60,7 +60,6 @@ InnerHeading.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/heading--default-story)
 */
-
 export const Heading = slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps>>((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 )));
@@ -80,42 +79,31 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
 }
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/heading--default-story)
 */
 export const H1 = createHeading("h1");
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/heading--default-story)
 */
-
 export const H2 = createHeading("h2");
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/heading--default-story)
 */
-
 export const H3 = createHeading("h3");
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/heading--default-story)
 */
-
 export const H4 = createHeading("h4");
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/heading--default-story)
 */
-
 export const H5 = createHeading("h5");
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/heading--default-story)
 */
-
 export const H6 = createHeading("h6");

@@ -125,10 +125,8 @@ export function InnerAvatarGroup({
 InnerAvatarGroup.defaultElement = DefaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/avatar--default-story)
 */
-
 export const AvatarGroup = forwardRef<any, OmitInternalProps<InnerAvatarGroupProps>>((props, ref) => (
     <InnerAvatarGroup {...props} forwardedRef={ref} />
 ));

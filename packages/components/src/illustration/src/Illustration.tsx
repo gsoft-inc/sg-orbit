@@ -61,7 +61,6 @@ InnerIllustration.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/illustration--default-story)
 */
-
 export const Illustration = slot("illustration", forwardRef<any, OmitInternalProps<InnerIllustrationProps>>((props, ref) => (
     <InnerIllustration {...props} forwardedRef={ref} />
 )));

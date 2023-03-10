@@ -21,10 +21,8 @@ export function InnerModalTrigger({
 InnerModalTrigger.defaultElement = InnerDialogTrigger.defaultElement;
 
 /**
- *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/modal--default-story)
 */
-
 export const ModalTrigger = forwardRef<any, OmitInternalProps<InnerModalTriggerProps>>((props, ref) => (
     <InnerModalTrigger {...props} forwardedRef={ref} />
 ));

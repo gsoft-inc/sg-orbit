@@ -214,7 +214,6 @@ InnerAvatar.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/avatar--default-story)
 */
-
 export const Avatar = slot("avatar", forwardRef<any, OmitInternalProps<InnerAvatarProps>>((props, ref) => (
     <InnerAvatar {...props} forwardedRef={ref} />
 )));

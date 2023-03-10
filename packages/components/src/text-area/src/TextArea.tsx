@@ -250,7 +250,6 @@ InnerTextArea.defaultElement = DefaultElement;
  *
  * [Documentation](https://orbit.sharegate.design/?path=/docs/textarea--default-story)
 */
-
 export const TextArea = forwardRef<any, OmitInternalProps<InnerTextAreaProps>>((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));
