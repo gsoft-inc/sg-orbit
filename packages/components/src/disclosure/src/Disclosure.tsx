@@ -150,7 +150,7 @@ InnerDisclosure.defaultElement = DefaultElement;
 /**
  * The disclosure component is used to create regions of content that can expand/collapse with a simple animation.
  *
- * - [Disclosure](https://orbit.sharegate.design/?path=/docs/disclosure--default-story)
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/disclosure--default-story)
 */
 export const Disclosure = forwardRef<any, OmitInternalProps<InnerDisclosureProps>>((props, ref) => (
     <InnerDisclosure {...props} forwardedRef={ref} />
