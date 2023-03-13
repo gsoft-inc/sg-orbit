@@ -1,4 +1,5 @@
 import { Box } from "../../box";
+import { CheckMajorIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     InteractionProps,
@@ -127,12 +128,18 @@ export function InnerTile(props: InnerTileProps) {
             )}
         >
             {markup}
+            <CheckMajorIcon aria-hidden="true" className="o-ui-tile-checkmark" />
         </Box>
     );
 }
 
 InnerTile.defaultElement = DefaultElement;
 
+/**
+ * A tile groups information into an interactive element to let users browse and take action on a group of related items.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tile--tile)
+*/
 export const Tile = forwardRef<any, OmitInternalProps<InnerTileProps>>((props, ref) => (
     <InnerTile {...props} forwardedRef={ref} />
 ));

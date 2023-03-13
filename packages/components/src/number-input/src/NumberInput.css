@@ -70,6 +70,9 @@
 
 .o-ui-number-input-spinner .o-ui-icon {
     fill: var(--o-ui-icon-alias-primary);
+    align-self: center;
+    width: 1rem;
+    height: 1rem;
 }
 
 /* SPINNER | ACTIVE */

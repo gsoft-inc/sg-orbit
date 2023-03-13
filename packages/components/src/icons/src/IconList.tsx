@@ -1,8 +1,6 @@
 import { Children, ComponentProps, ReactElement, ReactNode, cloneElement, forwardRef } from "react";
-import { IconSize } from "./Icon";
 import { Inline } from "../../layout";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, slot } from "../../shared";
-import { ResponsiveProp } from "../../styling";
 
 const DefaultElement = "span";
 
@@ -15,10 +13,6 @@ export interface InnerIconListProps extends SlotProps, InternalProps, StyledComp
      * Whether or not the icons of the list should look disabled.
      */
     disabled?: boolean;
-    /**
-     * Size of the icons.
-     */
-    size?: ResponsiveProp<IconSize>;
 }
 
 export function InnerIconList({
@@ -26,7 +20,6 @@ export function InnerIconList({
     children,
     disabled,
     forwardedRef,
-    size,
     ...rest
 }: InnerIconListProps) {
     return (
@@ -39,8 +32,7 @@ export function InnerIconList({
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return cloneElement(x, {
-                    disabled,
-                    size
+                    disabled
                 });
             })}
         </Inline>
@@ -49,6 +41,9 @@ export function InnerIconList({
 
 InnerIconList.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/icon--default-story)
+*/
 export const IconList = slot("icon", forwardRef<any, OmitInternalProps<InnerIconListProps>>((props, ref) => (
     <InnerIconList {...props} forwardedRef={ref} />
 )));

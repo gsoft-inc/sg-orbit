@@ -1,0 +1,5 @@
+.o-ui-sb-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 1px;
+    outline: 1px solid var(--o-ui-b-alias-low-break);
+}

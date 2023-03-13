@@ -188,6 +188,11 @@ export function InnerFlex(props: InnerFlexProps) {
 
 InnerFlex.defaultElement = DefaultElement;
 
+/**
+ * A layout container using flexbox.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/flex--horizontal)
+*/
 export const Flex = forwardRef<any, OmitInternalProps<InnerFlexProps>>((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));

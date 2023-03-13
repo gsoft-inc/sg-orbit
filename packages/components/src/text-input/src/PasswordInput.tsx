@@ -1,6 +1,6 @@
 import { AbstractTextInputProps, TextInput } from "./TextInput";
 import { useState, ChangeEvent, ComponentProps, forwardRef } from "react";
-import { EyeIcon, PrivacyIcon } from "../../icons";
+import { EyeMajorIcon, EyeSlashMajorIcon } from "../../icons";
 import { OmitInternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
 
 import { IconButton } from "../../button";
@@ -45,7 +45,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
             title="Toggle password visibility"
             variant="tertiary"
         >
-            {isHidden ? <EyeIcon /> : <PrivacyIcon />}
+            {isHidden ? <EyeMajorIcon /> : <EyeSlashMajorIcon />}
         </IconButton>
     );
 
@@ -71,6 +71,9 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
 
 InnerPasswordInput.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/text-input--default-story)
+*/
 export const PasswordInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerPasswordInputProps>>((props, ref) => (
     <InnerPasswordInput {...props} forwardedRef={ref} />
 ));

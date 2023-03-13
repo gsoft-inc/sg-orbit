@@ -1,7 +1,6 @@
-import { ChevronIcon } from "../../icons";
+import { ChevronMinorIcon } from "../../icons";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
-import { ResponsiveProp } from "../../styling";
 import { useDisclosureContext } from "./DisclosureContext";
 
 const DefaultElement = "svg";
@@ -11,10 +10,6 @@ export interface InnerDisclosureArrowProps extends SlotProps, InternalProps, Sty
      * A controlled open value that determined whether or not the arrow is up or down.
      */
     open?: boolean;
-    /**
-     * An arrow can vary in size.
-     */
-    size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit">;
 }
 
 export function InnerDisclosureArrow({
@@ -31,7 +26,7 @@ export function InnerDisclosureArrow({
     }
 
     return (
-        <ChevronIcon
+        <ChevronMinorIcon
             {...mergeProps(
                 rest,
                 {
@@ -48,6 +43,11 @@ export function InnerDisclosureArrow({
 
 InnerDisclosureArrow.defaultElement = DefaultElement;
 
+/**
+ * A top / bottom pointing arrow to hint that activating the trigger will display additional content.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/disclosure-arrow--context)
+*/
 export const DisclosureArrow = slot("icon", forwardRef<any, OmitInternalProps<InnerDisclosureArrowProps>>((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />
 )));

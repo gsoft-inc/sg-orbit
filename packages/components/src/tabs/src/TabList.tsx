@@ -451,6 +451,9 @@ export function InnerTabList({
     );
 }
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tabs--default-story)
+*/
 export const TabList = forwardRef<any, OmitInternalProps<InnerTabListProps>>((props, ref) => (
     <InnerTabList {...props} forwardedRef={ref} />
 ));

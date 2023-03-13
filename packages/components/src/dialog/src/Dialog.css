@@ -23,6 +23,7 @@
     background-color: var(--o-ui-bg-alias-surface);
     border-radius: var(--o-ui-br-4);
     display: grid;
+    overflow: hidden;
     align-items: stretch;
     grid-template-areas: "image image" "aside aside";
     grid-template-rows: min-content auto;
@@ -63,8 +64,6 @@
 .o-ui-dialog-illustration {
     width: 100%;
     height: var(--o-ui-sz-14);
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
     grid-area: image;
     overflow: hidden;
 }

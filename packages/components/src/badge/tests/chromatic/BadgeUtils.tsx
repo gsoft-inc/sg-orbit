@@ -1,6 +1,6 @@
 import { Badge, BadgeProps } from "@components/badge";
 import { Div } from "@components/html";
-import { EmailIcon } from "@components/icons";
+import { EmailMajorIcon } from "@components/icons";
 import { PropsWithChildren } from "react";
 
 type BadgeUtilsProps = PropsWithChildren<Omit<BadgeProps, "children">>;
@@ -33,7 +33,7 @@ export function IconBadge({ children, ...rest }: BadgeUtilsProps) {
             overlap="icon"
         >
             {children}
-            <EmailIcon size="lg" />
+            <EmailMajorIcon />
         </Badge>
     );
 }

@@ -6,7 +6,7 @@ import { ToggleButton, ToggleIconButton } from "@components/button";
 import { CheckboxGroup } from "@components/checkbox";
 import { Div } from "@components/html";
 import { InputGroup } from "@components/input-group";
-import { NotificationIcon } from "@components/icons";
+import { NotificationMajorIcon } from "@components/icons";
 import { Text } from "@components/typography";
 import { TextInput } from "@components/text-input";
 import { Toolbar } from "@components/toolbar";
@@ -34,7 +34,7 @@ export const Default: ToolbarStory = {
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
             <ToggleIconButton aria-label="Activate notification">
-                <NotificationIcon />
+                <NotificationMajorIcon />
             </ToggleIconButton>
             <RadioGroup>
                 <Radio value="1">1</Radio>
@@ -55,7 +55,7 @@ export const DisabledElement: ToolbarStory = {
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
             <ToggleIconButton aria-label="Activate notification">
-                <NotificationIcon />
+                <NotificationMajorIcon />
             </ToggleIconButton>
             <RadioGroup>
                 <Radio value="1">1</Radio>
@@ -114,7 +114,7 @@ export const Gap: ToolbarStory = {
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
             <ToggleIconButton aria-label="Activate notification">
-                <NotificationIcon />
+                <NotificationMajorIcon />
             </ToggleIconButton>
             <RadioGroup>
                 <Radio value="1">1</Radio>
@@ -136,7 +136,7 @@ export const Align: ToolbarStory = {
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
                 <ToggleIconButton aria-label="Activate notification">
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                 </ToggleIconButton>
             </Toolbar>
             <Toolbar alignX="end">
@@ -146,7 +146,7 @@ export const Align: ToolbarStory = {
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
                 <ToggleIconButton aria-label="Activate notification">
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                 </ToggleIconButton>
             </Toolbar>
             <Toolbar alignX="center">
@@ -156,7 +156,7 @@ export const Align: ToolbarStory = {
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
                 <ToggleIconButton aria-label="Activate notification">
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                 </ToggleIconButton>
             </Toolbar>
         </Stack>
@@ -174,7 +174,7 @@ export const VerticalAlign: ToolbarStory = {
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
                 <ToggleIconButton aria-label="Activate notification">
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                 </ToggleIconButton>
             </Toolbar>
             <Toolbar alignY="end" height={10}>
@@ -184,7 +184,7 @@ export const VerticalAlign: ToolbarStory = {
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
                 <ToggleIconButton aria-label="Activate notification">
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                 </ToggleIconButton>
             </Toolbar>
             <Toolbar alignY="center" height={10}>
@@ -194,7 +194,7 @@ export const VerticalAlign: ToolbarStory = {
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
                 <ToggleIconButton aria-label="Activate notification">
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                 </ToggleIconButton>
             </Toolbar>
         </Inline>
@@ -212,7 +212,7 @@ export const NoWrap: ToolbarStory = {
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
                 <ToggleIconButton aria-label="Activate notification">
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                 </ToggleIconButton>
                 <RadioGroup>
                     <Radio value="1">1</Radio>

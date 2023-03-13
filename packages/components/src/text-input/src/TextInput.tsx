@@ -189,6 +189,11 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
 InnerTextInput.defaultElement = DefaultElement;
 
+/**
+ * A text input allow a user to enter and edit a text.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/text-input--default-story)
+*/
 export const TextInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerTextInputProps>>((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));

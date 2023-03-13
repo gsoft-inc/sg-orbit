@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Autocomplete, InnerAutocomplete } from "@components/autocomplete";
 import { Avatar } from "@components/avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { HelpIcon, IconList, LightbulbIcon, MagnifierIcon, NotificationIcon } from "@components/icons";
+import { IconList, PlaceholderMajorIcon, UfoMajorIcon, TelescopeMajorIcon, RocketMajorIcon, MagnifierMajorIcon } from "@components/icons";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { Text } from "@components/typography";
 
@@ -71,15 +71,15 @@ An autocomplete item can have [icons](?path=/docs/icon-gallery--page).
     <Story name="item icon">
         <Autocomplete placeholder="Planets" aria-label="Planets">
             <Item key="earth">
-                <NotificationIcon />
+                <PlaceholderMajorIcon />
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
-                <HelpIcon />
+                <PlaceholderMajorIcon />
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
-                <LightbulbIcon />
+                <PlaceholderMajorIcon />
                 <Text>Mars</Text>
             </Item>
         </Autocomplete>
@@ -96,21 +96,21 @@ An autocomplete item can have *non standard* end [icons](?path=/docs/icon-galler
             <Item key="earth">
                 <Text>Earth</Text>
                 <IconList slot="end-icon">
-                    <NotificationIcon />
-                    <HelpIcon />
-                    <LightbulbIcon />
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
                 </IconList>
             </Item>
             <Item key="jupiter">
                 <Text>Jupiter</Text>
-                <HelpIcon slot="end-icon" />
+                <PlaceholderMajorIcon slot="end-icon" />
             </Item>
             <Item key="mars">
                 <Text>Mars</Text>
                 <IconList slot="end-icon">
-                    <NotificationIcon />
-                    <HelpIcon />
-                    <LightbulbIcon />
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
                 </IconList>
             </Item>
         </Autocomplete>
@@ -146,17 +146,17 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
     <Story name="item description + icon">
         <Autocomplete placeholder="Planets" aria-label="Planets">
             <Item key="earth">
-                <NotificationIcon />
+                <PlaceholderMajorIcon />
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
             </Item>
             <Item key="jupiter">
-                <HelpIcon />
+                <PlaceholderMajorIcon />
                 <Text>Jupiter</Text>
                 <Text slot="description">The fourth-brightest object in the sky</Text>
             </Item>
             <Item key="mars">
-                <LightbulbIcon />
+                <PlaceholderMajorIcon />
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>
@@ -194,7 +194,7 @@ An autocomplete trigger can have an icon.
 
 <Preview>
     <Story name="trigger icon">
-        <Autocomplete icon={<MagnifierIcon />} placeholder="Planets" aria-label="Planets">
+        <Autocomplete icon={<MagnifierMajorIcon />} placeholder="Planets" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>

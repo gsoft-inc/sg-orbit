@@ -22,7 +22,6 @@ function CustomSelect({
                 <DisclosureArrow
                     open={isOpen}
                     slot="end-icon"
-                    size="sm"
                 />
             </Button>
             <Overlay {...overlayProps}>

@@ -4,7 +4,6 @@ import { CrossButton, embedIconButton } from "../../button";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, createSizeAdapter, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
-import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "div";
 
@@ -78,12 +77,10 @@ export function InnerTag({
             disabled
         },
         "end-icon": {
-            className: "o-ui-tag-end-icon",
-            size: embeddedIconSize(sizeValue)
+            className: "o-ui-tag-end-icon"
         },
         icon: {
-            className: "o-ui-tag-start-icon",
-            size: embeddedIconSize(sizeValue)
+            className: "o-ui-tag-start-icon"
         },
         text: {
             className: "o-ui-tag-text",
@@ -95,7 +92,6 @@ export function InnerTag({
     const removeMarkup = !isNil(onRemove) && embedIconButton(<CrossButton aria-label="Remove" />, {
         "aria-label": "Remove",
         className: "o-ui-tag-remove-button",
-        condensed: true,
         onClick: onRemove,
         size: sizeValue
     });
@@ -136,6 +132,11 @@ export function InnerTag({
 
 InnerTag.defaultElement = DefaultElement;
 
+/**
+ * A tag represents a keyword that helps label, organize and categorize content.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tag--default-story)
+*/
 export const Tag = forwardRef<any, OmitInternalProps<InnerTagProps>>((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));

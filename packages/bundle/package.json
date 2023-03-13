@@ -1,6 +1,6 @@
 {
     "name": "@sharegate/orbit-ui",
-    "version": "32.1.0",
+    "version": "34.2.0",
     "description": "Orbit design system",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe ShareGate inc.",
@@ -18,23 +18,19 @@
         "access": "public"
     },
     "scripts": {
-        "setup": "yarn create-dist",
         "prebuild": "yarn clean",
-        "build": "run-s build:*",
-        "build:types": "tsc --build ./tsconfig.build.json",
-        "build:js": "babel src -d dist --config-file ../../babel.config.js --copy-files --extensions .ts,.tsx ",
-        "clean": "run-p clear-dist clear-ts-cache",
-        "clear-dist": "node ../../scripts/clear-dir dist",
-        "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
-        "create-dist": "node ../../scripts/create-dir dist"
+        "build": "run-s build:* copy-files",
+        "build:js": "tsc --build ./tsconfig.build.json",
+        "copy-files": "copyfiles -u 1 \"src/**/*.css\" dist",
+        "clean": "rimraf dist tsconfig.build.tsbuildinfo"
     },
     "peerDependencies": {
         "react": "*",
         "react-dom": "*"
     },
     "dependencies": {
-        "@orbit-ui/components": "12.1.0",
-        "@orbit-ui/css": "2.1.0",
-        "@orbit-ui/icons": "11.4.0"
+        "@orbit-ui/components": "34.2.0",
+        "@orbit-ui/css": "2.1.2",
+        "@orbit-ui/icons": "12.2.0"
     }
 }

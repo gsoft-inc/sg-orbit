@@ -14,7 +14,7 @@ import {
 } from "../../shared";
 
 import { CrossButton } from "../../button";
-import { MagnifierIcon } from "../../icons";
+import { MagnifierMajorIcon } from "../../icons";
 import { useInputGroupTextInputProps } from "../../input-group";
 
 const DefaultElement = "input";
@@ -92,7 +92,6 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         <CrossButton
             aria-label="Clear value"
             className="o-ui-search-input-clear-button"
-            condensed
             onClick={handleClear}
             size="xs"
             title="Clear value"
@@ -108,7 +107,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
                     autoComplete: "off",
                     autoCorrect: "off",
                     button: clearButtonMarkup || undefined,
-                    icon: isUndefined(icon) ? <MagnifierIcon /> : icon,
+                    icon: isUndefined(icon) ? <MagnifierMajorIcon /> : icon,
                     onChange: handleChange,
                     onKeyDown: handleKeyDown,
                     ref: inputRef,
@@ -129,6 +128,9 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
 
 InnerSearchInput.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/text-input--default-story)
+*/
 export const SearchInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerSearchInputProps>>((props, ref) => (
     <InnerSearchInput {...props} forwardedRef={ref} />
 ));

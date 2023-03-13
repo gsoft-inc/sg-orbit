@@ -1,11 +1,10 @@
 import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
-import { EmbeddedIcon } from "../../icons";
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { OmitInternalProps, as, augmentElement, mergeProps } from "../../shared";
-import { ResponsiveProp, useStyleProps } from "../../styling";
+import { OmitInternalProps, as, mergeProps } from "../../shared";
+import { useStyleProps } from "../../styling";
 
 const DefaultElement = "a";
 
@@ -23,14 +22,6 @@ export interface InnerIconLinkProps extends AbstractLinkProps<typeof DefaultElem
      */
     children: ReactNode;
     /**
-     * Whether or not the link content should takes additional space.
-     */
-    condensed?: boolean;
-    /**
-     * A link can vary in size.
-     */
-    size?: ResponsiveProp<"sm" | "md">;
-    /**
      * The link style to use.
      */
     variant?: LinkVariant;
@@ -45,14 +36,12 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        condensed,
         disabled,
         external,
         focus,
         forwardedRef,
         hover,
         rel,
-        size,
         target,
         visited,
         variant,
@@ -79,10 +68,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
 
     const icon = Children.only(children) as ReactElement;
 
-    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
-        size
-    });
-
     return (
         <Box
             {...mergeProps(
@@ -94,7 +79,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
                 linkProps
             )}
         >
-            {iconMarkup}
+            {icon}
             {showNewTabIndicator && <NewTabIndicator />}
         </Box>
     );
@@ -102,6 +87,9 @@ export function InnerIconLink(props: InnerIconLinkProps) {
 
 InnerIconLink.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/link--default-story)
+*/
 export const IconLink = forwardRef<any, OmitInternalProps<InnerIconLinkProps>>((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
@@ -110,4 +98,8 @@ export type IconLinkProps = ComponentProps<typeof IconLink>;
 
 /////////
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/link--default-story)
+*/
 export const IconLinkAsButton = as(IconLink, "button");
+export type IconLinkAsButtonProps = ComponentProps<typeof IconLinkAsButton>;

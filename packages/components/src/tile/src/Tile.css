@@ -87,6 +87,17 @@
 }
 
 /* CHECKED | CHECKMARK */
+.o-ui-tile-checkmark {
+    position: absolute;
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
+    z-index: 1;
+    right: 0.5rem;
+    top: 0.5rem;
+    fill: var(--o-ui-bg-alias-accent-faint);
+    opacity: 0;
+}
+
 .o-ui-tile-main::before {
     content: "";
     opacity: 0;
@@ -94,19 +105,21 @@
     right: 0.5rem;
     top: 0.5rem;
     border-radius: var(--o-ui-br-4);
-    width: var(--o-ui-sz-4);
-    height: var(--o-ui-sz-4);
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--o-ui-text-alias-accent);
-    mask-image: url("~@orbit-ui/icons/dist/icon-check-circle-24.svg");
-    mask-repeat: no-repeat;
-    mask-size: cover;
 }
 
 .o-ui-tile[aria-checked="true"] .o-ui-tile-main::before,
 .o-ui-tile[aria-pressed="true"] .o-ui-tile-main::before {
+    opacity: 1;
+}
+
+.o-ui-tile[aria-checked="true"] .o-ui-tile-checkmark,
+.o-ui-tile[aria-pressed="true"] .o-ui-tile-checkmark {
     opacity: 1;
 }
 

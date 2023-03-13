@@ -1,15 +1,18 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "./tsconfig.build.json",
-    "baseUrl": ".",
     "compilerOptions": {
+        "baseUrl": ".",
         "noEmit": true,
-        "emitDeclarationOnly": false,
         "paths": {
-            "@test-utils": ["./tooling/test-utils"],
-            "@components/*": ["./packages/components/src/*"],
-            "@experimental/*": ["./packages/experimental/src/*"],
-            "@orbit-ui/components": ["./packages/components/src"],
-            "@sharegate/orbit-ui": ["./packages/bundle/src"]
+            "@test-utils": ["tooling/test-utils"],
+            "@components": ["packages/components/src"],
+            "@components/*": ["packages/components/src/*"],
+            "@experimental": ["packages/experimental/src"],
+            "@experimental/*": ["packages/experimental/src/*"],
+            "@orbit-ui/components": ["packages/components/src"],
+            "@sharegate/orbit-ui": ["packages/bundle/src"],
+            "@stories/components": [".storybook/components"]
         }
     }
 }

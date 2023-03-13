@@ -29,8 +29,6 @@ For more information on monorepo:
 
 [Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](/packages) directory. 
 
-Exceptionally Storybook is not managed by the monorepo tooling because it's not meant to be published as an npm package. Storybook can be found in the [storybook](/storybook) directory.
-
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
 When Lerna is configured to use Yarn, the installation of the npm dependencies and the management of the packages inter-dependencies will be delegated to Yarn. It result in an increase of performance and a more reliable experience than using the same features from Lerna. The native integration between Lerna and Yarn make it worthwill to switch from npm to Yarn for this project.
@@ -52,7 +50,7 @@ This monorepo is using Yarn workspace feature to handle the installation of the 
 
 It's important to note that Yarn workspace will **hoist** the npm dependencies at the root of the workspace. This means that there might not be a *node_modules* directory nested in the packages directories. The npm dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
 
-Since Storybook is not handled by the monorepo tooling, the [storybook](/storybook) directory will contain a *node_modules* directory and a *yarn.lock* file.
+Since Storybook is not handled by the monorepo tooling, the [.storybook](/.storybook) directory will contain a *node_modules* directory and a *yarn.lock* file.
 
 ## Installation
 
@@ -67,24 +65,10 @@ For more options to install Yarn, view https://yarnpkg.com/lang/en/docs/install/
 To install the project, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
-yarn bootstrap
+yarn
 ```
 
 The installation should take up to 5 minutes.
-
-By default, this will install the packages and Storybook.
-
-To only install the packages, use the following command:
-
-```bash
-yarn bootstrap:pkg
-```
-
-If you want to install Storybook later, use the following command:
-
-```bash
-yarn bootstrap:sb
-```
 
 During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings, this is happening because the *devDependencies* of this monorepo are defined at the root of the workspace.
 
@@ -122,7 +106,7 @@ Any updates to the packages or Storybook's stories will automatically re-compile
 To start developing in docs mode, [open a terminal in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals) and execute the following command at the root of the workspace:
 
 ```bash
-yarn start-docs
+yarn start-sb-docs
 ```
 
 Basically the only difference is that the process will be start with the `--docs` arguments.
@@ -131,42 +115,12 @@ Any updates to the packages or Storybook's stories will automatically re-compile
 
 ## Release the packages
 
-Releasing the packages includes several steps:
-
-1. Compile the packages code for production
-2. Identifies packages that have been updated since the previous release (Read the [Lerna](#lerna) section.)
-3. Bump the version of the identified packages
-4. Modifies package metadata to reflect new release
-5. Publish the packages to npm
-6. Push those changes to Git with a tag
-7. Create a new Github release associated to the tag created previously
-8. Optionally deploy Storybook and the document Website 
-
-Fortunately, this is all automated with a few commands!
-
-Before you release, make sure you are in the `master` branch, have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
-
-To release, open a terminal at the root of the workspace and execute the following commands:
-
-```bash
-yarn new-version
-yarn release
-yarn push-release <VERSION> (e.g. yarn push-release 22.0.2)
-Release docs
-Release Storybook
-```
-
-Ex:
-
-```bash
-yarn new-version
-yarn release
-yarn push-release 19.0.1
-```
-
-After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [@sharegate/orbit-ui package version] created earlier by the `push-release` command and list all the changes that has been published.
-
-Don't forget to **publish** the release.
+When you are ready to release the packages, you must follow the following steps:
+1. Run `yarn new-version` to bump the version of the packages that have been updated since the previous release. You will be prompted to select the type of release (major, minor or patch) for each package and to enter release notes. If you prefer writing the release notes in a text editor, enter a placeholder line in the command line, and the you can modify the file generated before committing it.
+2. Commit the newly generated file in your branch and submit a new Pull Request(PR). Changesets will automatically detect the changes and post a message in your pull request telling you that once the PR closes, the versions will be released. 
+3. Merge the Pull request into master. A Github action will automatically trigger and update the version of the packages and publish them to npm.
+4. Create a new Github release associated to the tag created previously
+5. Optionally deploy Storybook and the document Website 
 
 ### Alpha release
 
@@ -201,7 +155,7 @@ If you are using 2FA, make sure you specified a valid OTP.
 If the packages failed to compile, it's easier to debug without executing the full release flow everytime. To do so, instead, execute the following command:
 
 ```bash
-yarn build-pkg
+yarn build
 ```
 
 By default, packages compilation output will be in their respective *dist* directory. For more details, read the [packages](/packages) README file.
@@ -234,26 +188,16 @@ A Netlify deploy can be started locally with a CLI command. This is useful if yo
 To deploy a draft to the **sg-storybook** site, open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
-yarn deploy-sb-preview
+yarn deploy-netlify-sb-preview
 ```
 
 The draft link will be available in the terminal (ex. https://616dab5c22680800ccd47d6f--sg-storybook.netlify.app).
 
-If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb-preview` in the [storybook/package.json](/storybook/package.json) file.
+If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-netlify-sb-preview` in the [package.json](package.json) file.
 
 ## Commands
 
 All commands are available in the [package.json](package.json) file. Here's a list of the commands you might need to use frequently. The following commands must be executed in a terminal opened at the root of the workspace.
-
-### bootstrap
-
-Install the npm dependencies for every packages of the monorepo and Storybook. Once the npm dependencies are installed a custom **setup** step will be executed for every packages and Storybook.
-
-Depending of the packages / Storybook, the setup step will perform a number of required additional installation tasks.
-
-```bash
-yarn bootstrap
-```
 
 ### start
 
@@ -263,12 +207,12 @@ Compile all the packages & start Storybook.
 yarn start
 ```
 
-### start-docs
+### start-sb-docs
 
 Compile all the packages & start Storybook in docs mode.
 
 ```bash
-yarn start-docs
+yarn start-sb-docs
 ```
 
 ### build
@@ -302,16 +246,6 @@ C:\Dev\20_gsoft\sg-orbit\node_modules\rimraf\bin.js:47
 ```
 
 Close & re-open VSCode and delete manually the *node_modules* folder at the root of the workspace.
-
-### update
-
-Use this command when you update a dependency and you want it installed without executing the setup steps.
-
-Use this command if you add a new package to the monorepo and you need to update the packages inter-dependencies.
-
-```bash
-yarn update
-```
 
 ### lint
 
@@ -536,9 +470,9 @@ Example:
 
 ```bash
 "scripts": {
-    "build": "run-p build:*",
-    "build:pkg": "...",
-    "build:sb": "..."
+    "clean": "run-p clean:*",
+    "clean:pkg": "...",
+    "clean:sb": "..."
 }
 ```
 

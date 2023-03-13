@@ -1,6 +1,6 @@
 import { Disclosure, useDisclosureContext } from "@components/disclosure";
 import { Flex, FlexProps, Stack } from "@components/layout";
-import { ArrowIcon } from "@components/icons";
+import { ArrowMajorIcon } from "@components/icons";
 import { Button } from "@components/button";
 import { Div } from "@components/html";
 import { TextLinkAsButton } from "@components/link";
@@ -22,7 +22,7 @@ const Trigger = ({ children, ...rest }: FlexProps) => {
             alignItems="center"
         >
             {children}
-            <ArrowIcon transform={isOpen ? "rotate(90deg)" : undefined} />
+            <ArrowMajorIcon transform={isOpen ? "rotate(90deg)" : undefined} />
         </Flex>
     );
 };

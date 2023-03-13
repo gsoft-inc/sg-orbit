@@ -1,9 +1,8 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "@sharegate/typescript-config/react-library.json",
     "compilerOptions": {
         "strict": false,
-        "noFallthroughCasesInSwitch": false,
-
-        "emitDeclarationOnly": true
+        "noFallthroughCasesInSwitch": false
     }
 }

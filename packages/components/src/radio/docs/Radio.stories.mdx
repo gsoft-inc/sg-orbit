@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@components/counter";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@components/radio";
-import { LightbulbIcon } from "@components/icons";
+import { PlaceholderMajorIcon } from "@components/icons";
 import { Text } from "@components/typography";
 
 <Meta
@@ -85,7 +85,7 @@ A radio can have [icons](?path=/docs/icon-gallery--page) after his text.
         <RadioGroup>
             <Radio value="mars">
                 <Text>Mars</Text>
-                <LightbulbIcon />
+                <PlaceholderMajorIcon />
             </Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
@@ -121,7 +121,7 @@ A radio button can be to the left or to the right of his label.
     <Story name="reverse radio">
         <Radio reverse value="mars">
             <Text>Mars</Text>
-            <LightbulbIcon />
+            <PlaceholderMajorIcon />
             <Counter>6</Counter>
         </Radio>
     </Story>
@@ -134,7 +134,7 @@ Or the whole group.
         <RadioGroup reverse>
             <Radio value="mars">
                 <Text>Mars</Text>
-                <LightbulbIcon />
+                <PlaceholderMajorIcon />
                 <Counter>6</Counter>
             </Radio>
             <Radio value="jupiter">Jupiter</Radio>

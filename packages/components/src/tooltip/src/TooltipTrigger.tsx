@@ -10,9 +10,10 @@ import {
     useControllableState,
     useEventCallback,
     useId,
-    useMergedRefs
+    useMergedRefs,
+    useFocusScope
 } from "../../shared";
-import { Overlay, OverlayArrow, OverlayPositionProp, isTargetParent, useOverlayPosition, useOverlayTrigger } from "../../overlay";
+import { Overlay, OverlayArrow, OverlayPositionProp, isTargetParent, useOverlayPosition, useOverlayTrigger, useOverlayLightDismiss } from "../../overlay";
 import { useResponsiveValue, useThemeContext } from "../../styling";
 
 import { Div } from "../../html";
@@ -119,7 +120,9 @@ export function InnerTooltipTrigger({
         position: positionValue
     });
 
-    const overlayRef = useMergedRefs(overlayPositionRef, forwardedRef);
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const overlayRef = useMergedRefs(overlayPositionRef, forwardedRef, setFocusRef);
 
     const triggerProps = useOverlayTrigger(isOpen, {
         hideOnLeave: true,
@@ -158,8 +161,22 @@ export function InnerTooltipTrigger({
         }
     ));
 
+    const overlayDismissProps = useOverlayLightDismiss(focusScope, {
+        hideOnEscape: true,
+        hideOnLeave: true,
+        hideOnOutsideClick: false,
+        onHide: useEventCallback((event: SyntheticEvent) => {
+            // Ignore events related to the trigger.
+            if ((event as FocusEvent).relatedTarget !== triggerRef.current) {
+                close(event);
+            }
+        }),
+        trigger: "hover"
+    });
+
     const tooltipMarkup = augmentElement(tooltip, {
-        id: tooltipId
+        id: tooltipId,
+        ref: setFocusRef
     });
 
     return (
@@ -179,7 +196,8 @@ export function InnerTooltipTrigger({
                         ref: overlayRef,
                         show: isOpen,
                         zIndex
-                    }
+                    },
+                    overlayDismissProps
                 )}
             >
                 {tooltipMarkup}
@@ -194,6 +212,9 @@ export function InnerTooltipTrigger({
 
 InnerTooltipTrigger.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tooltip--default-story)
+*/
 export const TooltipTrigger = forwardRef<any, OmitInternalProps<InnerTooltipTriggerProps>>((props, ref) => (
     <InnerTooltipTrigger {...props} forwardedRef={ref} />
 ));

@@ -2,7 +2,7 @@ import { AbstractDialogProps, Dialog, useDialogTriggerContext } from "../../dial
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, MouseEvent, forwardRef, useMemo } from "react";
 import { Header } from "../../placeholders";
-import { AlertIcon, WarningIcon } from "../../icons";
+import { AlertMajorIcon, WarningMajorIcon } from "../../icons";
 import { OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
 const DefaultElement = "section";
@@ -103,13 +103,13 @@ export function InnerAlert({
 
     const warningIconMarkup = variant === "warning" && (
         <Header>
-            <WarningIcon className="o-ui-alert-icon o-ui-alert-warning-icon" size="lg" />
+            <WarningMajorIcon className="o-ui-alert-icon o-ui-alert-warning-icon" />
         </Header>
     );
 
     const negativeIconMarkup = variant === "negative" && (
         <Header>
-            <AlertIcon className="o-ui-alert-icon o-ui-alert-negative-icon" size="lg" />
+            <AlertMajorIcon className="o-ui-alert-icon o-ui-alert-negative-icon" />
         </Header>
     );
 
@@ -181,6 +181,11 @@ export function InnerAlert({
 
 InnerAlert.defaultElement = DefaultElement;
 
+/**
+ * An alert is a modal dialog that interrupts the user's workflow to communicate an important message and acquire a response.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/alert--default-story)
+*/
 export const Alert = forwardRef<any, OmitInternalProps<InnerAlertProps>>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));

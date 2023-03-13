@@ -1,7 +1,7 @@
 import { Box } from "../../box";
 import { ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";
-import { EmbeddedIcon } from "../../icons";
+
 import {
     InteractionProps,
     InternalProps,
@@ -28,10 +28,6 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
      * Whether or not the button should autoFocus on render.
      */
     autoFocus?: boolean | number;
-    /**
-     * Whether or not the button content should takes additional space.
-     */
-    condensed?: boolean;
     /**
      * Whether or not the button take up the width of its container.
      */
@@ -77,7 +73,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        condensed,
         fluid,
         focus,
         forwardedRef,
@@ -87,6 +82,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         size,
         type,
         variant = "secondary",
+        onClick,
         ...rest
     } = mergeProps(
         props,
@@ -108,6 +104,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         inherit,
         loading,
+        onClick,
         size: sizeValue,
         type,
         variant
@@ -115,7 +112,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
 
     const icon = Children.only(children) as ReactElement;
 
-    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
+    const iconMarkup = augmentElement(icon, {
         className: "o-ui-button-icon",
         size: sizeValue
     });
@@ -138,6 +135,9 @@ export function InnerIconButton(props: InnerIconButtonProps) {
 
 InnerIconButton.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/button--default-story)
+*/
 export const IconButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerIconButtonProps>>((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 )));
@@ -153,4 +153,8 @@ export const embedIconButton = createEmbeddableAdapter({
 
 ///////////
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/button--default-story)
+*/
 export const IconButtonAsLink = slot("button", as(IconButton, "a"));
+export type IconButtonAsLinkProps = ComponentProps<typeof IconButtonAsLink>;

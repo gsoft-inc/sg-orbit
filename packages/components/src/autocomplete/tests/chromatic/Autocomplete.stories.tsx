@@ -1,6 +1,6 @@
 import { Autocomplete } from "@components/autocomplete";
 import { Div } from "@components/html";
-import { GroupIcon } from "@components/icons";
+import { GroupMajorIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
 import { Item } from "@components/collection";
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
@@ -226,30 +226,30 @@ export const TriggerIcon: AutocompleteStory = {
     storyName: "trigger icon",
     render: () => (
         <Stack>
-            <Autocomplete icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
-            <Autocomplete defaultValue="Mars" icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete defaultValue="Mars" icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
-            <Autocomplete disabled icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete disabled icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
             <Div>
-                <Autocomplete fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
+                <Autocomplete fluid icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
             </Div>
             <Div width="10%">
-                <Autocomplete fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
+                <Autocomplete fluid icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>

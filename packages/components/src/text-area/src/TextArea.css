@@ -1,3 +1,7 @@
+.o-ui-text-area {
+    font-size: var(--o-ui-fs-3);
+}
+
 .o-ui-text-area textarea {
     --o-ui-textarea-padding: var(--o-ui-sp-3);
     resize: vertical;
@@ -6,6 +10,8 @@
     padding: var(--o-ui-sp-2) var(--o-ui-textarea-padding);
     min-height: var(--o-ui-sz-11);
     color: inherit;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 /* TRANSPARENT */

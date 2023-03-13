@@ -142,6 +142,11 @@ export function InnerTabs({
 
 InnerTabs.defaultElement = DefaultElement;
 
+/**
+ * Tabs are used to organize content by grouping similar information on the same page.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tabs--default-story)
+*/
 export const Tabs = forwardRef<any, OmitInternalProps<InnerTabsProps>>((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));

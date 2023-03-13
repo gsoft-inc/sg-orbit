@@ -1,150 +1,70 @@
 import {
-    AddIcon,
-    AddIcon24,
-    AddIcon32,
-    AlertIcon,
-    AlertIcon24,
-    AlertIcon32,
-    ArrowIcon,
-    ArrowIcon24,
-    ArrowIcon32,
-    CalendarIcon,
-    CalendarIcon24,
-    CalendarIcon32,
-    CaretIcon,
-    CaretIcon24,
-    CaretIcon32,
-    CheckCircleIcon,
-    CheckCircleIcon24,
-    CheckCircleIcon32,
-    CheckIcon,
-    CheckIcon24,
-    CheckIcon32,
-    ChevronIcon,
-    ChevronIcon24,
-    ChevronIcon32,
-    ClearFilterIcon,
-    ClearFilterIcon24,
-    ClearFilterIcon32,
-    CrossIcon,
-    CrossIcon24,
-    CrossIcon32,
-    CsvIcon,
-    CsvIcon24,
-    CsvIcon32,
-    DashIcon,
-    DashIcon24,
-    DashIcon32,
-    DownloadIcon,
-    DownloadIcon32,
-    EditIcon,
-    EditIcon24,
-    EditIcon32,
-    EmailIcon,
-    EmailIcon24,
-    EmailIcon32,
-    EmailReminderIcon,
-    EmailReminderIcon24,
-    EmailReminderIcon32,
-    EyeIcon,
-    EyeIcon24,
-    EyeIcon32,
-    FileIcon,
-    FileIcon24,
-    FileIcon32,
-    FilterIcon,
-    FilterIcon24,
-    FilterIcon32,
-    FlagIcon,
-    FlagIcon24,
-    FlagIcon32,
-    FolderIcon,
-    FolderIcon24,
-    FolderIcon32,
-    GearIcon,
-    GearIcon24,
-    GearIcon32,
-    GroupIcon,
-    GroupIcon24,
-    GroupIcon32,
-    GuestAddIcon,
-    GuestAddIcon24,
-    GuestAddIcon32,
-    GuestRemoveIcon,
-    GuestRemoveIcon24,
-    GuestRemoveIcon32,
-    HelpIcon,
-    HelpIcon24,
-    HelpIcon32,
-    HorizontalDotsIcon,
-    HorizontalDotsIcon24,
-    HorizontalDotsIcon32,
-    ImageIcon,
-    ImageIcon24,
-    ImageIcon32,
-    InfoIcon,
-    InfoIcon24,
-    InfoIcon32,
-    LightbulbIcon,
-    LightbulbIcon24,
-    LightbulbIcon32,
-    MagnifierIcon,
-    MagnifierIcon24,
-    MagnifierIcon32,
-    MusicIcon,
-    MusicIcon24,
-    MusicIcon32,
-    NotificationIcon,
-    NotificationIcon24,
-    NotificationIcon32,
-    NotificationOffIcon,
-    NotificationOffIcon24,
-    NotificationOffIcon32,
-    PdfIcon,
-    PdfIcon24,
-    PdfIcon32,
-    PrinterIcon,
-    PrinterIcon24,
-    PrinterIcon32,
-    PrivacyIcon,
-    PrivacyIcon24,
-    PrivacyIcon32,
-    SignoutIcon,
-    SignoutIcon24,
-    SignoutIcon32,
-    StarIcon,
-    StarIcon24,
-    StarIcon32,
-    StarOutlineIcon,
-    StarOutlineIcon24,
-    StarOutlineIcon32,
-    SortIcon,
-    SortIcon24,
-    SortIcon32,
-    TrashIcon,
-    TrashIcon24,
-    TrashIcon32,
-    UserAddIcon,
-    UserAddIcon24,
-    UserAddIcon32,
-    UserRemoveIcon,
-    UserRemoveIcon24,
-    UserRemoveIcon32,
-    VerticalDotsIcon,
-    VerticalDotsIcon24,
-    VerticalDotsIcon32,
-    VideoIcon,
-    VideoIcon24,
-    VideoIcon32,
-    WarningIcon,
-    WarningIcon24,
-    WarningIcon32,
-    ZipIcon,
-    ZipIcon24,
-    ZipIcon32
+    AddMajorIcon,
+    AlertMajorIcon,
+    ArrowMajorIcon,
+    ArrowMinorIcon,
+    BurgerMajorIcon,
+    CalendarMajorIcon,
+    CheckMajorIcon,
+    ChevronMajorIcon,
+    ChevronMinorIcon,
+    ChevronUpDownMajorIcon,
+    ChevronUpDownMinorIcon,
+    CrossMajorIcon,
+    CrossMinorIcon,
+    DuplicateMajorIcon,
+    DownloadMajorIcon,
+    EmailMajorIcon,
+    ExternalLinkMajorIcon,
+    ExternalLinkMinorIcon,
+    EyeMajorIcon,
+    FileMajorIcon,
+    FileCsvMajorIcon,
+    FileMusicMajorIcon,
+    FilePdfMajorIcon,
+    FileVideoMajorIcon,
+    FileZipMajorIcon,
+    FilterMajorIcon,
+    FolderMajorIcon,
+    GearMajorIcon,
+    GrabMajorIcon,
+    GroupMajorIcon,
+    HelpMajorIcon,
+    HomeMajorIcon,
+    HorizontalDotsMajorIcon,
+    ImageMajorIcon,
+    InfoCircleMajorIcon,
+    InfoCircleMinorIcon,
+    LightbulbMajorIcon,
+    LinkMajorIcon,
+    LinkRemoveMajorIcon,
+    MagnifierMajorIcon,
+    NotificationMajorIcon,
+    NotificationOffMajorIcon,
+    NotificationRingingMajorIcon,
+    PencilMajorIcon,
+    PlaceholderMajorIcon,
+    PlaceholderMinorIcon,
+    PadlockLockedMajorIcon,
+    PadlockUnlockedMajorIcon,
+    RevertMajorIcon,
+    SigninMajorIcon,
+    SignoutMajorIcon,
+    StarFillMajorIcon,
+    StarOutlineMajorIcon,
+    TrashMajorIcon,
+    TrashMinorIcon,
+    UserAddMajorIcon,
+    UserAddMinorIcon,
+    VerticalDotsMajorIcon,
+    WarningMajorIcon,
+    UfoMajorIcon,
+    RocketMajorIcon,
+    TelescopeMajorIcon
 } from "@components/icons";
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import { TestSuite } from "./TestSuite";
+import { Flex } from "@components/layout";
 
 export default {
     title: "Chromatic/Icons",
@@ -153,341 +73,503 @@ export default {
 
 type IconsStory = ComponentStoryObj<typeof TestSuite>;
 
-export const Add: IconsStory = {
-    storyName: "add",
+export const IconAddMajor: IconsStory = {
+    storyName: "Add Major",
     render: () => (
-        <TestSuite icon24={AddIcon24} icon32={AddIcon32} multiIcon={AddIcon} />
+        <TestSuite icon={AddMajorIcon} />
     )
 };
 
-export const Alert: IconsStory = {
-    storyName: "alert",
+export const IconAlertMajor: IconsStory = {
+    storyName: "Alert Major",
     render: () => (
-        <TestSuite icon24={AlertIcon24} icon32={AlertIcon32} multiIcon={AlertIcon} />
+        <TestSuite icon={AlertMajorIcon} />
     )
 };
 
-
-export const Arrow: IconsStory = {
-    storyName: "arrow",
+export const IconArrowMajor: IconsStory = {
+    storyName: "Arrow Major",
     render: () => (
-        <TestSuite icon24={ArrowIcon24} icon32={ArrowIcon32} multiIcon={ArrowIcon} />
+        <TestSuite icon={ArrowMajorIcon} />
     )
 };
 
-export const Calendar: IconsStory = {
-    storyName: "calendar",
+export const IconArrowMinor: IconsStory = {
+    storyName: "Arrow Minor",
     render: () => (
-        <TestSuite icon24={CalendarIcon24} icon32={CalendarIcon32} multiIcon={CalendarIcon} />
+        <TestSuite icon={ArrowMinorIcon} />
     )
 };
 
-export const Caret: IconsStory = {
-    storyName: "caret",
+export const IconBurgerMajor: IconsStory = {
+    storyName: "Burger Major",
     render: () => (
-        <TestSuite icon24={CaretIcon24} icon32={CaretIcon32} multiIcon={CaretIcon} />
+        <TestSuite icon={BurgerMajorIcon} />
     )
 };
 
-export const IconCheck: IconsStory = {
-    storyName: "check",
+export const IconCalendarMajor: IconsStory = {
+    storyName: "Calendar Major",
     render: () => (
-        <TestSuite icon24={CheckIcon24} icon32={CheckIcon32} multiIcon={CheckIcon} />
+        <TestSuite icon={CalendarMajorIcon} />
     )
 };
 
-export const CheckCircle: IconsStory = {
-    storyName: "check circle",
+export const IconCheckMajor: IconsStory = {
+    storyName: "Check Major",
     render: () => (
-        <TestSuite icon24={CheckCircleIcon24} icon32={CheckCircleIcon32} multiIcon={CheckCircleIcon} />
+        <TestSuite icon={CheckMajorIcon} />
     )
 };
 
-export const Chevron: IconsStory = {
-    storyName: "chevron",
+export const IconChevronMajor: IconsStory = {
+    storyName: "Chevron Major",
     render: () => (
-        <TestSuite icon24={ChevronIcon24} icon32={ChevronIcon32} multiIcon={ChevronIcon} />
+        <TestSuite icon={ChevronMajorIcon} />
     )
 };
 
-export const Clear: IconsStory = {
-    storyName: "clear",
+export const IconChevronMinor: IconsStory = {
+    storyName: "Chevron Minor",
     render: () => (
-        <TestSuite icon24={ClearFilterIcon24} icon32={ClearFilterIcon32} multiIcon={ClearFilterIcon} />
+        <TestSuite icon={ChevronMinorIcon} />
     )
 };
 
-export const Cross: IconsStory = {
-    storyName: "cross",
+export const IconChevronUpDownMajor: IconsStory = {
+    storyName: "ChevronUpDown Major",
     render: () => (
-        <TestSuite icon24={CrossIcon24} icon32={CrossIcon32} multiIcon={CrossIcon} />
+        <TestSuite icon={ChevronUpDownMajorIcon} />
     )
 };
 
-
-export const Csv: IconsStory = {
-    storyName: "csv",
+export const IconChevronUpDownMinor: IconsStory = {
+    storyName: "ChevronUpDown Minor",
     render: () => (
-        <TestSuite icon24={CsvIcon24} icon32={CsvIcon32} multiIcon={CsvIcon} />
+        <TestSuite icon={ChevronUpDownMinorIcon} />
     )
 };
 
-export const Dash: IconsStory = {
-    storyName: "dash",
+export const IconCrossMajor: IconsStory = {
+    storyName: "Cross Major",
     render: () => (
-        <TestSuite icon24={DashIcon24} icon32={DashIcon32} multiIcon={DashIcon} />
+        <TestSuite icon={CrossMajorIcon} />
     )
 };
 
-export const Download: IconsStory = {
-    storyName: "download",
+export const IconCrossMinor: IconsStory = {
+    storyName: "Cross Minor",
     render: () => (
-        <TestSuite icon32={DownloadIcon32} multiIcon={DownloadIcon} />
+        <TestSuite icon={CrossMinorIcon} />
     )
 };
 
-export const Edit: IconsStory = {
-    storyName: "edit",
+export const IconDuplicateMajor: IconsStory = {
+    storyName: "Duplicate Major",
     render: () => (
-        <TestSuite icon24={EditIcon24} icon32={EditIcon32} multiIcon={EditIcon} />
+        <TestSuite icon={DuplicateMajorIcon} />
     )
 };
 
-export const IconEmail: IconsStory = {
-    storyName: "email",
+export const IconDownloadMajor: IconsStory = {
+    storyName: "Download Major",
     render: () => (
-        <TestSuite icon24={EmailIcon24} icon32={EmailIcon32} multiIcon={EmailIcon} />
+        <TestSuite icon={DownloadMajorIcon} />
     )
 };
 
-export const EmailReminder: IconsStory = {
-    storyName: "email reminder",
+export const IconEmailMajor: IconsStory = {
+    storyName: "Email Major",
     render: () => (
-        <TestSuite icon24={EmailReminderIcon24} icon32={EmailReminderIcon32} multiIcon={EmailReminderIcon} />
+        <TestSuite icon={EmailMajorIcon} />
     )
 };
 
-export const Eye: IconsStory = {
-    storyName: "eye",
+export const IconExternalLinkMajor: IconsStory = {
+    storyName: "ExternalLink Major",
     render: () => (
-        <TestSuite icon24={EyeIcon24} icon32={EyeIcon32} multiIcon={EyeIcon} />
+        <TestSuite icon={ExternalLinkMajorIcon} />
     )
 };
 
-export const File: IconsStory = {
-    storyName: "file",
+export const IconExternalLinkMinor: IconsStory = {
+    storyName: "ExternalLink Minor",
     render: () => (
-        <TestSuite icon24={FileIcon24} icon32={FileIcon32} multiIcon={FileIcon} />
+        <TestSuite icon={ExternalLinkMinorIcon} />
     )
 };
 
-export const Filter: IconsStory = {
-    storyName: "filter",
+export const IconEyeMajor: IconsStory = {
+    storyName: "Eye Major",
     render: () => (
-        <TestSuite icon24={FilterIcon24} icon32={FilterIcon32} multiIcon={FilterIcon} />
+        <TestSuite icon={EyeMajorIcon} />
     )
 };
 
-export const Flag: IconsStory = {
-    storyName: "flag",
+export const IconFileMajor: IconsStory = {
+    storyName: "File Major",
     render: () => (
-        <TestSuite icon24={FlagIcon24} icon32={FlagIcon32} multiIcon={FlagIcon} />
+        <TestSuite icon={FileMajorIcon} />
     )
 };
 
-export const Folder: IconsStory = {
-    storyName: "folder",
+export const IconFileCsvMajor: IconsStory = {
+    storyName: "FileCsv Major",
     render: () => (
-        <TestSuite icon24={FolderIcon24} icon32={FolderIcon32} multiIcon={FolderIcon} />
+        <TestSuite icon={FileCsvMajorIcon} />
     )
 };
 
-export const Gear: IconsStory = {
-    storyName: "gear",
+export const IconFileMusicMajor: IconsStory = {
+    storyName: "FileMusic Major",
     render: () => (
-        <TestSuite icon24={GearIcon24} icon32={GearIcon32} multiIcon={GearIcon} />
+        <TestSuite icon={FileMusicMajorIcon} />
     )
 };
 
-export const Group: IconsStory = {
-    storyName: "group",
+export const IconFilePdfMajor: IconsStory = {
+    storyName: "FilePdf Major",
     render: () => (
-        <TestSuite icon24={GroupIcon24} icon32={GroupIcon32} multiIcon={GroupIcon} />
+        <TestSuite icon={FilePdfMajorIcon} />
     )
 };
 
-export const GuestAdd: IconsStory = {
-    storyName: "guest add",
+export const IconFileVideoMajor: IconsStory = {
+    storyName: "FileVideo Major",
     render: () => (
-        <TestSuite icon24={GuestAddIcon24} icon32={GuestAddIcon32} multiIcon={GuestAddIcon} />
+        <TestSuite icon={FileVideoMajorIcon} />
     )
 };
 
-
-export const GuestRemove: IconsStory = {
-    storyName: "guest remove",
+export const IconFileZipMajor: IconsStory = {
+    storyName: "FileZip Major",
     render: () => (
-        <TestSuite icon24={GuestRemoveIcon24} icon32={GuestRemoveIcon32} multiIcon={GuestRemoveIcon} />
+        <TestSuite icon={FileZipMajorIcon} />
     )
 };
 
-export const Help: IconsStory = {
-    storyName: "help",
+export const IconFilterMajor: IconsStory = {
+    storyName: "Filter Major",
     render: () => (
-        <TestSuite icon24={HelpIcon24} icon32={HelpIcon32} multiIcon={HelpIcon} />
+        <TestSuite icon={FilterMajorIcon} />
     )
 };
 
-export const HorizontalDots: IconsStory = {
-    storyName: "horizontal dots",
+export const IconFolderMajor: IconsStory = {
+    storyName: "Folder Major",
     render: () => (
-        <TestSuite icon24={HorizontalDotsIcon24} icon32={HorizontalDotsIcon32} multiIcon={HorizontalDotsIcon} />
+        <TestSuite icon={FolderMajorIcon} />
     )
 };
 
-export const Info: IconsStory = {
-    storyName: "info",
+export const IconGearMajor: IconsStory = {
+    storyName: "Gear Major",
     render: () => (
-        <TestSuite icon24={InfoIcon24} icon32={InfoIcon32} multiIcon={InfoIcon} />
+        <TestSuite icon={GearMajorIcon} />
     )
 };
 
-export const Lightbulb: IconsStory = {
-    storyName: "lightbulb",
+export const IconGrabMajor: IconsStory = {
+    storyName: "Grab Major",
     render: () => (
-        <TestSuite icon24={LightbulbIcon24} icon32={LightbulbIcon32} multiIcon={LightbulbIcon} />
+        <TestSuite icon={GrabMajorIcon} />
     )
 };
 
-export const Magnifier: IconsStory = {
-    storyName: "magnifier",
+export const IconGroupMajor: IconsStory = {
+    storyName: "Group Major",
     render: () => (
-        <TestSuite icon24={MagnifierIcon24} icon32={MagnifierIcon32} multiIcon={MagnifierIcon} />
+        <TestSuite icon={GroupMajorIcon} />
     )
 };
 
-export const Music: IconsStory = {
-    storyName: "music",
+export const IconHelpMajor: IconsStory = {
+    storyName: "Help Major",
     render: () => (
-        <TestSuite icon24={MusicIcon24} icon32={MusicIcon32} multiIcon={MusicIcon} />
+        <TestSuite icon={HelpMajorIcon} />
     )
 };
 
-export const IconNotification: IconsStory = {
-    storyName: "notification",
+export const IconHomeMajor: IconsStory = {
+    storyName: "Home Major",
     render: () => (
-        <TestSuite icon24={NotificationIcon24} icon32={NotificationIcon32} multiIcon={NotificationIcon} />
+        <TestSuite icon={HomeMajorIcon} />
     )
 };
 
-export const NotificationOff: IconsStory = {
-    storyName: "notification off",
+export const IconHorizontalDotsMajor: IconsStory = {
+    storyName: "HorizontalDots Major",
     render: () => (
-        <TestSuite icon24={NotificationOffIcon24} icon32={NotificationOffIcon32} multiIcon={NotificationOffIcon} />
+        <TestSuite icon={HorizontalDotsMajorIcon} />
     )
 };
 
-export const Pdf: IconsStory = {
-    storyName: "pdf",
+export const IconImageMajor: IconsStory = {
+    storyName: "Image Major",
     render: () => (
-        <TestSuite icon24={PdfIcon24} icon32={PdfIcon32} multiIcon={PdfIcon} />
+        <TestSuite icon={ImageMajorIcon} />
     )
 };
 
-export const Image: IconsStory = {
-    storyName: "image",
+export const IconInfoCircleMajor: IconsStory = {
+    storyName: "InfoCircle Major",
     render: () => (
-        <TestSuite icon24={ImageIcon24} icon32={ImageIcon32} multiIcon={ImageIcon} />
+        <TestSuite icon={InfoCircleMajorIcon} />
     )
 };
 
-export const Printer: IconsStory = {
-    storyName: "printer",
+export const IconInfoCircleMinor: IconsStory = {
+    storyName: "InfoCircle Minor",
     render: () => (
-        <TestSuite icon24={PrinterIcon24} icon32={PrinterIcon32} multiIcon={PrinterIcon} />
+        <TestSuite icon={InfoCircleMinorIcon} />
     )
 };
 
-export const Privacy: IconsStory = {
-    storyName: "privacy",
+export const IconLightbulbMajor: IconsStory = {
+    storyName: "Lightbulb Major",
     render: () => (
-        <TestSuite icon24={PrivacyIcon24} icon32={PrivacyIcon32} multiIcon={PrivacyIcon} />
+        <TestSuite icon={LightbulbMajorIcon} />
     )
 };
 
-export const Signout: IconsStory = {
-    storyName: "signout",
+export const IconLinkMajor: IconsStory = {
+    storyName: "Link Major",
     render: () => (
-        <TestSuite icon24={SignoutIcon24} icon32={SignoutIcon32} multiIcon={SignoutIcon} />
+        <TestSuite icon={LinkMajorIcon} />
     )
 };
 
-export const IconStar: IconsStory = {
-    storyName: "star",
+export const IconLinkRemoveMajor: IconsStory = {
+    storyName: "LinkRemove Major",
     render: () => (
-        <TestSuite icon24={StarIcon24} icon32={StarIcon32} multiIcon={StarIcon} />
+        <TestSuite icon={LinkRemoveMajorIcon} />
     )
 };
 
-export const StarOutline: IconsStory = {
-    storyName: "star outline",
+export const IconMagnifierMajor: IconsStory = {
+    storyName: "Magnifier Major",
     render: () => (
-        <TestSuite icon24={StarOutlineIcon24} icon32={StarOutlineIcon32} multiIcon={StarOutlineIcon} />
+        <TestSuite icon={MagnifierMajorIcon} />
     )
 };
 
-export const Sort: IconsStory = {
-    storyName: "sort",
+export const IconNotificationMajor: IconsStory = {
+    storyName: "Notification Major",
     render: () => (
-        <TestSuite icon24={SortIcon24} icon32={SortIcon32} multiIcon={SortIcon} />
+        <TestSuite icon={NotificationMajorIcon} />
     )
 };
 
-export const Trash: IconsStory = {
-    storyName: "trash",
+export const IconNotificationOffMajor: IconsStory = {
+    storyName: "NotificationOff Major",
     render: () => (
-        <TestSuite icon24={TrashIcon24} icon32={TrashIcon32} multiIcon={TrashIcon} />
+        <TestSuite icon={NotificationOffMajorIcon} />
     )
 };
 
-export const UserAdd: IconsStory = {
-    storyName: "user add",
+export const IconNotificationRingingMajor: IconsStory = {
+    storyName: "Notification Ringing Major",
     render: () => (
-        <TestSuite icon24={UserAddIcon24} icon32={UserAddIcon32} multiIcon={UserAddIcon} />
+        <TestSuite icon={NotificationRingingMajorIcon} />
     )
 };
 
-export const UserRemove: IconsStory = {
-    storyName: "user remove",
+export const IconPencilMajor: IconsStory = {
+    storyName: "Pencil Major",
     render: () => (
-        <TestSuite icon24={UserRemoveIcon24} icon32={UserRemoveIcon32} multiIcon={UserRemoveIcon} />
+        <TestSuite icon={PencilMajorIcon} />
     )
 };
 
-export const VerticalDots: IconsStory = {
-    storyName: "vertical dots",
+export const IconPlaceholderMajor: IconsStory = {
+    storyName: "Placeholder Major",
     render: () => (
-        <TestSuite icon24={VerticalDotsIcon24} icon32={VerticalDotsIcon32} multiIcon={VerticalDotsIcon} />
+        <TestSuite icon={PlaceholderMajorIcon} />
     )
 };
 
-export const Video: IconsStory = {
-    storyName: "video",
+export const IconPlaceholderMinor: IconsStory = {
+    storyName: "Placeholder Minor",
     render: () => (
-        <TestSuite icon24={VideoIcon24} icon32={VideoIcon32} multiIcon={VideoIcon} />
+        <TestSuite icon={PlaceholderMinorIcon} />
     )
 };
 
-export const Warning: IconsStory = {
-    storyName: "warning",
+export const IconPrivacyPrivateMajor: IconsStory = {
+    storyName: "PrivacyPrivate Major",
     render: () => (
-        <TestSuite icon24={WarningIcon24} icon32={WarningIcon32} multiIcon={WarningIcon} />
+        <TestSuite icon={PadlockLockedMajorIcon} />
     )
 };
 
-export const Zip: IconsStory = {
-    storyName: "zip",
+export const IconPrivacyPublicMajor: IconsStory = {
+    storyName: "PrivacyPublic Major",
     render: () => (
-        <TestSuite icon24={ZipIcon24} icon32={ZipIcon32} multiIcon={ZipIcon} />
+        <TestSuite icon={PadlockUnlockedMajorIcon} />
+    )
+};
+
+export const IconRevertMajor: IconsStory = {
+    storyName: "Revert Major",
+    render: () => (
+        <TestSuite icon={RevertMajorIcon} />
+    )
+};
+
+export const IconRocketMajor: IconsStory = {
+    storyName: "Rocket Major",
+    render: () => (
+        <TestSuite icon={RocketMajorIcon} />
+    )
+};
+
+export const IconSigninMajor: IconsStory = {
+    storyName: "Signin Major",
+    render: () => (
+        <TestSuite icon={SigninMajorIcon} />
+    )
+};
+
+export const IconSignoutMajor: IconsStory = {
+    storyName: "Signout Major",
+    render: () => (
+        <TestSuite icon={SignoutMajorIcon} />
+    )
+};
+
+export const IconStarFillMajor: IconsStory = {
+    storyName: "Star Major",
+    render: () => (
+        <TestSuite icon={StarFillMajorIcon} />
+    )
+};
+
+export const IconStarOutlineMajor: IconsStory = {
+    storyName: "StarOutline Major",
+    render: () => (
+        <TestSuite icon={StarOutlineMajorIcon} />
+    )
+};
+
+export const IconTelescopeMajor: IconsStory = {
+    storyName: "Telescope Major",
+    render: () => (
+        <TestSuite icon={TelescopeMajorIcon} />
+    )
+};
+
+export const IconTrashMajor: IconsStory = {
+    storyName: "Trash Major",
+    render: () => (
+        <TestSuite icon={TrashMajorIcon} />
+    )
+};
+
+export const IconTrashMinor: IconsStory = {
+    storyName: "Trash Minor",
+    render: () => (
+        <TestSuite icon={TrashMinorIcon} />
+    )
+};
+
+export const IconUfoMajor: IconsStory = {
+    storyName: "Ufo Major",
+    render: () => (
+        <TestSuite icon={UfoMajorIcon} />
+    )
+};
+
+export const IconUserAddMajor: IconsStory = {
+    storyName: "UserAdd Major",
+    render: () => (
+        <TestSuite icon={UserAddMajorIcon} />
+    )
+};
+
+export const IconUserAddMinor: IconsStory = {
+    storyName: "UserAdd Minor",
+    render: () => (
+        <TestSuite icon={UserAddMinorIcon} />
+    )
+};
+
+export const IconVerticalDotsMajor: IconsStory = {
+    storyName: "VerticalDots Major",
+    render: () => (
+        <TestSuite icon={VerticalDotsMajorIcon} />
+    )
+};
+
+export const IconWarningMajor: IconsStory = {
+    storyName: "Warning Major",
+    render: () => (
+        <TestSuite icon={WarningMajorIcon} />
+    )
+};
+
+export const IconFill: IconsStory = {
+    storyName: "Fill over background",
+    render: () => (
+        <Flex inline backgroundColor="#008000" wrap="wrap" width="32rem">
+            <WarningMajorIcon fill="#FFFF00" />
+            <AddMajorIcon fill="#FFFF00" />
+            <AlertMajorIcon fill="#FFFF00" />
+            <ArrowMajorIcon fill="#FFFF00" />
+            <ArrowMinorIcon fill="#FFFF00" />
+            <BurgerMajorIcon fill="#FFFF00" />
+            <CalendarMajorIcon fill="#FFFF00" />
+            <CheckMajorIcon fill="#FFFF00" />
+            <ChevronMajorIcon fill="#FFFF00" />
+            <ChevronMinorIcon fill="#FFFF00" />
+            <ChevronUpDownMajorIcon fill="#FFFF00" />
+            <ChevronUpDownMinorIcon fill="#FFFF00" />
+            <CrossMajorIcon fill="#FFFF00" />
+            <CrossMinorIcon fill="#FFFF00" />
+            <DuplicateMajorIcon fill="#FFFF00" />
+            <DownloadMajorIcon fill="#FFFF00" />
+            <EmailMajorIcon fill="#FFFF00" />
+            <ExternalLinkMajorIcon fill="#FFFF00" />
+            <ExternalLinkMinorIcon fill="#FFFF00" />
+            <EyeMajorIcon fill="#FFFF00" />
+            <FileMajorIcon fill="#FFFF00" />
+            <FileCsvMajorIcon fill="#FFFF00" />
+            <FileMusicMajorIcon fill="#FFFF00" />
+            <FilePdfMajorIcon fill="#FFFF00" />
+            <FileVideoMajorIcon fill="#FFFF00" />
+            <FileZipMajorIcon fill="#FFFF00" />
+            <FilterMajorIcon fill="#FFFF00" />
+            <FolderMajorIcon fill="#FFFF00" />
+            <GearMajorIcon fill="#FFFF00" />
+            <GrabMajorIcon fill="#FFFF00" />
+            <GroupMajorIcon fill="#FFFF00" />
+            <HelpMajorIcon fill="#FFFF00" />
+            <HomeMajorIcon fill="#FFFF00" />
+            <HorizontalDotsMajorIcon fill="#FFFF00" />
+            <ImageMajorIcon fill="#FFFF00" />
+            <InfoCircleMajorIcon fill="#FFFF00" />
+            <InfoCircleMinorIcon fill="#FFFF00" />
+            <LightbulbMajorIcon fill="#FFFF00" />
+            <LinkMajorIcon fill="#FFFF00" />
+            <LinkRemoveMajorIcon fill="#FFFF00" />
+            <MagnifierMajorIcon fill="#FFFF00" />
+            <NotificationMajorIcon fill="#FFFF00" />
+            <NotificationOffMajorIcon fill="#FFFF00" />
+            <NotificationRingingMajorIcon fill="#FFFF00" />
+            <PencilMajorIcon fill="#FFFF00" />
+            <PlaceholderMajorIcon fill="#FFFF00" />
+            <PlaceholderMinorIcon fill="#FFFF00" />
+            <PadlockLockedMajorIcon fill="#FFFF00" />
+            <PadlockUnlockedMajorIcon fill="#FFFF00" />
+            <RevertMajorIcon fill="#FFFF00" />
+            <SigninMajorIcon fill="#FFFF00" />
+            <SignoutMajorIcon fill="#FFFF00" />
+            <StarFillMajorIcon fill="#FFFF00" />
+            <StarOutlineMajorIcon fill="#FFFF00" />
+            <TrashMajorIcon fill="#FFFF00" />
+            <TrashMinorIcon fill="#FFFF00" />
+            <UserAddMajorIcon fill="#FFFF00" />
+            <UserAddMinorIcon fill="#FFFF00" />
+            <VerticalDotsMajorIcon fill="#FFFF00" />
+        </Flex>
     )
 };

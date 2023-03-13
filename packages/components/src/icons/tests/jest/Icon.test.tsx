@@ -1,10 +1,10 @@
-import { AzureIcon32 } from "./assets";
+import { AzureIcon } from "./assets";
 import { Icon, IconProps, createIcon } from "@components/icons";
 import { renderWithTheme, waitFor } from "@test-utils";
 
 function createAzureIcon(props: Omit<IconProps, "src"> = {}) {
     return <Icon
-        src={AzureIcon32}
+        src={AzureIcon}
         {...props}
     />;
 }
@@ -31,7 +31,7 @@ test("ref is a DOM element", async () => {
 test("hoc icon ref is a DOM element", async () => {
     let refNode: SVGSVGElement = null;
 
-    const HocIcon = createIcon(AzureIcon32);
+    const HocIcon = createIcon(AzureIcon);
 
     renderWithTheme(
         <HocIcon

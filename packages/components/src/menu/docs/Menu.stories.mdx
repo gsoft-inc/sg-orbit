@@ -4,7 +4,7 @@ import { Button, IconButton } from "@components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { DisclosureArrow } from "@components/disclosure";
 import { Divider, InnerDivider } from "@components/divider";
-import { HelpIcon, IconList, LightbulbIcon, NotificationIcon, VerticalDotsIcon } from "@components/icons";
+import { PlaceholderMajorIcon, IconList, VerticalDotsMajorIcon, UfoMajorIcon, TelescopeMajorIcon, RocketMajorIcon } from "@components/icons";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { InnerMenu, InnerMenuItem, InnerMenuSection, InnerMenuTrigger, Menu, MenuTrigger } from "@components/menu";
 import { Text } from "@components/typography";
@@ -37,7 +37,7 @@ A default menu.
     <Story name="default">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item key="launch">Launch...</Item>
@@ -58,7 +58,7 @@ A menu items can be group by sections.
     <Story name="sections">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Section title="Actions">
@@ -83,7 +83,7 @@ A menu items can be separated by dividers.
     <Story name="dividers">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item key="launch">Launch...</Item>
@@ -105,19 +105,19 @@ A menu item can have [icons](?path=/docs/icon-gallery--page).
     <Story name="item icon">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item key="launch">
-                    <NotificationIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Launch...</Text>
                 </Item>
                 <Item key="eject">
-                    <HelpIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Eject...</Text>
                 </Item>
                 <Item key="land">
-                    <LightbulbIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Land...</Text>
                 </Item>
             </Menu>
@@ -133,27 +133,27 @@ A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page
     <Story name="item end icon">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item key="launch">
                     <Text>Launch...</Text>
                     <IconList slot="end-icon">
-                        <NotificationIcon />
-                        <HelpIcon />
-                        <LightbulbIcon />
+                        <UfoMajorIcon />
+                        <TelescopeMajorIcon />
+                        <RocketMajorIcon />
                     </IconList>
                 </Item>
                 <Item key="eject">
                     <Text>Eject...</Text>
-                    <HelpIcon slot="end-icon" />
+                    <PlaceholderMajorIcon slot="end-icon" />
                 </Item>
                 <Item key="land">
                     <Text>Land...</Text>
                     <IconList slot="end-icon">
-                        <NotificationIcon />
-                        <HelpIcon />
-                        <LightbulbIcon />
+                        <UfoMajorIcon />
+                        <TelescopeMajorIcon />
+                        <RocketMajorIcon />
                     </IconList>
                 </Item>
             </Menu>
@@ -169,7 +169,7 @@ A menu item can have a **single line** description.
     <Story name="item description">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item key="launch">
@@ -195,21 +195,21 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
     <Story name="item description + icon">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item key="launch">
-                    <NotificationIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Launch...</Text>
                     <Text slot="description">Launch...</Text>
                 </Item>
                 <Item key="eject">
-                    <HelpIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Eject...</Text>
                     <Text slot="description">Eject...</Text>
                 </Item>
                 <Item key="land">
-                    <LightbulbIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Land...</Text>
                     <Text slot="description">Land on Of Course I Still Love You</Text>
                 </Item>
@@ -224,7 +224,7 @@ A description can also be paired with an [avatar](?path=/docs/avatar--default-st
     <Story name="item description + avatar">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item key="launch">
@@ -255,7 +255,7 @@ A menu item can have a basic tooltip.
     <Story name="item tooltip">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item key="launch">Launch...</Item>
@@ -279,7 +279,7 @@ A menu item can be disabled.
     <Story name="disabled item">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 <Item disabled key="launch">Launch...</Item>
@@ -354,7 +354,7 @@ A menu items can be rendered dynamically.
     <Story name="dynamic items">
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu>
                 {["Launch", "Eject", "Land", "Help", "Exit"].map(x => (

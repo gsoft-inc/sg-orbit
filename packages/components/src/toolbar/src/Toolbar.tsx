@@ -142,6 +142,11 @@ export function InnerToolbar({
 
 InnerToolbar.defaultElement = DefaultElement;
 
+/**
+ * A toolbar is a container for grouping a set of controls, such as buttons, menubuttons, or checkboxes.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/toolbar--default-story)
+*/
 export const Toolbar = forwardRef<any, OmitInternalProps<InnerToolbarProps>>((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />
 ));

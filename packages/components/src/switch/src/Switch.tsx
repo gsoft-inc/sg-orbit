@@ -5,7 +5,6 @@ import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useCh
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
-import { embeddedIconSize } from "../../icons";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -139,8 +138,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
             variant: "divider"
         },
         icon: {
-            className: "o-ui-switch-icon",
-            size: embeddedIconSize(sizeValue)
+            className: "o-ui-switch-icon"
         },
         text: {
             className: "o-ui-switch-label",
@@ -173,6 +171,11 @@ export function InnerSwitch(props: InnerSwitchProps) {
 
 InnerSwitch.defaultElement = DefaultElement;
 
+/**
+ * A switch offers an on or off choice to a user.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/switch--default-story)
+*/
 export const Switch = forwardRef<any, OmitInternalProps<InnerSwitchProps>>((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));

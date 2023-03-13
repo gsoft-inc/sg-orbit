@@ -151,7 +151,6 @@ export function InnerPopover({
         <CrossButton
             aria-label="Dismiss"
             className="o-ui-popover-dismiss-button"
-            condensed
             onClick={handleDismissButtonClick}
             ref={dismissButtonRef}
             size="xs"
@@ -205,6 +204,11 @@ export function InnerPopover({
 
 InnerPopover.defaultElement = DefaultElement;
 
+/**
+ * A Popover can be used to display some content on top of another.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/popover--default-story)
+*/
 export const Popover = forwardRef<any, OmitInternalProps<InnerPopoverProps>>((props, ref) => (
     <InnerPopover {...props} forwardedRef={ref} />
 ));

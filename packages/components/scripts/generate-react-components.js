@@ -16,18 +16,14 @@ ${content}
 /* eslint-enable */
 `;
 
-function getComponentName(fileName, size) {
+function getComponentName(fileName) {
     const name = fileName.replace(/\.svg$/, "");
 
     const options = { pascalCase: true };
     let formatedName = camelCase(name, options);
 
     formatedName = formatedName.replace(/^(Icon)/, "");
-    if (size) {
-        formatedName = formatedName.replace(new RegExp(`${size}$`, "g"), `Icon${size}`);
-    } else {
-        formatedName += "Icon";
-    }
+    formatedName += "Icon";
 
     return formatedName;
 }

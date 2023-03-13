@@ -40,46 +40,32 @@
     transition: var(--o-ui-focus-ring-transition);
 }
 
-.o-ui-checkbox-box:after {
+.o-ui-checkbox-checkmark {
+    opacity: 0;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+}
+
+.o-ui-checkbox-checked .o-ui-checkbox-box .o-ui-checkbox-checkmark {
+    fill: white;
+    opacity: 1;
+}
+
+/* BOX | INDETERMINATE */
+.o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--o-ui-sz-3) var(--o-ui-sz-3);
-    background-color: var(--o-ui-white);
-    transform: translate(-50%, -50%) scale(0) rotate(2deg);
-    transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
-    border-radius: var(--o-ui-br-2);
-}
-
-.o-ui-checkbox-checked .o-ui-checkbox-box:after {
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    transform: translate(-50%, -50%) scale(1) rotate(2deg);
-}
-
-/* CHECKED | SMALL */
-.o-ui-checkbox-sm.o-ui-checkbox-checked .o-ui-checkbox-box:after {
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    transform: translate(-50%, -50%) scale(0.75) rotate(2deg);
-}
-
-/* BOX | INDETERMINATE */
-.o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
-    transform: translate(-50%, -50%) scale(0.33) rotate(2deg);
-    mask: none;
+    transform: translate(-50%, -50%) scale(0.33333);
     background-color: var(--o-ui-bg-alias-accent);
 }
 
-/* not working since intedermenate class is removed as soon as it's clicked */
-.o-ui-checkbox-indeterminate .o-ui-checkbox-box::after {
-    transition: transform var(--o-ui-easing-duration-2) var(--o-ui-easing-focus) 0.0625s;
-}
-
 /* BOX | INDETERMINATE | STATE | INVALID */
-.o-ui-checkbox-invalid.o-ui-checkbox-indeterminate .o-ui-checkbox-box::after {
+.o-ui-checkbox-invalid.o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
     background-color: var(--o-ui-bg-alias-alert);
 }
 
@@ -195,10 +181,9 @@
 }
 
 /* SIZING | SMALL | BOX | CHECKED */
-.o-ui-checkbox-checked.o-ui-checkbox-sm .o-ui-checkbox-box:after {
+.o-ui-checkbox-checked.o-ui-checkbox-sm .o-ui-checkbox-box .o-ui-checkbox-checkmark {
     width: var(--o-ui-sz-2);
     height: var(--o-ui-sz-2);
-    mask-size: var(--o-ui-sz-2) var(--o-ui-sz-2);
 }
 
 /* SIZING | MEDIUM */

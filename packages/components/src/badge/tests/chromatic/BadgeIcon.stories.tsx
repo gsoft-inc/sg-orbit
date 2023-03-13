@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from "@components/icons";
+import { PlaceholderMajorIcon } from "@components/icons";
 import { Badge } from "@components/badge";
 import { CircleBadge, IconBadge, SquareBadge, TextBadge } from "./BadgeUtils";
 import { Inline } from "@components/layout";
@@ -15,7 +15,7 @@ export const Default: BadgeStory = {
     storyName: "default",
     render: () => (
         <SquareBadge variant="icon">
-            <CheckCircleIcon />
+            <PlaceholderMajorIcon />
         </SquareBadge>
     )
 };
@@ -25,16 +25,16 @@ export const Overlap: BadgeStory = {
     render: () => (
         <Inline gap={8}>
             <SquareBadge variant="icon">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
             </SquareBadge>
             <CircleBadge variant="icon">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
             </CircleBadge>
             <IconBadge variant="icon">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
             </IconBadge>
             <TextBadge variant="icon">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
             </TextBadge>
         </Inline>
     )
@@ -45,13 +45,13 @@ export const Styling: BadgeStory = {
     render: () => (
         <Inline>
             <SquareBadge border="warning-7" variant="icon">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
             </SquareBadge>
             <SquareBadge className="border-red" variant="icon">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
             </SquareBadge>
             <SquareBadge style={{ border: "0.0625rem solid red" }} variant="icon">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
             </SquareBadge>
         </Inline>
     )

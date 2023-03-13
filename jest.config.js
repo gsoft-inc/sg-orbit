@@ -1,26 +1,22 @@
+const { pathsToModuleNameMapper } = require("ts-jest");
+const { compilerOptions } = require("./tsconfig");
+
 module.exports = {
-    roots: ["<rootDir>/packages/"],
+    roots: ["<rootDir>"],
     testMatch: ["**/tests/jest/*.test.ts?(x)"],
     transform: {
-        "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+        "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
     },
+    modulePaths: [compilerOptions.baseUrl],
     moduleNameMapper: {
         "\\.css$": "identity-obj-proxy",
-        "\\.svg": "<rootDir>/__mocks__/svgr-mock.js",
-        "@test-utils": "<rootDir>/tooling/test-utils",
-        "@components/(.*)$": "<rootDir>/packages/components/src/$1",
-        "@experimental/(.*)$": "<rootDir>/packages/experimental/src/$1",
-        "@orbit-ui/components$": "<rootDir>/packages/components/src/index.ts"
+        ...pathsToModuleNameMapper(compilerOptions.paths)
     },
     setupFilesAfterEnv: [
         "@testing-library/jest-dom/extend-expect",
-        "<rootDir>/setup-jest.js"
+        "<rootDir>/setupTests.js"
     ],
     testEnvironment: "jsdom",
-    testPathIgnorePatterns: [ // TODO: tests should not be built in the dist folder
-        "<rootDir>/packages/components/dist",
-        "<rootDir>/packages/experimental/dist"
-    ],
     verbose: true
 };
 
