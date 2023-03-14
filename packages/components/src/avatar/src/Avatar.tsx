@@ -209,6 +209,11 @@ export function InnerAvatar({
 
 InnerAvatar.defaultElement = DefaultElement;
 
+/**
+ * An avatar is a graphical representation of a user and typically appears in list and card views, along side a user's information and/or content that they have created
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/avatar--default-story)
+*/
 export const Avatar = slot("avatar", forwardRef<any, OmitInternalProps<InnerAvatarProps>>((props, ref) => (
     <InnerAvatar {...props} forwardedRef={ref} />
 )));

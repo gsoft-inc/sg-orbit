@@ -1,5 +1,23 @@
 # @orbit-ui/experimental
 
+## 5.0.2
+
+### Patch Changes
+
+- 591aacf16: Fix the peer dependency version again
+
+## 5.0.1
+
+### Patch Changes
+
+- 1477431b7: Changes to peer dependencies
+
+## 5.0.0
+
+### Patch Changes
+
+- @sharegate/orbit-ui@34.2.0
+
 ## 4.0.0
 
 ### Patch Changes

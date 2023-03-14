@@ -70,6 +70,11 @@ export function InnerIllustratedMessage({
 
 InnerIllustratedMessage.defaultElement = DefaultElement;
 
+/**
+ * An illustration compose an image with a background color. Use an illustration as an hero in a modal.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/illustration--default-story)
+*/
 export const IllustratedMessage = forwardRef<any, OmitInternalProps<InnerIllustratedMessageProps>>((props, ref) => (
     <InnerIllustratedMessage {...props} forwardedRef={ref} />
 ));

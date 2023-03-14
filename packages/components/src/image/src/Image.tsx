@@ -71,6 +71,11 @@ export function InnerImage({
 
 InnerImage.defaultElement = DefaultElement;
 
+/**
+ * Use this component to display an image.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/image--shape)
+*/
 export const Image = slot("image", forwardRef<any, OmitInternalProps<InnerImageProps>>((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
 )));

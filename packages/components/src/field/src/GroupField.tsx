@@ -88,6 +88,9 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
 
 InnerGroupField.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/field--input)
+*/
 export const GroupField = forwardRef<any, OmitInternalProps<InnerGroupFieldProps>>((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />
 ));

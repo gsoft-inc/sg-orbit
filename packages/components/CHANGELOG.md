@@ -1,5 +1,28 @@
 # @orbit-ui/components
 
+## 34.2.0
+
+### Minor Changes
+
+- 2b0f7ec46: added jsdoc documentation of components
+
+## 14.3.0
+
+### Minor Changes
+
+- b1d6039e9: added a new icon
+
+### Patch Changes
+
+- Updated dependencies [b1d6039e9]
+  - @orbit-ui/icons@12.2.0
+
+## 14.2.0
+
+### Minor Changes
+
+- 6be00c049: text inputs and textarea inherits the app font-family and font-size
+
 ## 14.1.0
 
 ### Minor Changes

@@ -61,6 +61,11 @@ export function InnerForm(props: InnerFormProps) {
 
 InnerForm.defaultElement = DefaultElement;
 
+/**
+ * Forms are commonly used to provide user interaction in web applications.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/form--vertical-layout)
+*/
 export const Form = forwardRef<any, OmitInternalProps<InnerFormProps>>((props, ref) => (
     <InnerForm {...props} forwardedRef={ref} />
 ));

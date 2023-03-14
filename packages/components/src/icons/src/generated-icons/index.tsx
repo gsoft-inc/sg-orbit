@@ -53,6 +53,7 @@ import { ReactComponent as InnerLinkRemoveMajorIcon } from "./LinkRemoveMajorIco
 import { ReactComponent as InnerMagnifierMajorIcon } from "./MagnifierMajorIcon";
 import { ReactComponent as InnerNotificationMajorIcon } from "./NotificationMajorIcon";
 import { ReactComponent as InnerNotificationOffMajorIcon } from "./NotificationOffMajorIcon";
+import { ReactComponent as InnerNotificationRingingMajorIcon } from "./NotificationRingingMajorIcon";
 import { ReactComponent as InnerPadlockLockedMajorIcon } from "./PadlockLockedMajorIcon";
 import { ReactComponent as InnerPadlockUnlockedMajorIcon } from "./PadlockUnlockedMajorIcon";
 import { ReactComponent as InnerPencilMajorIcon } from "./PencilMajorIcon";
@@ -125,6 +126,7 @@ export const LinkRemoveMajorIcon = createOrbitIcon(InnerLinkRemoveMajorIcon, "Li
 export const MagnifierMajorIcon = createOrbitIcon(InnerMagnifierMajorIcon, "MagnifierMajorIcon");
 export const NotificationMajorIcon = createOrbitIcon(InnerNotificationMajorIcon, "NotificationMajorIcon");
 export const NotificationOffMajorIcon = createOrbitIcon(InnerNotificationOffMajorIcon, "NotificationOffMajorIcon");
+export const NotificationRingingMajorIcon = createOrbitIcon(InnerNotificationRingingMajorIcon, "NotificationRingingMajorIcon");
 export const PadlockLockedMajorIcon = createOrbitIcon(InnerPadlockLockedMajorIcon, "PadlockLockedMajorIcon");
 export const PadlockUnlockedMajorIcon = createOrbitIcon(InnerPadlockUnlockedMajorIcon, "PadlockUnlockedMajorIcon");
 export const PencilMajorIcon = createOrbitIcon(InnerPencilMajorIcon, "PencilMajorIcon");

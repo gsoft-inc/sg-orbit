@@ -43,6 +43,11 @@ export function InnerDisclosureArrow({
 
 InnerDisclosureArrow.defaultElement = DefaultElement;
 
+/**
+ * A top / bottom pointing arrow to hint that activating the trigger will display additional content.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/disclosure-arrow--context)
+*/
 export const DisclosureArrow = slot("icon", forwardRef<any, OmitInternalProps<InnerDisclosureArrowProps>>((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />
 )));

@@ -171,6 +171,11 @@ export function InnerSwitch(props: InnerSwitchProps) {
 
 InnerSwitch.defaultElement = DefaultElement;
 
+/**
+ * A switch offers an on or off choice to a user.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/switch--default-story)
+*/
 export const Switch = forwardRef<any, OmitInternalProps<InnerSwitchProps>>((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));

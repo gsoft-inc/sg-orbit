@@ -19,6 +19,8 @@
 
 .o-ui-input input {
     -webkit-appearance: none;
+    font-family: inherit;
+    font-size: inherit;
     outline: transparent;
     border: none;
     width: 100%;

@@ -247,6 +247,11 @@ export function InnerTextArea(props: InnerTextAreaProps) {
 
 InnerTextArea.defaultElement = DefaultElement;
 
+/**
+ * A textarea is a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/textarea--default-story)
+*/
 export const TextArea = forwardRef<any, OmitInternalProps<InnerTextAreaProps>>((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));

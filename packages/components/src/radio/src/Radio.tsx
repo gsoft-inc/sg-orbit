@@ -197,6 +197,11 @@ export function InnerRadio(props: InnerRadioProps) {
 
 InnerRadio.defaultElement = DefaultElement;
 
+/**
+ * A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/radio-group--default-story)
+*/
 export const Radio = forwardRef<any, OmitInternalProps<InnerRadioProps>>((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />
 ));

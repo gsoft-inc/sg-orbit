@@ -481,6 +481,11 @@ export type ListboxElement = HTMLElement & {
 
 InnerListbox.defaultElement = DefaultElement;
 
+/**
+ * A listbox presents a list of options and allows a user to select one or more of them
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/listbox--default-story)
+*/
 export const Listbox = forwardRef<ListboxElement, OmitInternalProps<InnerListboxProps>>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));

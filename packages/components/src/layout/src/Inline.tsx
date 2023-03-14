@@ -99,6 +99,11 @@ export function InnerInline({
 
 InnerInline.defaultElement = DefaultElement;
 
+/**
+ * A layout container using flexbox.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/flex--horizontal)
+*/
 export const Inline = forwardRef<any, OmitInternalProps<InnerInlineProps>>((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));

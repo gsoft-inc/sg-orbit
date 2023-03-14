@@ -37,6 +37,11 @@ export function InnerTooltip({
 
 InnerTooltip.defaultElement = DefaultElement;
 
+/**
+ * A tooltip is a popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tooltip--default-story)
+*/
 export const Tooltip = forwardRef<any, OmitInternalProps<InnerTooltipProps>>((props, ref) => (
     <InnerTooltip {...props} forwardedRef={ref} />
 ));

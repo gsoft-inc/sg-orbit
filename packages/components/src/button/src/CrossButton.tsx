@@ -20,6 +20,11 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
 
 InnerCrossButton.defaultElement = InnerIconButton.defaultElement;
 
+/**
+ * A button with a cross icon to handle use cases like clearing a value or closing overlay components.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/cross-button--default-story)
+*/
 export const CrossButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerCrossButtonProps>>((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));
