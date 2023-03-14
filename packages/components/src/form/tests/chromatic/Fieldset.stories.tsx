@@ -166,7 +166,7 @@ export const Styling: FieldsetStory = {
                     </Field>
                 </Inline>
             </Fieldset>
-            <Fieldset style={{ border: "1px solid red" }} label="Shipping Address">
+            <Fieldset style={{ border: "0.0625rem solid red" }} label="Shipping Address">
                 <Inline>
                     <Field>
                         <Label>First name</Label>

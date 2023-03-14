@@ -120,7 +120,7 @@ export const Styling: GroupFieldStory = {
                     <Radio value="3">3</Radio>
                 </RadioGroup>
             </GroupField>
-            <GroupField style={{ border: "1px solid red" }}>
+            <GroupField style={{ border: "0.0625rem solid red" }}>
                 <RadioGroup>
                     <Radio value="1">1</Radio>
                     <Radio value="2">2</Radio>

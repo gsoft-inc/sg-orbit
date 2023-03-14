@@ -63,7 +63,7 @@ stories()
             <Link className="border-red" href="#">
                 <LaunchImage />
             </Link>
-            <Link style={{ border: "1px solid red" }} href="#">
+            <Link style={{ border: "0.0625rem solid red" }} href="#">
                 <LaunchImage />
             </Link>
         </Inline>

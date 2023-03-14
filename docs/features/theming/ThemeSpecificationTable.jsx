@@ -33,9 +33,9 @@ export function ThemeSpecificationTable({ rows, ...rest }) {
         <Table
             {...rest}
             columns={[
-                { title: "Theme key", headerStyle: { width: "150px" }, rowClassName: "code" },
-                { title: "CSS properties", headerStyle: { width: "850px" }, rowClassName: "code" },
-                { title: "Scale", headerStyle: { width: "200px" }, rowClassName: "code" }
+                { title: "Theme key", headerStyle: { width: "9.375rem" }, rowClassName: "code" },
+                { title: "CSS properties", headerStyle: { width: "53.125rem" }, rowClassName: "code" },
+                { title: "Scale", headerStyle: { width: "12.5rem" }, rowClassName: "code" }
             ]}
             rows={rows.map(x => toRowValues(x))}
         />

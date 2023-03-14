@@ -244,7 +244,7 @@ export const Styling: TileGroupStory = {
                     <Content>Cockpit settings</Content>
                 </TileLink>
             </TileGroup>
-            <TileGroup style={{ border: "1px solid red" }} rowSize={3}>
+            <TileGroup style={{ border: "0.0625rem solid red" }} rowSize={3}>
                 <TileLink href="https://www.google.com">
                     <Heading>Map</Heading>
                     <Content>View space map</Content>

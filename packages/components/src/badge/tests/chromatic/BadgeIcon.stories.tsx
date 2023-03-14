@@ -50,7 +50,7 @@ export const Styling: BadgeStory = {
             <SquareBadge className="border-red" variant="icon">
                 <PlaceholderMajorIcon />
             </SquareBadge>
-            <SquareBadge style={{ border: "1px solid red" }} variant="icon">
+            <SquareBadge style={{ border: "0.0625rem solid red" }} variant="icon">
                 <PlaceholderMajorIcon />
             </SquareBadge>
         </Inline>

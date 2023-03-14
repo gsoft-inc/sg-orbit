@@ -11,7 +11,7 @@ const SquareBadge = forwardRef<HTMLElement, BadgeProps>(({ children, ...rest }, 
             ref={ref}
         >
             {children}
-            <Div width="45px" height="45px" />
+            <Div width="2.8125rem" height="2.8125rem" />
         </Badge>
     );
 });

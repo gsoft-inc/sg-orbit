@@ -102,9 +102,9 @@ export const Styling: PasswordInputStory = {
         <Inline>
             <PasswordInput border="alert-6" aria-label="Label" />
             <PasswordInput className="border-red" aria-label="Label" />
-            <PasswordInput style={{ border: "1px solid red" }} aria-label="Label" />
+            <PasswordInput style={{ border: "0.0625rem solid red" }} aria-label="Label" />
             <PasswordInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
-            <PasswordInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
+            <PasswordInput wrapperProps={{ style: { border: "0.0625rem solid red" } }} aria-label="Label" />
         </Inline>
     )
 };

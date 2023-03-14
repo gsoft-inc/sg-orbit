@@ -9,7 +9,7 @@
 }
 
 .sbdocs.sbdocs-content {
-    max-width: 1280px;
+    max-width: 80rem;
     font-size: var(--o-ui-fs-4);
 }
 
@@ -21,7 +21,7 @@
 
 /* ARGS TABLE */
 .docblock-argstable {
-    min-width: 220px;
+    min-width: 13.75rem;
     margin-bottom: 0;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .docblock-argstable-body td label input[type=radio]:focus {
-    outline-offset: 1px;
+    outline-offset: 0.0625rem;
 }
 
 .docblock-argstable-body td label span {
@@ -98,13 +98,13 @@
     color: var(--o-ui-accent-6) !important;
     font-family: var(--orbit-font-family) !important;
     font-size: var(--o-ui-fs-2) !important;
-    padding-left: 2px !important;
+    padding-left: 0.125rem !important;
 }
 
 /* EMPTY BLOCK */
 .docblock-emptyblock {
     color: var(--o-ui-neutral-6) !important;
-    border: 1px dashed var(--o-ui-neutral-2) !important;
+    border: 0.0625rem dashed var(--o-ui-neutral-2) !important;
 }
 
 .docblock-emptyblock a {
@@ -114,7 +114,7 @@
 /* SOURCE BLOCK */
 .docblock-source {
     margin-top: var(--o-ui-sp-7) !important;
-    margin-bottom: 35px !important;
+    margin-bottom: 2.1875rem !important;
 }
 
 .sbdocs.sbdocs-preview,
@@ -171,7 +171,7 @@
 }
 
 .sbdocs.sbdocs-h2 {
-    border-bottom: 1px solid var(--o-ui-neutral-2);
+    border-bottom: 0.0625rem solid var(--o-ui-neutral-2);
 }
 
 .sbdocs.sbdocs-h2,
@@ -209,7 +209,7 @@
     border: none !important;
     border-radius: 0 !important;
     background-color: transparent !important;
-    font-size: 15px !important;
+    font-size: 0.9375rem !important;
 }
 
 /* ELEMENTS | LINK */
@@ -233,7 +233,7 @@
 .sbdocs.sbdocs-a:focus {
     border-radius: var(--o-ui-br-4);
     background-color: rgba(0, 0, 0, 0.04);
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 0 0.125rem rgba(0, 0, 0, 0.04);
 }
 
 .sbdocs .sbdocs-a code {
@@ -250,7 +250,7 @@
 
 /* ELEMENTS | TABLE */
 .sbdocs.sbdocs-table tr {
-    border-top: 1px solid var(--o-ui-neutral-2);
+    border-top: 0.0625rem solid var(--o-ui-neutral-2);
 }
 
 .sbdocs.sbdocs-table .thead tr th {
@@ -259,9 +259,9 @@
 }
 
 .sbdocs.sbdocs-table thead tr {
-    border-top: 1px solid var(--o-ui-b-alias-low-break);
-    border-left: 1px solid var(--o-ui-b-alias-low-break);
-    border-right: 1px solid var(--o-ui-b-alias-low-break);
+    border-top: 0.0625rem solid var(--o-ui-b-alias-low-break);
+    border-left: 0.0625rem solid var(--o-ui-b-alias-low-break);
+    border-right: 0.0625rem solid var(--o-ui-b-alias-low-break);
     color: var(--o-ui-text-alias-primary);
 }
 
@@ -277,8 +277,8 @@
 
 .sbdocs.sbdocs-table tr td,
 .sbdocs.sbdocs-table tr th {
-    border-top: 1px solid var(--o-ui-b-alias-low-break);
-    border-bottom: 1px solid var(--o-ui-b-alias-low-break);
+    border-top: 0.0625rem solid var(--o-ui-b-alias-low-break);
+    border-bottom: 0.0625rem solid var(--o-ui-b-alias-low-break);
     border-left: 0;
     border-right: 0;
     color: var(--o-ui-text-alias-primary);
@@ -286,7 +286,7 @@
 }
 
 .sbdocs.sbdocs-table tbody {
-    border: 1px solid var(--o-ui-b-alias-low-break);
+    border: 0.0625rem solid var(--o-ui-b-alias-low-break);
 }
 
 .sbdocs.sbdocs-table a {
@@ -319,7 +319,7 @@
 }
 
 .sb-show-main details {
-    padding: 8px;
+    padding: 0.5rem;
     border-radius: var(--o-ui-br-4);
     background-color: var(--o-ui-purple-1);
 }
@@ -337,12 +337,12 @@
 /* ELEMENTS | KBD */
 .sbdocs kbd {
     line-height: var(--o-ui-lh-1);
-    margin: 0 2px;
-    padding: 3px 5px;
+    margin: 0 0.125rem;
+    padding: 0.8125rem 0.3125rem;
     white-space: nowrap;
-    border-radius: 3px;
-    font-size: 13px;
-    border: 1px solid #EEEEEE;
+    border-radius: 0.8125rem;
+    font-size: 0.8125rem;
+    border: 0.0625rem solid #EEEEEE;
     color: rgba(51, 51, 51, 0.9);
     background-color: #F8F8F8;
 }
@@ -360,7 +360,7 @@
 
 /* ELEMENTS | LINK ICON */
 .sbdocs.sbdocs-h1 a {
-    margin-left: -28px;
+    margin-left: -1.75rem;
 }
 
 .sbdocs.sbdocs-h1 a svg {
@@ -393,8 +393,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    border-radius: 50px;
-    border: 2px solid var(--o-ui-b-alias-low-break);
+    border-radius: var(--o-ui-br-circular);
+    border: 0.125rem solid var(--o-ui-b-alias-low-break);
     border-top-color: var(--o-ui-white);
     animation: o-ui-sb-spinner 1s linear infinite;
     transform: translate(-50%, -50%) rotate(0deg);
@@ -411,11 +411,11 @@
 
 /* Token Specific Styles */
 .token-table tr td:last-child {
-    padding: 0 0 0 13px !important;
+    padding: 0 0 0 0.8125rem !important;
 }
 
 /* HACK OVERRIDES - INPUT */
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 26.25rem) {
     .sbdocs .o-ui .o-ui-input {
         width: 100%;
     }

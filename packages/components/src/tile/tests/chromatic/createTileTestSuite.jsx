@@ -22,7 +22,7 @@ export function createTileTestSuite(element, stories) {
         .add("illustration", () =>
             <Tile element={element}>
                 <Illustration color="alias-hard-break">
-                    <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    <Image src={Nasa} width="6.25rem" alt="Nasa Logo" />
                 </Illustration>
                 <Heading>Fuel</Heading>
                 <Content>Fuel configuration and level</Content>
@@ -31,7 +31,7 @@ export function createTileTestSuite(element, stories) {
         .add("all sections", () =>
             <Tile element={element}>
                 <Illustration color="alias-hard-break">
-                    <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    <Image src={Nasa} width="6.25rem" alt="Nasa Logo" />
                 </Illustration>
                 <Heading>Fuel</Heading>
                 <Content>Fuel configuration and level</Content>
@@ -143,7 +143,7 @@ export function createTileTestSuite(element, stories) {
                     <Heading>Map</Heading>
                     <Content>View space map</Content>
                 </Tile>
-                <Tile element={element} style={{ border: "1px solid red" }}>
+                <Tile element={element} style={{ border: "0.0625rem solid red" }}>
                     <Heading>Map</Heading>
                     <Content>View space map</Content>
                 </Tile>

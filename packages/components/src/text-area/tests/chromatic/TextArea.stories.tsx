@@ -177,7 +177,7 @@ export const Styling: TextAreaStory = {
             <TextArea style={{ backgroundColor: "red" }} aria-label="Label" />
             <TextArea wrapperProps={{ border: "alert-6" }} aria-label="Label" />
             <TextArea wrapperProps={{ className: "border-red" }} aria-label="Label" />
-            <TextArea wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
+            <TextArea wrapperProps={{ style: { border: "0.0625rem solid red" } }} aria-label="Label" />
         </Inline>
     )
 };

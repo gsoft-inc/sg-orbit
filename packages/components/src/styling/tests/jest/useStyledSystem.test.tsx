@@ -109,7 +109,7 @@ const Props: PropDefinition[] = [
     { name: "background position", key: "backgroundPosition", values: ["top", "bottom", "left", "right", "center", "25% 75%", "0 0", "bottom 10px right 20px", ...GlobalSampling] },
     { name: "background repeat", key: "backgroundRepeat", values: ["repeat-x", "repeat-y", "repeat", "no-repeat", "space", "round", ...GlobalSampling] },
     { name: "background size", key: "backgroundSize", values: ["cover", "contain", "50%", "3.2em", "auto", "50% auto", "50%, 25%, 25%", ...GlobalSampling] },
-    { name: "border", key: "border", values: [...Object.keys(BorderMapping), "1px solid red", ...ColorSampling, ...GlobalSampling] },
+    { name: "border", key: "border", values: [...Object.keys(BorderMapping), "0.0625rem solid red", ...ColorSampling, ...GlobalSampling] },
     { name: "border/active", key: "borderActive", values: [...Object.keys(BorderMapping), ...ColorSampling, ...GlobalSampling] },
     { name: "border/focus", key: "borderFocus", values: [...Object.keys(BorderMapping), ...ColorSampling, ...GlobalSampling] },
     { name: "border/hover", key: "borderHover", values: [...Object.keys(BorderMapping), ...ColorSampling, ...GlobalSampling] },

@@ -21,6 +21,6 @@ stories()
         <Inline>
             <Switch border="warning-7">Engines</Switch>
             <Switch className="border-red">Engines</Switch>
-            <Switch style={{ border: "1px solid red" }}>Engines</Switch>
+            <Switch style={{ border: "0.0625rem solid red" }}>Engines</Switch>
         </Inline>
     );

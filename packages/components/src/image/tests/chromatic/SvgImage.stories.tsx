@@ -27,14 +27,14 @@ export const Fill: SvgImageStory = {
 export const Width: SvgImageStory = {
     storyName: "width",
     render: () => (
-        <SvgImage width="100px" src={NoResults} stroke="alias-secondary" aria-label="No Results" />
+        <SvgImage width="6.25rem" src={NoResults} stroke="alias-secondary" aria-label="No Results" />
     )
 };
 
 export const Height: SvgImageStory = {
     storyName: "height",
     render: () => (
-        <SvgImage height="100px" src={NoResults} stroke="alias-secondary" aria-label="No Results" />
+        <SvgImage height="6.25rem" src={NoResults} stroke="alias-secondary" aria-label="No Results" />
     )
 };
 

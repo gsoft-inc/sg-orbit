@@ -121,7 +121,7 @@ export const Styling: AvatarStory = {
         <Inline>
             <Avatar name="Sally Ride" border="warning-7" />
             <Avatar name="Sally Ride" className="border-red" />
-            <Avatar name="Sally Ride" style={{ border: "1px solid red" }} />
+            <Avatar name="Sally Ride" style={{ border: "0.0625rem solid red" }} />
         </Inline>
     )
 };

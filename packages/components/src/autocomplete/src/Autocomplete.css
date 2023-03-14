@@ -6,7 +6,7 @@
     overflow: hidden;
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--o-ui-b-alias-low-break);
+    border: 0.0625rem solid var(--o-ui-b-alias-low-break);
     border-radius: var(--o-ui-br-2);
     box-shadow: var(--o-ui-bs-alias-floating);
     background-color: var(--o-ui-bg-alias-surface);
@@ -14,6 +14,6 @@
     padding-left: var(--o-ui-sp-3);
     position: relative;
     cursor: default;
-    height: calc(var(--o-ui-sz-5) + 2px);
+    height: calc(var(--o-ui-sz-5) + 0.125rem);
     min-width: 100%;
 }

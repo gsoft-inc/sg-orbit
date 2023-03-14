@@ -5,11 +5,11 @@ import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const Breakpoints = {
-    xs: "(min-width: 640px)",
-    sm: "(min-width: 768px)",
-    md: "(min-width: 1024px)",
-    lg: "(min-width: 1280px)",
-    xl: "(min-width: 1536px)"
+    xs: "(min-width: 40rem)",
+    sm: "(min-width: 48rem)",
+    md: "(min-width: 64rem)",
+    lg: "(min-width: 80rem)",
+    xl: "(min-width: 96rem)"
 };
 /* eslint-enable sort-keys-fix/sort-keys-fix */
 

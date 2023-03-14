@@ -166,7 +166,7 @@ export const Styling: TextInputStory = {
             <TextInput style={{ backgroundColor: "red" }} aria-label="Label" />
             <TextInput wrapperProps={{ border: "alert-6" }} aria-label="Label" />
             <TextInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
-            <TextInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
+            <TextInput wrapperProps={{ style: { border: "0.0625rem solid red" } }} aria-label="Label" />
         </Inline>
     )
 };

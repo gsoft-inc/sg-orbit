@@ -1,7 +1,7 @@
 /* TABS */
 .o-ui-tabs {
     height: max-content;
-    --o-ui-tab-stroke-width: 4px;
+    --o-ui-tab-stroke-width: 0.25rem;
 }
 
 /* TABS | ORIENTATION | VERTICAL */
@@ -51,7 +51,7 @@
 /* TAB LIST | POPOVER */
 .o-ui-tab-list-popover {
     background-color: var(--o-ui-bg-alias-surface);
-    border: 1px solid var(--o-ui-b-alias-low-break);
+    border: 0.0625rem solid var(--o-ui-b-alias-low-break);
     border-radius: var(--o-ui-br-3);
     box-shadow: var(--o-ui-bs-alias-floating);
     margin-top: var(--o-ui-sp-2);
@@ -59,7 +59,7 @@
 
 /* TAB LIST | POPOVER | TAB */
 .o-ui-tab-list-popover .o-ui-tab {
-    padding-left: calc(var(--o-ui-sp-3) + 1px);
+    padding-left: calc(var(--o-ui-sp-3) + 0.0625rem);
     padding-right: var(--o-ui-sp-8);
     justify-content: start;
     width: 100%;
@@ -74,8 +74,8 @@
 
 /* TAB LIST | POPOVER | FOCUS */
 .o-ui-tab-list-popover .o-ui-tab::before {
-    left: 8px;
-    right: 8px;
+    left: 0.5rem;
+    right: 0.5rem;
 }
 
 /* TAB LIST | HIDDEN TABS */
@@ -118,7 +118,7 @@
 /* TAB | WITH ICON */
 .o-ui-tab-has-icon,
 .o-ui-tab-list-popover .o-ui-tab-has-icon {
-    padding-left: calc(0.5rem + 1px);
+    padding-left: calc(0.5rem + 0.0625rem);
 }
 
 /* TAB | STATE | FOCUS */
@@ -137,8 +137,8 @@
 
 /* TAB | STATE | FOCUS | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab::before {
-    left: 8px;
-    right: 8px;
+    left: 0.5rem;
+    right: 0.5rem;
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {
@@ -148,7 +148,7 @@
 
 /* TAB | STATE | FOCUS | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab::before {
-    left: 1px;
+    left: 0.0625rem;
     right: 0;
 }
 
@@ -257,7 +257,7 @@
 
 /*  PANEL | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-panel {
-    padding: calc(var(--o-ui-sp-3) + 1px) var(--o-ui-sp-4);
+    padding: calc(var(--o-ui-sp-3) + 0.0625rem) var(--o-ui-sp-4);
 }
 
 /* PANEL | FLUID */

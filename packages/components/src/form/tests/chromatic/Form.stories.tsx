@@ -222,7 +222,7 @@ export const Styling: FormStory = {
                     <TextInput placeholder="Where to?" />
                 </Field>
             </Form>
-            <Form style={{ border: "1px solid red" }}>
+            <Form style={{ border: "0.0625rem solid red" }}>
                 <Field>
                     <TextInput placeholder="Where to?" />
                 </Field>

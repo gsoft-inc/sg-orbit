@@ -97,7 +97,7 @@ export const Style: OverlayStory = {
     storyName: "style",
     render: () => (
         <Boundary>
-            <Overlay style={{ border: "1px solid red" }} show>
+            <Overlay style={{ border: "0.0625rem solid red" }} show>
                 <PrimaryBox />
             </Overlay>
         </Boundary>

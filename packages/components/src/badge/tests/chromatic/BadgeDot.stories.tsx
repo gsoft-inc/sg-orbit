@@ -35,7 +35,7 @@ export const Styling: BadgeStory = {
         <Inline>
             <SquareBadge variant="dot" border="warning-7" />
             <SquareBadge variant="dot" className="border-red" />
-            <SquareBadge variant="dot" style={{ border: "1px solid red" }} />
+            <SquareBadge variant="dot" style={{ border: "0.0625rem solid red" }} />
         </Inline>
     )
 };

@@ -6,7 +6,7 @@ export default {
     component: ContextualHelp,
     decorators: [
         Story => (
-            <div style={{ padding: "150px 250px" }}>
+            <div style={{ padding: "9.375rem 15.625rem" }}>
                 <Story />
             </div>
         )

@@ -69,35 +69,35 @@ export const parameters = {
             xs: {
                 name: "xs (640px)",
                 styles: {
-                    width: "640px",
+                    width: "40rem",
                     height: "100%"
                 }
             },
             sm: {
                 name: "sm (768px)",
                 styles: {
-                    width: "768px",
+                    width: "48rem",
                     height: "100%"
                 }
             },
             md: {
                 name: "md (1024px)",
                 styles: {
-                    width: "1024px",
+                    width: "64rem",
                     height: "100%"
                 }
             },
             lg: {
                 name: "lg (1280px)",
                 styles: {
-                    width: "1280px",
+                    width: "80rem",
                     height: "100%"
                 }
             },
             xl: {
                 name: "xl (1536px)",
                 styles: {
-                    width: "1536px",
+                    width: "96rem",
                     height: "100%"
                 }
             }

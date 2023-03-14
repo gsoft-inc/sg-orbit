@@ -223,7 +223,7 @@ export const Styling: AvatarGroupStory = {
                 <Avatar name="Sally Ride" />
                 <Avatar name="Alan Shepard" />
             </AvatarGroup>
-            <AvatarGroup style={{ border: "1px solid red" }}>
+            <AvatarGroup style={{ border: "0.0625rem solid red" }}>
                 <Avatar name="Sally Ride" />
                 <Avatar name="Alan Shepard" />
             </AvatarGroup>

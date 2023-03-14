@@ -14,7 +14,7 @@
     display: inline-block;
     background-color: var(--o-ui-bg-alias-surface);
     border-radius: var(--o-ui-br-circular);
-    border: 1px solid var(--o-ui-b-alias-mid-break);
+    border: 0.0625rem solid var(--o-ui-b-alias-mid-break);
     position: relative;
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
@@ -134,7 +134,7 @@
 /* STATE | HOVER */
 .o-ui-radio:hover input[type="radio"]:not([disabled]) + .o-ui-radio-button,
 .o-ui-radio-hover:not(.o-ui-radio-disabled) .o-ui-radio-button {
-    border: 1px solid var(--o-ui-b-alias-high-break);
+    border: 0.0625rem solid var(--o-ui-b-alias-high-break);
 }
 
 /* STATE | DISABLED */

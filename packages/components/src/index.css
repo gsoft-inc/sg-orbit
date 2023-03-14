@@ -56,15 +56,17 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
     --o-ui-disabled-opacity: 0.4;
 
     /* FOCUS RING */
-    --o-ui-focus-ring-thickness-sm: 1px;
-    --o-ui-focus-ring-thickness-md: 3px;
-    --o-ui-focus-ring-thickness-lg: 5px;
+    --o-ui-focus-ring-thickness-sm: 0.0625rem;
+    --o-ui-focus-ring-thickness-md: 0.1875rem;
+    --o-ui-focus-ring-thickness-lg: 0.3125rem;
 
     --o-ui-focus-ring-inset-sm: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-focus-ring-color-alias-default);
     --o-ui-focus-ring-inset-md: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
     --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color-alias-default);
-    --o-ui-focus-ring-outset-inner-offset: 1px;
-    --o-ui-focus-ring-outset: 0 0 0 var(--o-ui-focus-ring-outset-outer-offset) var(--o-ui-white), 0 0 0 calc(2px + var(o-ui-focus-ring-outset-outer-offset)) var(--o-ui-focus-ring-color-alias-default);
+    --o-ui-focus-ring-outset-inner-offset: 0.0625rem;
+    --o-ui-focus-ring-outset:
+        0 0 0 var(--o-ui-focus-ring-outset-outer-offset) var(--o-ui-white),
+        0 0 0 calc(0.125rem + var(o-ui-focus-ring-outset-outer-offset)) var(--o-ui-focus-ring-color-alias-default);
     --o-ui-focus-ring-transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-focus);
 
     /* TRANSITIONS | TIMING */

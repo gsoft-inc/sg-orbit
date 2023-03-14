@@ -89,7 +89,7 @@ export const Styling: DividerStory = {
         <Stack>
             <Divider border="warning-7" />
             <Divider className="border-red" />
-            <Divider style={{ border: "1px solid red" }} />
+            <Divider style={{ border: "0.0625rem solid red" }} />
         </Stack>
     )
 };

@@ -40,10 +40,10 @@ export function TokenTable({ colors }) {
             <Table
                 className="token-table"
                 columns={[
-                    { title: "Token", headerStyle: { width: "325px" }, rowClassName: "code" },
-                    { title: "CSS Variable", headerStyle: { width: "350px" }, rowClassName: "code" },
-                    { title: "Value", headerStyle: { width: "225px" }, rowClassName: "code" },
-                    { title: "Example", headerStyle: { width: "275px" }, rowClassName: "example", rowStyle: { backgroundColor: "var(--o-ui-bg-alias-surface)" } }
+                    { title: "Token", headerStyle: { width: "20.3125rem" }, rowClassName: "code" },
+                    { title: "CSS Variable", headerStyle: { width: "21.875rem" }, rowClassName: "code" },
+                    { title: "Value", headerStyle: { width: "14.0625rem" }, rowClassName: "code" },
+                    { title: "Example", headerStyle: { width: "17.1875rem" }, rowClassName: "example", rowStyle: { backgroundColor: "var(--o-ui-bg-alias-surface)" } }
                 ]}
                 rows={colors.map(x => toRowValues(x, docsContext))}
             />

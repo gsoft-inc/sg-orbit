@@ -28,7 +28,7 @@ import { useCollapsibleTabs } from "./useCollapsibleTabs";
 import { useTabsContext } from "./TabsContext";
 
 const TabGap = 8;
-const PopoverTriggerWidth = 48;
+const PopoverTriggerWidth = 3;
 
 interface TabListPopoverProps extends Omit<StyledComponentProps<"button">, "onSelect"> {
     autoFocusTarget: string;
@@ -115,7 +115,7 @@ ref) => {
                         ref: triggerRef,
                         tabIndex: -1,
                         type: "button" as const,
-                        width: `${PopoverTriggerWidth}px`
+                        width: `${PopoverTriggerWidth}rem`
                     },
                     triggerProps,
                     triggerAriaProps

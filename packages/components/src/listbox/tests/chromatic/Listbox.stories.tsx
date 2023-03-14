@@ -716,9 +716,9 @@ export const Styling: ListboxStory = {
                 <Item className="border-red" key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Listbox>
-            <Listbox style={{ border: "1px solid red" }} aria-label="Planets">
+            <Listbox style={{ border: "0.0625rem solid red" }} aria-label="Planets">
                 <Item key="earth">Earth</Item>
-                <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
+                <Item style={{ border: "0.0625rem solid red" }} key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Listbox>
         </Inline>

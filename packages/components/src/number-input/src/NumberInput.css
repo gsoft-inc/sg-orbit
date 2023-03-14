@@ -3,7 +3,6 @@
 }
 
 .o-ui-number-input {
-    /* 150px @ 16px */
     width: 9.365rem;
     padding-right: var(--o-ui-spinner-width);
 }
@@ -26,7 +25,7 @@
     visibility: hidden;
     flex-direction: column;
     width: var(--o-ui-spinner-width);
-    min-height: calc(var(--o-ui-sz-6) - 2px);
+    min-height: calc(var(--o-ui-sz-6) - 0.125rem);
     position: absolute;
     right: 0;
     bottom: 0;
@@ -46,7 +45,7 @@
     padding: 0;
     margin: 0;
     border: 0;
-    border-left: 1px solid var(--o-ui-input-border-color);
+    border-left: 0.0625rem solid var(--o-ui-input-border-color);
     outline: transparent;
     cursor: pointer;
     background-color: var(--o-ui-bg-alias-surface);
@@ -54,7 +53,7 @@
 
 .o-ui-number-input-spinner-increment {
     border-top-right-radius: var(--o-ui-input-border-radius);
-    border-bottom: 1px solid var(--o-ui-input-border-color);
+    border-bottom: 0.0625rem solid var(--o-ui-input-border-color);
 }
 
 .o-ui-number-input-spinner-decrement {
@@ -112,5 +111,5 @@
 
 /* IN GROUP */
 .o-ui-number-input-in-group {
-    width: 100px;
+    width: 6.25rem;
 }

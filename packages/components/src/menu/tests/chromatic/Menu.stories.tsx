@@ -787,9 +787,9 @@ export const Styling: MenuStory = {
                 <Item className="border-red" key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Menu>
-            <Menu style={{ border: "1px solid red" }} aria-label="Planets">
+            <Menu style={{ border: "0.0625rem solid red" }} aria-label="Planets">
                 <Item key="earth">Earth</Item>
-                <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
+                <Item style={{ border: "0.0625rem solid red" }} key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Menu>
         </Inline>

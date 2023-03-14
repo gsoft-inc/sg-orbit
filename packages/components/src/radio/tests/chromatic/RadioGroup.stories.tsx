@@ -256,7 +256,7 @@ export const Reverse: RadioGroupStory = {
                         <Counter>60</Counter>
                     </Radio>
                 </RadioGroup>
-                <Div border="1px solid #000" width="100%" height={7}></Div>
+                <Div border="0.0625rem solid #000" width="100%" height={7}></Div>
             </Inline>
         </Stack>
     )

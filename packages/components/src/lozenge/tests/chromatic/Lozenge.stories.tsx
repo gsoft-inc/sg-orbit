@@ -187,7 +187,7 @@ export const InheritParentProperties: LozengeStory = {
 export const Fluid: LozengeStory = {
     storyName: "fluid",
     render: () => (
-        <Div width="500px">
+        <Div width="31.25rem">
             <Inline>
                 <Lozenge fluid>New</Lozenge>
                 <Lozenge fluid>
@@ -222,7 +222,7 @@ export const Styling: LozengeStory = {
             <Lozenge className="border-red">New</Lozenge>
             <Lozenge
                 style={{
-                    border: "1px solid red"
+                    border: "0.0625rem solid red"
                 }}
             >New</Lozenge>
         </Inline>

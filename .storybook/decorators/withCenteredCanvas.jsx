@@ -22,7 +22,7 @@ export function withCenteredCanvas(story, context) {
             <Div
                 width="90%"
                 // Important for chromatic tests.
-                height="600px"
+                height="37.5rem"
                 marginRight="auto"
                 marginLeft="auto"
                 style={canvasLayout}

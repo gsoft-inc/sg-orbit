@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 8px;
+    padding: 0.5rem;
     border-radius: var(--o-ui-br-2);
     background-color: var(--o-ui-bg-alias-mid-break);
     cursor: pointer;

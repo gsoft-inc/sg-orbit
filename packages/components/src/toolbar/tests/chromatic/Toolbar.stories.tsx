@@ -292,7 +292,7 @@ export const Styling: ToolbarStory = {
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
             </Toolbar>
-            <Toolbar style={{ border: "1px solid red" }}>
+            <Toolbar style={{ border: "0.0625rem solid red" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>

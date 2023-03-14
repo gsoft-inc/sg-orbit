@@ -21,7 +21,7 @@ export function CircleBadge({ children, ...rest }: BadgeUtilsProps) {
             overlap="circle"
         >
             {children}
-            <Div backgroundColor="alias-accent-light" borderRadius="100px" width={6} height={6} />
+            <Div backgroundColor="alias-accent-light" borderRadius="var(--o-ui-br-circular)" width={6} height={6} />
         </Badge>
     );
 }

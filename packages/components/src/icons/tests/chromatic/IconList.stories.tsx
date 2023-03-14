@@ -32,7 +32,7 @@ export const Styling: IconListStory = {
         <Stack>
             <Icons border="warning-7" />
             <Icons className="border-red" />
-            <Icons style={{ border: "1px solid red" }} />
+            <Icons style={{ border: "0.0625rem solid red" }} />
         </Stack>
     )
 };

@@ -135,7 +135,7 @@ export function InnerTileGroup({
                 {
                     alignItems: "stretch",
                     fluid: true,
-                    // If you change the gap, also update the tile size gap (currently 16px) below.
+                    // If you change the gap, also update the tile size gap (currently 1rem) below.
                     gap: 4,
                     orientation: "horizontal",
                     ref: forwardedRef,
@@ -153,7 +153,7 @@ export function InnerTileGroup({
                 return augmentElement(x, {
                     disabled: selectionMode === "none" ? disabled : undefined,
                     orientation: "horizontal",
-                    width: `calc((100% - ${(rowSizeValue - 1) * 16}px) / ${rowSizeValue})`
+                    width: `calc((100% - ${(rowSizeValue - 1) * 1}rem) / ${rowSizeValue})`
                 });
             })}
         </As>

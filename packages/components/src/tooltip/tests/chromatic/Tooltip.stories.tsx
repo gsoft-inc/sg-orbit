@@ -11,7 +11,7 @@ export default {
     component: Tooltip,
     decorators: [
         Story => (
-            <div style={{ padding: "150px 250px" }}>
+            <div style={{ padding: "9.375rem 15.625rem" }}>
                 <Story />
             </div>
         )
@@ -92,7 +92,7 @@ export const ImageTrigger: TooltipStory = {
     storyName: "image trigger",
     render: () => (
         <TooltipTrigger open>
-            <Image src={Launch} width="400px" alt="SpaceX launch" />
+            <Image src={Launch} width="25rem" alt="SpaceX launch" />
             <Tooltip>Man must rise above the Earth</Tooltip>
         </TooltipTrigger>
     )
@@ -291,7 +291,7 @@ export const TooltipTriggerClassName: TooltipStory = {
 export const TooltipTriggerStyle: TooltipStory = {
     storyName: "tooltip trigger style",
     render: () => (
-        <TooltipTrigger style={{ border: "1px solid red" }} open>
+        <TooltipTrigger style={{ border: "0.0625rem solid red" }} open>
             <Button variant="secondary">Trigger</Button>
             <Tooltip>Man must rise above the Earth.</Tooltip>
         </TooltipTrigger>
@@ -323,7 +323,7 @@ export const TooltipStyle: TooltipStory = {
     render: () => (
         <TooltipTrigger open>
             <Button variant="secondary">Trigger</Button>
-            <Tooltip style={{ border: "1px solid red" }}>Man must rise above the Earth.</Tooltip>
+            <Tooltip style={{ border: "0.0625rem solid red" }}>Man must rise above the Earth.</Tooltip>
         </TooltipTrigger>
     )
 };
