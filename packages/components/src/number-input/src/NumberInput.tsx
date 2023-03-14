@@ -361,6 +361,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             />
             <Spinner
                 aria-hidden={loading}
+                aria-label="Loading..."
                 disableDecrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue <= min)}
                 disableIncrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue >= max)}
                 onDecrement={handleDecrement}

@@ -22,5 +22,5 @@ export function useInputButton(button: ReactElement, isActive: boolean, props: R
 }
 
 export function useInputSpinner(loading: boolean) {
-    return loading && <Spinner className="o-ui-input-spinner" role="presentation" />;
+    return loading && <Spinner aria-label="Loading..." className="o-ui-input-spinner" role="presentation" />;
 }

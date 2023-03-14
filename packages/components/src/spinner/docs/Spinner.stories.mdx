@@ -26,6 +26,8 @@ import { InnerSpinner, Spinner } from "@components/spinner";
 ### Accessibility
 
 - The spinner component has a [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) of `status` by default. When inside a parent component that is focusable, the spinner should have a role of `presentation` to prevent the screen reader from reading the spinner.
+- The parent component should have a `aria-busy` attribute set to `true` when the spinner is visible.
+- The parent component should have a `aria-live` attribute set to `polite`.
 
 ### Spinner vs Loader
 
