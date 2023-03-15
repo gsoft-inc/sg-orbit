@@ -1,9 +1,8 @@
-import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus } from "../../input";
+import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus, useInputSpinner } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import { OmitInternalProps, cssModule, getBodyElement, isNil, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "textarea";
@@ -204,6 +203,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
+    const loadingMarkup = useInputSpinner(loading);
+
     const content = (
         <>
             <Box
@@ -239,6 +240,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
             )}
         >
             {content}
+            {loadingMarkup}
         </Box>
     );
 }

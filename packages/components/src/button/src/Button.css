@@ -244,41 +244,19 @@ a.o-ui-button {
     cursor: not-allowed;
 }
 
-.o-ui-button-loading:before {
-    content: "";
-    border-radius: 50px;
-    border: 2px solid var(--o-ui-b-alias-low-break);
-    border-top-color: var(--o-ui-b-alias-high-break);
-    animation: o-ui-button-spinner 1s linear infinite;
-    transform: rotate(0deg);
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
 .o-ui-button-loading > * {
     visibility: hidden;
+}
+
+.o-ui-button-spinner {
+    position: absolute;
+    visibility: visible;
 }
 
 /* LOADING | SOLID */
 .o-ui-button-loading.o-ui-button-solid:before {
     border: solid 2px var(--o-ui-button-loading-spinner-background);
     border-top-color: var(--o-ui-white);
-}
-
-@keyframes o-ui-button-spinner {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 /* LOADING | SIZES */

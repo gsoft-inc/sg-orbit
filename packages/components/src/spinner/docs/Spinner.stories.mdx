@@ -1,0 +1,100 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Inline } from "@components/layout";
+import { InnerSpinner, Spinner } from "@components/spinner";
+
+<Meta
+    title="Components/Spinner"
+    id="spinner"
+/>
+
+# Spinner
+
+<Tagline>A spinner indicates that a part of the product is currently performing a task, and the duration of this process is unknown.</Tagline>
+
+<ComponentInfo
+    usage={"import { Spinner } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/spinner/src"
+/>
+
+## Guidelines
+
+### When to use
+
+- To notify users that an action is in progress.
+
+### Accessibility
+
+- The spinner component has a [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) of `status` by default. When inside a parent component that is focusable, the spinner should have a role of `presentation` to prevent the screen reader from reading the spinner.
+- The parent component should have a `aria-busy` attribute set to `true` when the spinner is visible.
+- The parent component should have a `aria-live` attribute set to `polite`.
+
+### Spinner vs Loader
+
+- Use the spinner component insider another component. When the whole page is waiting for data, use a [loader](?path=/docs/loader--default-story) instead.
+
+## Usage
+
+### Default
+
+A simple spinner.
+
+<Preview>
+    <Story name="default">
+        <Spinner aria-label="Loading..." />
+    </Story>
+</Preview>
+
+### Size
+
+A spinner can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline alignY="end">
+            <Spinner size="sm" aria-label="Loading..."/>
+            <Spinner aria-label="Loading..."/>
+            <Spinner size="lg" aria-label="Loading..."/>
+        </Inline>
+    </Story>
+</Preview>
+
+### Label
+
+A spinner can have a label.
+
+<Preview>
+    <Story name="label">
+        <Inline alignY="end">
+            <Spinner size="sm">Loading...</Spinner>
+            <Spinner>Loading...</Spinner>
+            <Spinner size="lg">Loading...</Spinner>
+        </Inline>
+    </Story>
+</Preview>
+
+
+### Over Background
+
+You can change a spinner style when over a background by setting a color property on the spinner.
+
+<Preview>
+    <Story name="over background">
+        <Div backgroundColor="alias-accent" padding={4}>
+            <Spinner color="alias-static-white">Loading...</Spinner>
+        </Div>
+    </Story>
+</Preview>
+
+
+## API
+
+### Spinner
+
+<ComponentInfo
+    usage={"import { Spinner } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerSpinner.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerSpinner} sort="alpha" />

@@ -209,19 +209,10 @@
     }
 }
 
-.o-ui-input-loading::before {
-    content: "";
+.o-ui-input-spinner {
     position: absolute;
-    top: 50%;
-    z-index: 1;
-    border-radius: 50px;
-    border: 2px solid var(--o-ui-b-alias-low-break);
-    border-top-color: var(--o-ui-b-alias-mid-break);
-    transform: translate(0, -50%) rotate(0deg);
-    animation: o-ui-input-spinner 1s linear infinite;
-    width: 1.25rem;
-    height: 1.25rem;
     right: calc((var(--o-ui-input-padding-with-button) - var(--o-ui-sp-5)) / 2);
+    z-index: 1;
 }
 
 .o-ui-input-loading .o-ui-button {

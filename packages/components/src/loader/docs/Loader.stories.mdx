@@ -1,0 +1,76 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { InnerLoader, Loader } from "@components/loader";
+
+<Meta
+    title="Components/Loader"
+    id="loader"
+/>
+
+# Loader
+
+<Tagline>A loader provides reassurance that content is currently being loaded, processing, or that change will occur on the page.</Tagline>
+
+<ComponentInfo
+    usage={"import { Loader } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/loader/src"
+/>
+
+## Guidelines
+
+### When to use
+
+- To give feedback for an entire page load.
+- On page elements where the visual layout/format of the content being loaded is unknown.
+- To indicate processing, or that change will occur on the page (rather than loading UI elements).
+
+### Accessibility
+
+- The loader has a [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) of `status` by default.
+- The parent component should have a `aria-busy` attribute set to `true` when the loader is visible.
+- The parent component should have a `aria-live` attribute set to `polite`.
+
+### Loader vs Spinner
+
+- When you need to give feedback for a user or system action, use a [spinner](?path=/docs/spinner--default-story) instead.
+
+## Usage
+
+- Avoid increasing the size of the Loader to maintain consistency with other indicators accross the application.
+- Always center the Loader and position it close to where you want the user's attention to be once loading is complete.
+- Ideally used on a body or surface background.
+- The delay property should often be used to avoid flashing the loader when the loading time is very short.
+
+### Default
+
+This is the default loader.
+
+<Preview>
+    <Story name="default">
+        <Loader aria-label="Loading..." />
+    </Story>
+</Preview>
+
+### Delay
+
+A loader can appears after a short delay. This is to prevent the loader from appearing when the action is very fast.
+By settings `delay` to `true`, the loader will appear after 300ms. You can also set a custom delay in milliseconds.
+
+<Preview>
+    <Story name="delay">
+        <Loader delay aria-label="Loading..."/>
+    </Story>
+</Preview>
+
+
+## API
+
+### Loader
+
+<ComponentInfo
+    usage={"import { Loader } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerLoader.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerLoader} sort="alpha" />

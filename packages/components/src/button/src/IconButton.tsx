@@ -1,6 +1,7 @@
 import { Box } from "../../box";
 import { ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";
+import { Spinner } from "../../spinner";
 
 import {
     InteractionProps,
@@ -9,6 +10,7 @@ import {
     SlotProps,
     StyledComponentProps,
     as,
+    createSizeAdapter,
     augmentElement,
     createEmbeddableAdapter,
     mergeProps,
@@ -62,6 +64,13 @@ export interface InnerIconButtonProps extends AbstractIconButtonProps<typeof Def
      */
     children: ReactNode;
 }
+
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
+const spinnerSize = createSizeAdapter({
+    "sm": "md",
+    "md": "lg"
+});
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function InnerIconButton(props: InnerIconButtonProps) {
     const [toolbarProps] = useToolbarProps();
@@ -117,6 +126,15 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         size: sizeValue
     });
 
+    const loadingMarkup = loading && (
+        <Spinner
+            className="o-ui-button-spinner"
+            color={variant === "primary" ? "alias-static-white" : undefined}
+            role="presentation"
+            size={spinnerSize(sizeValue)}
+        />
+    );
+
     return (
         <Box
             {...mergeProps(
@@ -129,6 +147,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
             )}
         >
             {iconMarkup}
+            {loadingMarkup}
         </Box>
     );
 }
