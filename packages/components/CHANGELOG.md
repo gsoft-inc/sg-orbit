@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 34.3.1
+
+### Patch Changes
+
+- 55f97fea4: fixed an issue where tabs triggers would not inherit the body font family
+
 ## 34.3.0
 
 ### Minor Changes
