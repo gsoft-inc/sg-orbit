@@ -4499,10 +4499,10 @@
     expect "^29.0.0"
     pretty-format "^29.0.0"
 
-"@types/jest@29.4.2":
-  version "29.4.2"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.4.2.tgz#13ca45d528a0f81a4792b7df199f58ad46c2a0e3"
-  integrity sha512-bbne90W7is+m88ezmZrLiTpp41tIoTdvPC5t3gLoNgu/6qbGdWTC2JWqPWQRJn2Q7rVYTr8aTWqOjhGJDXyvAQ==
+"@types/jest@29.4.3":
+  version "29.4.3"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.4.3.tgz#2575bf579815e647f5a6c0f2267d2b142aa72619"
+  integrity sha512-rQ+fXtBHSDfgoTwGLLNuZ27fHpp14mCZSxGUZ3MlNExwJno5hz0uXEWtXfQlE8vaZmYAa6atbR9rpHk+NnlRaw==
   dependencies:
     expect "^29.0.0"
     pretty-format "^29.0.0"
@@ -19055,10 +19055,10 @@ stylelint-config-recommended@^9:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-9.0.0.tgz#1c9e07536a8cd875405f8ecef7314916d94e7e40"
   integrity sha512-9YQSrJq4NvvRuTbzDsWX3rrFOzOlYBmZP+o513BJN/yfEmGSr0AxdvrWs0P/ilSpVV/wisamAHu5XSk8Rcf4CQ==
 
-stylelint@14.16.0:
-  version "14.16.0"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.16.0.tgz#8e1a424f4b9852e59089f95de306734d70e5048b"
-  integrity sha512-X6uTi9DcxjzLV8ZUAjit1vsRtSwcls0nl07c9rqOPzvpA8IvTX/xWEkBRowS0ffevRrqkHa/ThDEu86u73FQDg==
+stylelint@14.16.1:
+  version "14.16.1"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.16.1.tgz#b911063530619a1bbe44c2b875fd8181ebdc742d"
+  integrity sha512-ErlzR/T3hhbV+a925/gbfc3f3Fep9/bnspMiJPorfGEmcBbXdS+oo6LrVtoUZ/w9fqD6o6k7PtUlCOsCRdjX/A==
   dependencies:
     "@csstools/selector-specificity" "^2.0.2"
     balanced-match "^2.0.0"
