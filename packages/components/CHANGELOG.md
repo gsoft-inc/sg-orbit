@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 34.3.0
+
+### Minor Changes
+
+- 88b295212: Added Spinner and Loader components
+
 ## 34.2.0
 
 ### Minor Changes
