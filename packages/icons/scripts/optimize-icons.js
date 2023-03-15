@@ -43,24 +43,24 @@ const validateSize = (width, height, name) => {
     }
 };
 
-let width = null
-let height = null
+let width = null;
+let height = null;
 
 const plugin = {
-  name: 'find-size',
-  fn: () => {
-    return {
-      element: {
-        enter: (node, parentNode) => {
-          if (parentNode.type === 'root') {
-            width = node.attributes.width
-            height = node.attributes.height
-          }
-        }
-      }
+    name: "find-size",
+    fn: () => {
+        return {
+            element: {
+                enter: (node, parentNode) => {
+                    if (parentNode.type === "root") {
+                        width = node.attributes.width;
+                        height = node.attributes.height;
+                    }
+                }
+            }
+        };
     }
-  }
-}
+};
 
 const optimizeIcon = icon => {
     const { content, filePath, ...rest } = icon;
@@ -75,7 +75,7 @@ const optimizeIcon = icon => {
         ...rest,
         size: {
             width: width,
-            height: width
+            height: height
         },
         data
     };
@@ -90,6 +90,7 @@ function optimizeIcons(icons) {
     result.forEach(icon => {
         validateSize(icon.size.width, icon.size.height, icon.name);
     });
+
     return result;
 }
 
