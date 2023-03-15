@@ -108,6 +108,7 @@
     min-height: var(--o-ui-sz-7);
     color: var(--o-ui-text-alias-secondary);
     position: relative;
+    font-family: inherit;
 }
 
 /* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
