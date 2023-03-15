@@ -38,9 +38,9 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         disabled,
         focus,
         forwardedRef,
-        hover,
-        headingType: HeadingType = H3,
         headingProps,
+        headingType: HeadingType = H3,
+        hover,
         ...rest
     } = omitProps(props, ["header"]);
 

@@ -14,12 +14,12 @@ export interface InnerSpinnerProps extends InternalProps, StyledComponentProps<t
 }
 
 export function InnerSpinner({
-    as = DefaultElement,
-    size = "md",
-    forwardedRef,
-    children,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
+    as = DefaultElement,
+    children,
+    forwardedRef,
+    size = "md",
     ...rest
 }: InnerSpinnerProps) {
     const sizeValue = useResponsiveValue(size);

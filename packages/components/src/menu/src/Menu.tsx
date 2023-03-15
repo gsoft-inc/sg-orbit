@@ -99,8 +99,8 @@ export function InnerMenu({
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
     autoFocus,
-    children,
     autoFocusTarget,
+    children,
     defaultSelectedKeys,
     fluid,
     forwardedRef,
@@ -235,12 +235,12 @@ export function InnerMenu({
     );
 
     const renderSection = ({
-        key,
-        index,
         elementType: As = MenuSection,
-        ref,
+        index,
+        items: sectionItems,
+        key,
         props,
-        items: sectionItems
+        ref
     }: CollectionSection) => {
         if (isEmptyArray(sectionItems)) {
             return null;

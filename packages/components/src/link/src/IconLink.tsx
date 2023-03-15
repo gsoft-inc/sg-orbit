@@ -43,8 +43,8 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         hover,
         rel,
         target,
-        visited,
         variant,
+        visited,
         ...rest
     } = mergeProps(
         props,

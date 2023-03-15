@@ -65,11 +65,11 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
 const AvailableSlots = 4;
 
 export function InnerAvatarGroup({
-    size,
     as = DefaultElement,
     children,
-    wrap = true,
     forwardedRef,
+    size,
+    wrap = true,
     ...rest
 }: InnerAvatarGroupProps) {
     const sizeValue = useResponsiveValue(size);

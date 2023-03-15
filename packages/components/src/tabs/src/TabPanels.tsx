@@ -27,12 +27,12 @@ export function TabPanels({
             )}
         >
             {panels.map(({
-                key,
                 elementType: ElementType = TabPanel,
-                ref,
-                tabId,
+                key,
                 panelId,
-                props
+                props,
+                ref,
+                tabId
             }) =>
                 <ElementType
                     {...props}

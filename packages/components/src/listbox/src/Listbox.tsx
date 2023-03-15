@@ -159,9 +159,9 @@ export function InnerListbox({
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
     autoFocus,
-    children,
-    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
     autoFocusTarget,
+    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
+    children,
     defaultSelectedKeys,
     fluid,
     focusOnHover,
@@ -373,12 +373,12 @@ export function InnerListbox({
     const rootId = useId(id, "o-ui-listbox");
 
     const renderOption = ({
-        key,
-        index,
-        elementType: As = ListboxOption,
-        ref,
         content,
+        elementType: As = ListboxOption,
+        index,
+        key,
         props = {},
+        ref,
         tooltip
     }: CollectionItem) => (
         <As
@@ -397,12 +397,12 @@ export function InnerListbox({
     );
 
     const renderSection = ({
-        key,
-        index,
         elementType: As = ListboxSection,
-        ref,
+        index,
+        items: sectionItems,
+        key,
         props = {},
-        items: sectionItems
+        ref
     }: CollectionSection) => {
         if (isEmptyArray(sectionItems)) {
             return null;

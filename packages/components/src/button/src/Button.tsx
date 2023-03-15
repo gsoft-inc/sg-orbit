@@ -92,12 +92,12 @@ export function InnerButton(props: InnerButtonProps) {
         focus,
         forwardedRef,
         hover,
+        inherit,
         loading,
+        onClick,
         size,
         type,
         variant = "primary",
-        inherit,
-        onClick,
         ...rest
     } = mergeProps(
         props,

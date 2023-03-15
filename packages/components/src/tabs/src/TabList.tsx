@@ -51,9 +51,9 @@ const TabListPopover = forwardRef(({
     onOpen,
     onSelect,
     open: openProp,
+    overlayProps: { id: overlayId, ...overlayProps } = {},
     setSize,
     tabs,
-    overlayProps: { id: overlayId, ...overlayProps } = {},
     ...rest
 }: TabListPopoverProps,
 ref) => {

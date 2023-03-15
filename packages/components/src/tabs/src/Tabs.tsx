@@ -57,8 +57,8 @@ export interface InnerTabsProps extends InternalProps, StyledComponentProps<type
 }
 
 export function InnerTabs({
-    as = DefaultElement,
     "aria-label": ariaLabel,
+    as = DefaultElement,
     autoFocus,
     children,
     collapsible = true,
