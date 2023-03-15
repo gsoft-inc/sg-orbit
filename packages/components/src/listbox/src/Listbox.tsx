@@ -159,8 +159,8 @@ export function InnerListbox({
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
     autoFocus,
-    autoFocusTarget,
     // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
+    autoFocusTarget,
     children,
     defaultSelectedKeys,
     fluid,
