@@ -45,8 +45,8 @@ export type InnerImageProps = AbstractImageProps<typeof DefaultElement>;
 export function InnerImage({
     as = DefaultElement,
     forwardedRef,
-    src,
     shape = "straight",
+    src,
     ...rest
 }: InnerImageProps) {
     const srcValue = useResponsiveValue(src);

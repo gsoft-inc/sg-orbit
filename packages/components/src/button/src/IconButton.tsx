@@ -88,10 +88,10 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         inherit,
         loading,
+        onClick,
         size,
         type,
         variant = "secondary",
-        onClick,
         ...rest
     } = mergeProps(
         props,

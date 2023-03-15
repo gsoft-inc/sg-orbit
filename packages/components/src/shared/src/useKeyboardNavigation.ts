@@ -17,7 +17,7 @@ export interface KeyboardNavigationBindings {
     previous?: Keys[];
 }
 
-export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onCanSelect, onSelect }: KeyboardNavigationOptions = {}) {
+export function useKeyboardNavigation(focusManager: FocusManager, { first = [], last = [], next = [], previous = [] }: KeyboardNavigationBindings, { onCanSelect, onSelect }: KeyboardNavigationOptions = {}) {
     const handleKeyDown: KeyboardEventHandler = useEventCallback((event: KeyboardEvent) => {
         const key = event.key as Keys;
 

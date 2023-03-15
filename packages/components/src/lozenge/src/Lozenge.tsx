@@ -51,11 +51,11 @@ const textSize = createSizeAdapter({
 export function InnerLozenge({
     as = DefaultElement,
     children,
-    variant = "informative",
-    forwardedRef,
     fluid,
+    forwardedRef,
     highlight,
     size,
+    variant = "informative",
     ...rest
 }: InnerLozengeProps) {
     const sizeValue = useResponsiveValue(size);

@@ -73,6 +73,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         as = DefaultElement,
         autoFocus,
         button,
+        className,
         defaultValue,
         disabled,
         fluid,
@@ -87,12 +88,11 @@ export function InnerTextInput(props: InnerTextInputProps) {
         placeholder,
         readOnly,
         required,
+        style,
         type = "text",
         validationState,
         value,
         wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
-        className,
-        style,
         ...rest
     } = adaptInputStylingProps(props, contextProps);
 

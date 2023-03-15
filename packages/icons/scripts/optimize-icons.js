@@ -1,44 +1,82 @@
 const { optimize } = require("svgo");
 const config = require("./svgo-config");
-const { ICONS_SIZES } = require("./constants");
 
 const ensureUniqueNames = data => {
-    const dataGroupedBySize = ICONS_SIZES.map(size => data.filter(d => d.sizeInTheName === size));
+    const unique = [...new Set(data.map(d => d.name))];
 
-    dataGroupedBySize.forEach(groupedData => {
-        const unique = [...new Set(groupedData.map(d => d.name))];
+    const lookup = data.reduce((a, e) => {
+        a[e.name] = ++a[e.name] || 0;
 
-        const lookup = groupedData.reduce((a, e) => {
-            a[e.name] = ++a[e.name] || 0;
+        return a;
+    }, {});
 
-            return a;
-        }, {});
-
-        if (groupedData.length !== unique.length) {
-            console.error(
-                "Array contains duplicates icon name: ",
-                groupedData.filter(e => lookup[e.name])
-            );
-            process.exit(1);
-        }
-    });
+    if (data.length !== unique.length) {
+        console.error(
+            "Array contains duplicates icon name: ",
+            data.filter(e => lookup[e.name])
+        );
+        process.exit(1);
+    }
 };
 
 const validateIcons = icons => {
     ensureUniqueNames(icons);
 };
 
+const validateSize = (width, height, name) => {
+    const sizes = [20];
+
+    if (sizes.includes(Number(width)) && sizes.includes(Number(height))) {
+        if (Number(width) !== Number(height)) {
+            console.error(
+                `The size of ${name} is not square. width: ${width} height: ${height}`
+            );
+            process.exit(1);
+        }
+
+        return true;
+    } else {
+        console.error(
+            `The size of ${name} is not correct. width: ${width} height: ${height}`
+        );
+        process.exit(1);
+    }
+};
+
+let width = null;
+let height = null;
+
+const plugin = {
+    name: "find-size",
+    fn: () => {
+        return {
+            element: {
+                enter: (node, parentNode) => {
+                    if (parentNode.type === "root") {
+                        width = node.attributes.width;
+                        height = node.attributes.height;
+                    }
+                }
+            }
+        };
+    }
+};
+
 const optimizeIcon = icon => {
     const { content, filePath, ...rest } = icon;
 
-    const { info, data } = optimize(content, {
+    const { data } = optimize(content, {
         path: filePath,
-        ...config
+        ...config,
+        plugins: [...config.plugins, plugin]
     });
 
     return {
         ...rest,
-        size: { width: info.width, height: info.height },
+        size: {
+            width: width,
+            height: height
+        },
         data
     };
 };
@@ -49,6 +87,9 @@ function optimizeIcons(icons) {
     });
 
     validateIcons(result);
+    result.forEach(icon => {
+        validateSize(icon.size.width, icon.size.height, icon.name);
+    });
 
     return result;
 }

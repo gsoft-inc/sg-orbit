@@ -51,8 +51,8 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         size,
         target,
         underline = "solid",
-        visited,
         variant,
+        visited,
         ...rest
     } = mergeProps(
         props,
