@@ -1,6 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { InnerLoader, Loader } from "@components/loader";
+import { Stack } from "@components/layout";
 
 <Meta
     title="Components/Loader"
@@ -58,7 +59,10 @@ By settings `delay` to `true`, the loader will appear after 300ms. You can also 
 
 <Preview>
     <Story name="delay">
-        <Loader delay aria-label="Loading..."/>
+        <Stack>
+            <Loader delay aria-label="Loading..."/>
+            <Loader delay={800} aria-label="Loading..."/>
+        </Stack>
     </Story>
 </Preview>
 
