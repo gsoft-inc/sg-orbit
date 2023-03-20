@@ -7,7 +7,6 @@ function addWebpackAliases(config) {
 
     config.resolve.alias = {
         ...existingAlias,
-        "@root": path.resolve(__dirname, ".."),
         "@css": path.resolve(__dirname, "../packages/css/src"),
         "@components": path.resolve(__dirname, "../packages/components/src"),
         "@orbit-ui/components": path.resolve(__dirname, "../packages/components/src"),
