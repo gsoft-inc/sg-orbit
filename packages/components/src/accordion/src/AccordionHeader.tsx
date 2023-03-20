@@ -38,9 +38,9 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         disabled,
         focus,
         forwardedRef,
-        hover,
-        headingType: HeadingType = H3,
         headingProps,
+        headingType: HeadingType = H3,
+        hover,
         ...rest
     } = omitProps(props, ["header"]);
 
@@ -103,6 +103,9 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
 
 InnerAccordionHeader.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/accordion--default-story)
+*/
 export const AccordionHeader = forwardRef<any, OmitInternalProps<InnerAccordionHeaderProps>>((props, ref) => (
     <InnerAccordionHeader {...props} forwardedRef={ref} />
 ));

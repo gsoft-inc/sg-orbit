@@ -1,10 +1,9 @@
-import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus, useInputIcon } from "../../input";
+import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus, useInputIcon, useInputSpinner } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -74,6 +73,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         as = DefaultElement,
         autoFocus,
         button,
+        className,
         defaultValue,
         disabled,
         fluid,
@@ -88,12 +88,11 @@ export function InnerTextInput(props: InnerTextInputProps) {
         placeholder,
         readOnly,
         required,
+        style,
         type = "text",
         validationState,
         value,
         wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
-        className,
-        style,
         ...rest
     } = adaptInputStylingProps(props, contextProps);
 
@@ -141,6 +140,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
+    const loadingMarkup = useInputSpinner(loading);
+
     const content = (
         <>
             {iconMarkup}
@@ -162,6 +163,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
             <ClearInputGroupContext>
                 {buttonMarkup}
             </ClearInputGroupContext>
+            {loadingMarkup}
         </>
     );
 
@@ -189,6 +191,11 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
 InnerTextInput.defaultElement = DefaultElement;
 
+/**
+ * A text input allow a user to enter and edit a text.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/text-input--default-story)
+*/
 export const TextInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerTextInputProps>>((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));

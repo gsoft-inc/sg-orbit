@@ -20,6 +20,7 @@ import { Text } from "../../typography";
 import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
+import { Spinner } from "../../spinner";
 
 export type AbstractButtonProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
     /**
@@ -68,6 +69,13 @@ const textSize = createSizeAdapter({
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
+const spinnerSize = createSizeAdapter({
+    "sm": "md",
+    "md": "lg"
+});
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
+
 export function InnerButton(props: InnerButtonProps) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
@@ -84,12 +92,12 @@ export function InnerButton(props: InnerButtonProps) {
         focus,
         forwardedRef,
         hover,
+        inherit,
         loading,
+        onClick,
         size,
         type,
         variant = "primary",
-        inherit,
-        onClick,
         ...rest
     } = mergeProps(
         props,
@@ -142,6 +150,16 @@ export function InnerButton(props: InnerButtonProps) {
         }
     }), [sizeValue, disabled, loading]));
 
+    const loadingMarkup = loading && (
+        <Spinner
+            aria-label="Loading..."
+            className="o-ui-button-spinner"
+            color={variant === "primary" ? "alias-static-white" : undefined}
+            role="presentation"
+            size={spinnerSize(sizeValue)}
+        />
+    );
+
     return (
         <Box
             {...mergeProps(
@@ -164,12 +182,18 @@ export function InnerButton(props: InnerButtonProps) {
             {text}
             {counter}
             {endIcon}
+            {loadingMarkup}
         </Box>
     );
 }
 
 InnerButton.defaultElement = DefaultElement;
 
+/**
+ * A button indicates a possible user action.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/button--default-story)
+*/
 export const Button = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerButtonProps>>((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
@@ -178,5 +202,8 @@ export type ButtonProps = ComponentProps<typeof Button>;
 
 ///////////
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/button--default-story)
+*/
 export const ButtonAsLink = slot("button", as(Button, "a"));
 export type ButtonAsLinkProps = ComponentProps<typeof ButtonAsLink>;

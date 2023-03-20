@@ -1,4 +1,4 @@
-import { AbstractInputProps, adaptInputStylingProps, useInput, useInputIcon } from "../../input";
+import { AbstractInputProps, adaptInputStylingProps, useInput, useInputIcon, useInputSpinner } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
 import { Div, HtmlButton } from "../../html";
@@ -340,6 +340,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const iconMarkup = useInputIcon(icon, { disabled });
 
+    const loadingMarkup = useInputSpinner(loading);
+
     const content = (
         <>
             {iconMarkup}
@@ -359,11 +361,13 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             />
             <Spinner
                 aria-hidden={loading}
+                aria-label="Loading..."
                 disableDecrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue <= min)}
                 disableIncrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue >= max)}
                 onDecrement={handleDecrement}
                 onIncrement={handleIncrement}
             />
+            {loadingMarkup}
         </>
     );
 
@@ -397,6 +401,11 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
 InnerNumberInput.defaultElement = DefaultElement;
 
+/**
+ * A number input is used to let the user enter a numeric value.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/number-input--default-story)
+*/
 export const NumberInput = forwardRef<any, OmitInternalProps<InnerNumberInputProps>>((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />
 ));

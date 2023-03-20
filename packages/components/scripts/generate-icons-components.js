@@ -1,5 +1,5 @@
 const chalk = require("chalk");
-const es = require("../../../scripts/ensure-success");
+const es = require("./ensure-success");
 const { loadIcons } = require("../../icons/scripts/load-icons");
 const { optimizeIcons } = require("../../icons/scripts/optimize-icons");
 const { generateIconComponents } = require("./generate-react-components");

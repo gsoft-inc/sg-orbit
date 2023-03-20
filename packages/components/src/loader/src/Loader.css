@@ -1,0 +1,72 @@
+.o-ui-loader {
+    --animation-duration: 2s;
+    opacity: 0;
+    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+    width: var(--o-ui-sz-5);
+    height: var(--o-ui-sz-5);
+    position: relative;
+}
+
+.o-ui-loader-dot-1,
+.o-ui-loader-dot-2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: var(--o-ui-icon-alias-accent);
+    border-radius: var(--o-ui-br-circular);
+    animation: o-ui-loader-bounce var(--animation-duration) infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o-ui-loader-dot-1,
+    .o-ui-loader-dot-2 {
+        animation-iteration-count: 1;
+    }
+}
+
+.o-ui-loader-dot-2 {
+    top: auto;
+    bottom: 0;
+    animation-delay: calc(-1 * (var(--animation-duration) / 2));
+}
+
+/* STATES */
+.o-ui-loader-show {
+    opacity: 1;
+    animation: o-ui-loader-rotate var(--animation-duration) infinite linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o-ui-loader-show,
+    .o-ui-loader .o-ui-loader-dot-1,
+    .o-ui-loader .o-ui-loader-dot-2 {
+        animation-iteration-count: 1;
+    }
+    .o-ui-loader .o-ui-loader-dot-1 {
+        transform: scale(1);
+    }
+    .o-ui-loader .o-ui-loader-dot-2 {
+        transform: scale(.3);
+    }
+}
+
+/* ANIMATIONS */
+@keyframes o-ui-loader-bounce {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes o-ui-loader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

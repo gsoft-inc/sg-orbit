@@ -1,0 +1,83 @@
+.o-ui-spinner {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    --o-ui-spinner-sm-wheel-size: 0.75em;
+    --o-ui-spinner-md-wheel-size: 1em;
+    --o-ui-spinner-lg-wheel-size: 1.25em;
+}
+
+.o-ui-spinner-wheel {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.o-ui-spinner-wheel::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: var(--o-ui-br-circular);
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    animation: spinner var(--o-ui-easing-duration-5) linear infinite;
+}
+
+/* CONTENT | LABEL */
+.o-ui-spinner-label {
+    margin-left: var(--o-ui-sp-2);
+}
+
+/* ANIMATION */
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* SIZES */
+.o-ui-spinner-sm .o-ui-spinner-wheel {
+    width: var(--o-ui-sz-2);
+    height: var(--o-ui-sz-2);
+}
+
+.o-ui-spinner-sm .o-ui-spinner-wheel::before {
+    width: var(--o-ui-spinner-sm-wheel-size);
+    height: var(--o-ui-spinner-sm-wheel-size);
+    margin-top: calc(-1 * var(--o-ui-spinner-sm-wheel-size) / 2);
+    margin-left: calc(-1 * var(--o-ui-spinner-sm-wheel-size) / 2);
+}
+
+.o-ui-spinner-md .o-ui-spinner-wheel {
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
+}
+
+.o-ui-spinner-md .o-ui-spinner-wheel::before {
+    width: var(--o-ui-spinner-md-wheel-size);
+    height: var(--o-ui-spinner-md-wheel-size);
+    margin-top: calc(-1 * var(--o-ui-spinner-md-wheel-size) / 2);
+    margin-left: calc(-1 * var(--o-ui-spinner-md-wheel-size) / 2);
+}
+
+.o-ui-spinner-lg .o-ui-spinner-wheel {
+    width: var(--o-ui-sz-4);
+    height: var(--o-ui-sz-4);
+}
+
+.o-ui-spinner-lg .o-ui-spinner-wheel::before {
+    width: var(--o-ui-spinner-lg-wheel-size);
+    height: var(--o-ui-spinner-lg-wheel-size);
+    margin-top: calc(-1 * var(--o-ui-spinner-lg-wheel-size) / 2);
+    margin-left: calc(-1 * var(--o-ui-spinner-lg-wheel-size) / 2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o-ui-spinner-wheel::before {
+        animation: none;
+        border-right-color: currentColor;
+        border-left-color: currentColor;
+        transform: rotate(130deg);
+    }
+}

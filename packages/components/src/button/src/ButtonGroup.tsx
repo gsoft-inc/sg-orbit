@@ -39,10 +39,10 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
         children,
         disabled,
         fluid,
-        wrap = true,
         forwardedRef,
         orientation = "horizontal",
         size,
+        wrap = true,
         ...rest
     } = mergeProps(
         props,
@@ -85,6 +85,9 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
 
 InnerButtonGroup.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/button--default-story)
+*/
 export const ButtonGroup = slot("button-group", forwardRef<any, OmitInternalProps<InnerButtonGroupProps>>((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
 )));

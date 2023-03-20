@@ -30,7 +30,7 @@ import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
 import { ValidationState } from "../../input";
 
-export type SelectionMode = "none" | "single" | "multiple";
+export type MenuSelectionMode = "none" | "single" | "multiple";
 
 export const ItemKeyProp = "data-o-ui-key";
 
@@ -79,7 +79,7 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
     /**
      * The type of selection that is allowed.
      */
-    selectionMode?: SelectionMode;
+    selectionMode?: MenuSelectionMode;
     /**
      * Whether or not the menu should display as "valid" or "invalid".
      */
@@ -99,8 +99,8 @@ export function InnerMenu({
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
     autoFocus,
-    children,
     autoFocusTarget,
+    children,
     defaultSelectedKeys,
     fluid,
     forwardedRef,
@@ -235,12 +235,12 @@ export function InnerMenu({
     );
 
     const renderSection = ({
-        key,
-        index,
         elementType: As = MenuSection,
-        ref,
+        index,
+        items: sectionItems,
+        key,
         props,
-        items: sectionItems
+        ref
     }: CollectionSection) => {
         if (isEmptyArray(sectionItems)) {
             return null;
@@ -334,6 +334,11 @@ export function InnerMenu({
 
 InnerMenu.defaultElement = DefaultElement;
 
+/**
+ * A menu offers a list of choices to the user, such as a set of actions or functions.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/menu--default-story)
+*/
 export const Menu = forwardRef<any, OmitInternalProps<InnerMenuProps>>((props, ref) => (
     <InnerMenu {...props} forwardedRef={ref} />
 ));

@@ -65,11 +65,11 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
 const AvailableSlots = 4;
 
 export function InnerAvatarGroup({
-    size,
     as = DefaultElement,
     children,
-    wrap = true,
     forwardedRef,
+    size,
+    wrap = true,
     ...rest
 }: InnerAvatarGroupProps) {
     const sizeValue = useResponsiveValue(size);
@@ -124,6 +124,9 @@ export function InnerAvatarGroup({
 
 InnerAvatarGroup.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/avatar--default-story)
+*/
 export const AvatarGroup = forwardRef<any, OmitInternalProps<InnerAvatarGroupProps>>((props, ref) => (
     <InnerAvatarGroup {...props} forwardedRef={ref} />
 ));

@@ -34,6 +34,11 @@ export function InnerContextualHelp({ children, forwardedRef, tooltipProps, tool
 
 InnerContextualHelp.defaultElement = DefaultElement;
 
+/**
+* Contextual help shows a user extra information about the state of an adjacent component. It explains a high-level topic about an experience and can point users to more information elsewhere.
+*
+* [Documentation](https://orbit.sharegate.design/?path=/docs/contextual-help--default-story)
+*/
 export const ContextualHelp = forwardRef<any, OmitInternalProps<InnerContextualHelpProps>>((props, ref) => (
     <InnerContextualHelp {...props} forwardedRef={ref} />
 ));

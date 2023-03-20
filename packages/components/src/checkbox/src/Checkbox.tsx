@@ -1,5 +1,6 @@
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
+import { CheckMajorIcon } from "../../icons";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, forwardRef, useMemo } from "react";
 import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
@@ -180,7 +181,9 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
             )}
         >
             <VisuallyHidden {...inputProps} />
-            <Span className="o-ui-checkbox-box" />
+            <Span className="o-ui-checkbox-box">
+                <CheckMajorIcon aria-hidden="true" className="o-ui-checkbox-checkmark" />
+            </Span>
             {text}
             {icon}
             {counter}
@@ -190,6 +193,11 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
 
 InnerCheckbox.defaultElement = DefaultElement;
 
+/**
+ * A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/checkbox--default-story)
+*/
 export const Checkbox = forwardRef<any, OmitInternalProps<InnerCheckboxProps>>((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));

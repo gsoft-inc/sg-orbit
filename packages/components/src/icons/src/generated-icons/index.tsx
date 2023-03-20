@@ -21,7 +21,6 @@ import { ReactComponent as InnerChevronUpDownMajorIcon } from "./ChevronUpDownMa
 import { ReactComponent as InnerChevronUpDownMinorIcon } from "./ChevronUpDownMinorIcon";
 import { ReactComponent as InnerCrossMajorIcon } from "./CrossMajorIcon";
 import { ReactComponent as InnerCrossMinorIcon } from "./CrossMinorIcon";
-import { ReactComponent as InnerDotMajorIcon } from "./DotMajorIcon";
 import { ReactComponent as InnerDownloadMajorIcon } from "./DownloadMajorIcon";
 import { ReactComponent as InnerDuplicateMajorIcon } from "./DuplicateMajorIcon";
 import { ReactComponent as InnerEmailMajorIcon } from "./EmailMajorIcon";
@@ -54,6 +53,7 @@ import { ReactComponent as InnerLinkRemoveMajorIcon } from "./LinkRemoveMajorIco
 import { ReactComponent as InnerMagnifierMajorIcon } from "./MagnifierMajorIcon";
 import { ReactComponent as InnerNotificationMajorIcon } from "./NotificationMajorIcon";
 import { ReactComponent as InnerNotificationOffMajorIcon } from "./NotificationOffMajorIcon";
+import { ReactComponent as InnerNotificationRingingMajorIcon } from "./NotificationRingingMajorIcon";
 import { ReactComponent as InnerPadlockLockedMajorIcon } from "./PadlockLockedMajorIcon";
 import { ReactComponent as InnerPadlockUnlockedMajorIcon } from "./PadlockUnlockedMajorIcon";
 import { ReactComponent as InnerPencilMajorIcon } from "./PencilMajorIcon";
@@ -94,7 +94,6 @@ export const ChevronUpDownMajorIcon = createOrbitIcon(InnerChevronUpDownMajorIco
 export const ChevronUpDownMinorIcon = createOrbitIcon(InnerChevronUpDownMinorIcon, "ChevronUpDownMinorIcon");
 export const CrossMajorIcon = createOrbitIcon(InnerCrossMajorIcon, "CrossMajorIcon");
 export const CrossMinorIcon = createOrbitIcon(InnerCrossMinorIcon, "CrossMinorIcon");
-export const DotMajorIcon = createOrbitIcon(InnerDotMajorIcon, "DotMajorIcon");
 export const DownloadMajorIcon = createOrbitIcon(InnerDownloadMajorIcon, "DownloadMajorIcon");
 export const DuplicateMajorIcon = createOrbitIcon(InnerDuplicateMajorIcon, "DuplicateMajorIcon");
 export const EmailMajorIcon = createOrbitIcon(InnerEmailMajorIcon, "EmailMajorIcon");
@@ -127,6 +126,7 @@ export const LinkRemoveMajorIcon = createOrbitIcon(InnerLinkRemoveMajorIcon, "Li
 export const MagnifierMajorIcon = createOrbitIcon(InnerMagnifierMajorIcon, "MagnifierMajorIcon");
 export const NotificationMajorIcon = createOrbitIcon(InnerNotificationMajorIcon, "NotificationMajorIcon");
 export const NotificationOffMajorIcon = createOrbitIcon(InnerNotificationOffMajorIcon, "NotificationOffMajorIcon");
+export const NotificationRingingMajorIcon = createOrbitIcon(InnerNotificationRingingMajorIcon, "NotificationRingingMajorIcon");
 export const PadlockLockedMajorIcon = createOrbitIcon(InnerPadlockLockedMajorIcon, "PadlockLockedMajorIcon");
 export const PadlockUnlockedMajorIcon = createOrbitIcon(InnerPadlockUnlockedMajorIcon, "PadlockUnlockedMajorIcon");
 export const PencilMajorIcon = createOrbitIcon(InnerPencilMajorIcon, "PencilMajorIcon");

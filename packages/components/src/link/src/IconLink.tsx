@@ -43,8 +43,8 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         hover,
         rel,
         target,
-        visited,
         variant,
+        visited,
         ...rest
     } = mergeProps(
         props,
@@ -87,6 +87,9 @@ export function InnerIconLink(props: InnerIconLinkProps) {
 
 InnerIconLink.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/link--default-story)
+*/
 export const IconLink = forwardRef<any, OmitInternalProps<InnerIconLinkProps>>((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
@@ -95,5 +98,8 @@ export type IconLinkProps = ComponentProps<typeof IconLink>;
 
 /////////
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/link--default-story)
+*/
 export const IconLinkAsButton = as(IconLink, "button");
 export type IconLinkAsButtonProps = ComponentProps<typeof IconLinkAsButton>;

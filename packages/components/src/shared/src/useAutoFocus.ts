@@ -53,7 +53,7 @@ export interface AutoFocusChildOptions extends FocusManagerScopeOptions, FocusMa
     target?: string;
 }
 
-export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound, tabbableOnly }: AutoFocusChildOptions = {}) {
+export function useAutoFocusChild(focusManager: FocusManager, { canFocus, delay, isDisabled, onFocus, onNotFound, tabbableOnly, target = FocusTarget.first }: AutoFocusChildOptions = {}) {
     useAbstractAutoFocus({
         delay,
         isDisabled,

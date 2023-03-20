@@ -46,8 +46,8 @@ export function InnerAccordionItem({
 
     const {
         elementType: PanelType = AccordionPanel,
-        ref: panelRef,
-        props: panelProps
+        props: panelProps,
+        ref: panelRef
     } = panel;
 
     // If the provided header element is an heading component, then use the accordion default AccordionHeader component and the type of the provided heading component as the heading type.
@@ -87,6 +87,9 @@ export function InnerAccordionItem({
 
 InnerAccordionItem.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/accordion--default-story)
+*/
 export const AccordionItem = forwardRef<any, OmitInternalProps<InnerAccordionItemProps>>((props, ref) => (
     <InnerAccordionItem {...props} forwardedRef={ref} />
 ));

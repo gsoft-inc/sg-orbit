@@ -1,4 +1,5 @@
 import { embedIconButton } from "../../button";
+import { Spinner } from "../../spinner";
 import { CreatedIconProps } from "../../icons";
 import { ReactElement } from "react";
 import { augmentElement } from "../../shared";
@@ -18,4 +19,8 @@ export function useInputButton(button: ReactElement, isActive: boolean, props: R
         className: "o-ui-input-button",
         variant: "tertiary"
     });
+}
+
+export function useInputSpinner(loading: boolean) {
+    return loading && <Spinner aria-label="Loading..." className="o-ui-input-spinner" role="presentation" />;
 }

@@ -51,9 +51,9 @@ const TabListPopover = forwardRef(({
     onOpen,
     onSelect,
     open: openProp,
+    overlayProps: { id: overlayId, ...overlayProps } = {},
     setSize,
     tabs,
-    overlayProps: { id: overlayId, ...overlayProps } = {},
     ...rest
 }: TabListPopoverProps,
 ref) => {
@@ -451,6 +451,9 @@ export function InnerTabList({
     );
 }
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tabs--default-story)
+*/
 export const TabList = forwardRef<any, OmitInternalProps<InnerTabListProps>>((props, ref) => (
     <InnerTabList {...props} forwardedRef={ref} />
 ));

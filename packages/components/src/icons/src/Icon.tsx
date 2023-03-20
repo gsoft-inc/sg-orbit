@@ -1,10 +1,8 @@
 import { ComponentProps, ElementType, SVGProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, normalizeSize, slot } from "../../shared";
-import { ResponsiveProp, StyledSystemProps, useResponsiveValue, useStyleProps } from "../../styling";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot } from "../../shared";
+import { StyledSystemProps, useStyleProps } from "../../styling";
 
 import { Box } from "../../box";
-
-export type IconSize = "inherit";
 
 export interface InnerIconProps extends
     StyledSystemProps,
@@ -15,10 +13,6 @@ export interface InnerIconProps extends
      * Whether or not the icon should look disabled.
      */
     disabled?: boolean;
-    /**
-     * An icon can vary in size.
-     */
-    size?: ResponsiveProp<IconSize>;
     /**
      * An icon as a component.
      */
@@ -32,15 +26,12 @@ export const InnerIcon = ((props: InnerIconProps) => {
         "aria-label": ariaLabel,
         disabled,
         forwardedRef,
-        size,
         src,
         ...rest
     } = mergeProps(
         props,
         styleProps
     );
-
-    const sizeValue = useResponsiveValue(size);
 
     return (
         <Box
@@ -53,7 +44,6 @@ export const InnerIcon = ((props: InnerIconProps) => {
                     className: cssModule(
                         "o-ui-icon",
                         disabled && "disabled",
-                        sizeValue && sizeValue === "inherit" ? "inherit-size" : normalizeSize(sizeValue)
                     ),
                     // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-are-decorative
                     focusable: false,
@@ -64,6 +54,11 @@ export const InnerIcon = ((props: InnerIconProps) => {
     );
 });
 
+/**
+ * An icon component allow you to render a custom icon.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/icon--default-story)
+*/
 export const Icon = slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerIconProps>>((props, ref) => (
     <InnerIcon {...props} forwardedRef={ref} />)
 ));

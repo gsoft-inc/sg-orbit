@@ -99,6 +99,11 @@ export function InnerStack({
 
 InnerStack.defaultElement = DefaultElement;
 
+/**
+ * A layout container using flexbox.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/flex--horizontal)
+*/
 export const Stack = forwardRef<any, OmitInternalProps<InnerStackProps>>((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />
 ));

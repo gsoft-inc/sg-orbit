@@ -34,7 +34,7 @@ import { ValidationState } from "../../input";
 
 export const OptionKeyProp = "data-o-ui-key";
 
-type SelectionMode = "none" | "single" | "multiple";
+export type ListboxSelectionMode = "none" | "single" | "multiple";
 
 const DefaultElement = "div";
 
@@ -88,7 +88,7 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
     /**
      * The type of selection that is allowed.
      */
-    selectionMode?: SelectionMode;
+    selectionMode?: ListboxSelectionMode;
     /**
      * Whether or not the listbox option should be reachable with tabs.
      */
@@ -159,9 +159,9 @@ export function InnerListbox({
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
     autoFocus,
-    children,
     // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
     autoFocusTarget,
+    children,
     defaultSelectedKeys,
     fluid,
     focusOnHover,
@@ -373,12 +373,12 @@ export function InnerListbox({
     const rootId = useId(id, "o-ui-listbox");
 
     const renderOption = ({
-        key,
-        index,
-        elementType: As = ListboxOption,
-        ref,
         content,
+        elementType: As = ListboxOption,
+        index,
+        key,
         props = {},
+        ref,
         tooltip
     }: CollectionItem) => (
         <As
@@ -397,12 +397,12 @@ export function InnerListbox({
     );
 
     const renderSection = ({
-        key,
-        index,
         elementType: As = ListboxSection,
-        ref,
+        index,
+        items: sectionItems,
+        key,
         props = {},
-        items: sectionItems
+        ref
     }: CollectionSection) => {
         if (isEmptyArray(sectionItems)) {
             return null;
@@ -456,7 +456,8 @@ export function InnerListbox({
                     focusOnHover,
                     onFocus: handleFocusOption,
                     onSelect: handleSelectOption,
-                    selectedKeys: selectionManager.selectedKeys
+                    selectedKeys: selectionManager.selectedKeys,
+                    selectionMode
                 }}
             >
                 {nodes.map(node => {
@@ -480,6 +481,11 @@ export type ListboxElement = HTMLElement & {
 
 InnerListbox.defaultElement = DefaultElement;
 
+/**
+ * A listbox presents a list of options and allows a user to select one or more of them
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/listbox--default-story)
+*/
 export const Listbox = forwardRef<ListboxElement, OmitInternalProps<InnerListboxProps>>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
