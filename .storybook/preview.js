@@ -1,21 +1,15 @@
-import "@css/normalize.css";
-import "@components/index.css";
-import "@experimental/index.css";
-import "./styles";
+import "./styles/app.css";
+import "./styles/docs.css";
+import "./styles/stories.css";
 
-import { ShareGateTheme, createThemeVars } from "@components/styling";
+// import { ShareGateTheme, createThemeVars } from "@components/styling";
 import { isChromatic, isDocs } from "./env";
 // import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 // import { Code, Highlight } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 
-createThemeVars([ShareGateTheme]);
-
-if (!isChromatic) {
-    // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
-    import("@css/font/index.css");
-}
+// createThemeVars([ShareGateTheme]);
 
 export const parameters = {
     options: {
