@@ -5,7 +5,7 @@ import "./styles";
 
 import { ShareGateTheme, createThemeVars } from "@components/styling";
 import { isChromatic, isDocs } from "./env";
-import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
+// import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 // import { Code, Highlight } from "@stories/mdx";
 import { Themes } from "./styles/themes";
@@ -53,7 +53,7 @@ export const parameters = {
         //     blockquote: Highlight,
         //     code: Code
         // },
-        container: ({ context, children }) => withDocsContainer(context, children),
+        // container: ({ context, children }) => withDocsContainer(context, children),
         // Disable DocsPage feature.
         page: null
     },
@@ -123,4 +123,4 @@ export const globalTypes = {
     }
 };
 
-export const decorators = [withCenteredCanvas, withThemeProvider, withBackgroundMatchingColorScheme];
+// export const decorators = [withCenteredCanvas, withThemeProvider, withBackgroundMatchingColorScheme];
