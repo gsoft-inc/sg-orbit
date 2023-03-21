@@ -13,9 +13,9 @@ function addWebpackAliases(config) {
         "@orbit-ui/components": path.resolve(__dirname, "../packages/components/src"),
         "@sharegate/orbit-ui": path.resolve(__dirname, "../packages/bundle/src"),
         "@experimental": path.resolve(__dirname, "../packages/experimental/src"),
-        "@stories/components": path.resolve(__dirname, "./packages/storybook/components"),
-        "@stories/mdx": path.resolve(__dirname, "./packages/storybook/mdx"),
-        "@stories/utils": path.resolve(__dirname, "./packages/storybook/utils")
+        "@stories/components": path.resolve(__dirname, "../packages/storybook/components"),
+        "@stories/mdx": path.resolve(__dirname, "../packages/storybook/mdx"),
+        "@stories/utils": path.resolve(__dirname, "../packages/storybook/utils")
     };
 }
 
