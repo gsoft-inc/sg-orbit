@@ -12,6 +12,11 @@ import { Themes } from "./styles/themes";
 
 createThemeVars([ShareGateTheme]);
 
+if (!isChromatic) {
+    // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
+    import("@css/font/index.css");
+}
+
 export const parameters = {
     options: {
         storySort: {
