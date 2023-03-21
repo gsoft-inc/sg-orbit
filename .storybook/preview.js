@@ -1,6 +1,7 @@
-import "./styles/app.css";
-import "./styles/docs.css";
-import "./styles/stories.css";
+import "@css/normalize.css";
+import "@components/index.css";
+import "@experimental/index.css";
+import "./styles";
 
 import { ShareGateTheme, createThemeVars } from "@components/styling";
 import { isChromatic, isDocs } from "./env";
@@ -43,11 +44,11 @@ export const parameters = {
     docs: {
         theme: Themes.docs,
         inlineStories: true,
-        // components: {
-        //     blockquote: Highlight,
-        //     code: Code
-        // },
-        // container: ({ context, children }) => withDocsContainer(context, children),
+        components: {
+            blockquote: Highlight,
+            code: Code
+        },
+        container: ({ context, children }) => withDocsContainer(context, children),
         // Disable DocsPage feature.
         page: null
     },
@@ -117,4 +118,4 @@ export const globalTypes = {
     }
 };
 
- export const decorators = [withCenteredCanvas, withThemeProvider, withBackgroundMatchingColorScheme];
+export const decorators = [withCenteredCanvas, withThemeProvider, withBackgroundMatchingColorScheme];
