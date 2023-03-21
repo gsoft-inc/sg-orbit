@@ -38,7 +38,7 @@ jobs:
               uses: chromaui/action@v1
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-                  untraced: preview/*
+                  untraced: packages/bundle/src/*
                   traceChanged: 'expanded'
                   buildScriptName: build-sb-chroma
                   onlyChanged: true # TurboSnap
