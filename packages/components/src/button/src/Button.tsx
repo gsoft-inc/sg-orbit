@@ -168,7 +168,7 @@ export function InnerButton(props: InnerButtonProps) {
                     as: asProp,
                     className: cssModule(
                         "o-ui-button",
-                        "extra-random-class10",
+                        "extra-random-class11",
                         icon && "has-start-icon",
                         endIcon && "has-end-icon"
                     ),
