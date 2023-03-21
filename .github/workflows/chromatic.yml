@@ -42,4 +42,3 @@ jobs:
                   onlyChanged: true # TurboSnap
                   untraced: "packages/storybook/components/preview/*"
                   traceChanged: "extended"
-                  dryRun: true
