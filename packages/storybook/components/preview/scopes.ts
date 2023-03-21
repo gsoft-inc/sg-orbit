@@ -1,5 +1,5 @@
-import * as OrbitComponents from "@components";
-import * as ExperimentalOrbitComponents from "@experimental";
+// import * as OrbitComponents from "@components";
+// import * as ExperimentalOrbitComponents from "@experimental";
 import { CheckeredBackground } from "@stories/components";
 import { forwardRef, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
 import { useFormik } from "formik";
@@ -29,9 +29,9 @@ const ThirdParties = {
 };
 
 export const KnownScope: any = {
-    ...OrbitComponents,
+    // ...OrbitComponents,
     ...React,
     ...DocsComponents,
-    ...ThirdParties,
-    ...ExperimentalOrbitComponents
+    ...ThirdParties
+    // ...ExperimentalOrbitComponents
 };
