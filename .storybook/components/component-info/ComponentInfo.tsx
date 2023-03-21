@@ -1,28 +1,31 @@
 import "./ComponentInfo.css";
 
+import { ExternalLink, GithubLink, Link, useThemedSnippet } from "@stories/components";
+import { cssModule, mergeClasses } from "@components/shared";
+import { Div } from "@components/html";
 import { ComponentProps } from "react";
 
 const ExtendLinks = {
-    "styled-component": <a href="?path=/docs/style-props--page#properties">StyleProps</a>,
-    "a": <a href="?path=/docs/html-anchor--example">A</a>,
-    "button": <a href="?path=/docs/html-button--example">Button</a>,
-    "div": <a href="?path=/docs/html-div--example">Div</a>,
-    "h1": <a href="?path=/docs/html-h1--example">H1</a>,
-    "h2": <a href="?path=/docs/html-h2--example">H2</a>,
-    "h3": <a href="?path=/docs/html-h3--example">H3</a>,
-    "h4": <a href="?path=/docs/html-h4--example">H4</a>,
-    "h5": <a href="?path=/docs/html-h5--example">H5</a>,
-    "h6": <a href="?path=/docs/html-h6--example">H6</a>,
-    "img": <a href="?path=/docs/html-img--example">Img</a>,
-    "input": <a href="?path=/docs/html-input--example">Input</a>,
-    "label": <a href="?path=/docs/html-label--example">Label</a>,
-    "li": <a href="?path=/docs/html-li--example">LI</a>,
-    "p": <a href="?path=/docs/html-p--example">P</a>,
-    "section": <a href="?path=/docs/html-section--example">Section</a>,
-    "span": <a href="?path=/docs/html-span--example">Span</a>,
-    "svg": <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGElement">Svg</a>,
-    "textarea": <a href="?path=/docs/html-textarea--example">Textarea</a>,
-    "ul": <a href="?path=/docs/html-ul--example">UL</a>
+    "styled-component": <Link href="?path=/docs/style-props--page#properties">StyleProps</Link>,
+    "a": <Link href="?path=/docs/html-anchor--example">A</Link>,
+    "button": <Link href="?path=/docs/html-button--example">Button</Link>,
+    "div": <Link href="?path=/docs/html-div--example">Div</Link>,
+    "h1": <Link href="?path=/docs/html-h1--example">H1</Link>,
+    "h2": <Link href="?path=/docs/html-h2--example">H2</Link>,
+    "h3": <Link href="?path=/docs/html-h3--example">H3</Link>,
+    "h4": <Link href="?path=/docs/html-h4--example">H4</Link>,
+    "h5": <Link href="?path=/docs/html-h5--example">H5</Link>,
+    "h6": <Link href="?path=/docs/html-h6--example">H6</Link>,
+    "img": <Link href="?path=/docs/html-img--example">Img</Link>,
+    "input": <Link href="?path=/docs/html-input--example">Input</Link>,
+    "label": <Link href="?path=/docs/html-label--example">Label</Link>,
+    "li": <Link href="?path=/docs/html-li--example">LI</Link>,
+    "p": <Link href="?path=/docs/html-p--example">P</Link>,
+    "section": <Link href="?path=/docs/html-section--example">Section</Link>,
+    "span": <Link href="?path=/docs/html-span--example">Span</Link>,
+    "svg": <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/API/SVGElement">Svg</ExternalLink>,
+    "textarea": <Link href="?path=/docs/html-textarea--example">Textarea</Link>,
+    "ul": <Link href="?path=/docs/html-ul--example">UL</Link>
 };
 
 
@@ -47,42 +50,49 @@ export function ComponentInfo({
     className,
     ...rest
 }: ComponentInfoProps) {
-    const usage = typeof usageProp === "string" ? usageProp : usageProp.sharegate;
+    const usage = useThemedSnippet(usageProp);
+
     return (
         <dl
             {...rest}
-            className={"o-ui-sb-component-info" + (compact ? " o-ui-sb-component-info-compact": "") + " " + className}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-sb-component-info",
+                    compact && "compact"
+                ),
+                className
+            )}
         >
             {usage && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">usage</dt>
                     <dd className="o-ui-sb-component-info-value"><code>{usage}</code></dd>
-                </div>
+                </Div>
             )}
             {slots && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">slots</dt>
                     <dd className="o-ui-sb-component-info-value"><code>{slots.map(x => `"${x}"`).join(", ")}</code></dd>
-                </div>
+                </Div>
             )}
             {ariaPath && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">wai-aria</dt>
                     <dd className="o-ui-sb-component-info-value">
-                        <a href={`https://www.w3.org/WAI/ARIA/apg/patterns/${ariaPath}`}>{`https://www.w3.org/WAI/ARIA/apg/patterns/${ariaPath}`}</a>
+                        <ExternalLink href={`https://www.w3.org/WAI/ARIA/apg/patterns/${ariaPath}`}>{`https://www.w3.org/WAI/ARIA/apg/patterns/${ariaPath}`}</ExternalLink>
                     </dd>
-                </div>
+                </Div>
             )}
             {githubPath && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">sources</dt>
                     <dd className="o-ui-sb-component-info-value">
-                        <a href={githubPath}>Github</a>
+                        <GithubLink path={githubPath}>Github</GithubLink>
                     </dd>
-                </div>
+                </Div>
             )}
             {inherits && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">extends</dt>
                     <dd className="o-ui-sb-component-info-value">
                         <ul>
@@ -90,7 +100,7 @@ export function ComponentInfo({
                             {inherits.map((x, index) => <li key={index}>{ExtendLinks[x]}</li>)}
                         </ul>
                     </dd>
-                </div>
+                </Div>
             )}
         </dl>
     );

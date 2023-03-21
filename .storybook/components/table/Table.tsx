@@ -1,21 +1,13 @@
 /* eslint-disable react/no-array-index-key */
+import { isPlainObject, isString, mergeClasses } from "@components/shared";
+
 import { components } from "@storybook/components";
 import { isElement } from "react-is";
 import { ComponentProps } from "react";
 
 const MdxTable = components.table;
 type MdxTableProps = ComponentProps<typeof MdxTable>;
-export function isString(value) {
-    return Object.prototype.toString.call(value) === "[object String]";
-}
 
-export function isPlainObject(value) {
-    if (Object.prototype.toString.call(value) !== "[object Object]") {
-        return false;
-    }
-    const prototype = Object.getPrototypeOf(value);
-    return prototype === null || prototype === Object.prototype;
-}
 interface Column {
     title: string;
     headerClassName?: string;
@@ -54,7 +46,10 @@ interface TableRawProps extends MdxTableProps {
 }
 
 function TableRaw({ fluid, className, children, ...rest }: TableRawProps) {
-    const classes = (fluid ? "w-100" : "")+ " " + className
+    const classes = mergeClasses(
+        fluid && "w-100",
+        className
+    );
 
     return (
         <MdxTable className={classes} {...rest}>
@@ -67,25 +62,36 @@ export function Table({ columns, rows, headerClassName, rowClassName, fluid = fa
     ensureRowsValuesMatchColumns(columns, rows);
 
     const renderHeader = (value, index) => {
-        const defaultClasses = headerClassName;
+        const defaultClasses = mergeClasses(
+            headerClassName
+        );
 
-        if (Object.prototype.toString.call(value) === "[object String]") {
+        if (isString(value)) {
             return <th align="left" className={defaultClasses} key={index}>{value}</th>;
         }
 
-        const extraClasses = defaultClasses + " " + value.headerClassName
+        const extraClasses = mergeClasses(
+            defaultClasses,
+            value.headerClassName
+        );
 
         return <th align="left" className={extraClasses} style={value.headerStyle} key={index}>{value.title}</th>;
     };
 
     const renderValue = (value, index) => {
-        const defaultClasses = rowClassName + " " + (columns[index] as Column).rowClassName
+        const defaultClasses = mergeClasses(
+            rowClassName,
+            (columns[index] as Column).rowClassName
+        );
 
         if (isString(value) || isElement(value)) {
             return <td className={defaultClasses} style={(columns[index] as Column).rowStyle} key={index}>{value}</td>;
         }
 
-        const extraClasses = defaultClasses + " " + (isPlainObject(value) && value.className)
+        const extraClasses = mergeClasses(
+            defaultClasses,
+            isPlainObject(value) && value.className
+        );
 
         const style = {
             ...((columns[index] as Column).rowStyle || {}),

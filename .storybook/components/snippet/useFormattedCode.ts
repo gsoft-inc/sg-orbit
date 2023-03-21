@@ -1,19 +1,9 @@
+import { isNil } from "@components/shared";
 import { useMemo } from "react";
 import prettier from "prettier/standalone";
 import prettierBabel from "prettier/parser-babel";
 import prettierPostCss from "prettier/parser-postcss";
-export function isNull(value) {
-    return value == null;
-}
-export function isUndefined(value) {
-    return typeof value === "undefined" || value === undefined;
-}
-export function isDefined(value) {
-    return typeof value !== "undefined" && value !== undefined;
-}
-export function isNil(value) {
-    return isNull(value) || isUndefined(value);
-}
+
 const PrettierParser = {
     "javascript": "babel",
     "jsx": "babel",
