@@ -40,5 +40,6 @@ jobs:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
                   buildScriptName: build-sb-chroma
                   onlyChanged: true # TurboSnap
-                  untraced: "storybook/components/preview/*"
+                  untraced: "packages/storybook/components/preview/*"
                   traceChanged: "extended"
+                  dryRun: true
