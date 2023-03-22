@@ -1,10 +1,10 @@
 .o-ui {
     --o-ui-button-height-sm: var(--o-ui-sz-5);
     --o-ui-button-height-md: var(--o-ui-sz-6);
-    --o-ui-button-loading-spinner-background: rgba(256, 256, 256, 0.5);
+    --o-ui-button-loading-spinner-background: rgba(256, 256, 255, 0.5);
 }
 
-/* SHARED */
+/* SHARED  */
 .o-ui-button {
     padding: 0;
     background-color: transparent;
