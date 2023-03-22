@@ -78,3 +78,4 @@ export function Snippet({ code, filePath, language = "jsx", ...rest }: SnippetPr
 
     return <CodeBlock code={code} language={language} {...rest} />;
 }
+
