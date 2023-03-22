@@ -7,7 +7,7 @@ import { ShareGateTheme, createThemeVars } from "@components/styling";
 import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
-import { Code, Highlight } from "@stories/mdx";
+// import { Code, Highlight } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 
 createThemeVars([ShareGateTheme]);
@@ -49,10 +49,10 @@ export const parameters = {
     docs: {
         theme: Themes.docs,
         inlineStories: true,
-        components: {
-            blockquote: Highlight,
-            code: Code
-        },
+        // components: {
+        //     blockquote: Highlight,
+        //     code: Code
+        // },
         container: ({ context, children }) => withDocsContainer(context, children),
         // Disable DocsPage feature.
         page: null
