@@ -1,12 +1,19 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
+# Chromatic Main and Active PRs only
+# Trigger example found here: https://github.com/chromaui/chromatic-cli/blob/main/.github/workflows/chromatic-main-and-prs.yml
+
 name: Chromatic
 
 on:
-    push:
-        branches-ignore:
-          - changeset-release/*
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [assigned, ready_for_review, review_requested]
+    branches-ignore:
+      - changeset-release/*
 
 jobs:
     chromatic:
@@ -38,7 +45,7 @@ jobs:
               uses: chromaui/action@v1
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-                  untraced: "**/mdx/**"
-                  traceChanged: 'expanded'
                   buildScriptName: build-sb-chroma
+                  traceChanged: true
                   onlyChanged: true # TurboSnap
+                  skip: ${{ github.event.pull_request.draft == true }}
