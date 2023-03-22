@@ -28,7 +28,7 @@ const ThirdParties = {
     useFormik
 };
 
-export const KnownScope: any = {
+export const KnownScope = {
     ...OrbitComponents,
     ...React,
     ...DocsComponents,

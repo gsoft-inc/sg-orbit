@@ -1,7 +1,7 @@
 import { isNil } from "@components/shared";
 import { useEffect } from "react";
 
-import { getGlobals } from "@stories/utils";
+import { getGlobals } from "../utils";
 
 const StyleElementId = "story-background-color";
 
