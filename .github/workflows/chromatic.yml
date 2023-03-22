@@ -46,6 +46,6 @@ jobs:
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
                   buildScriptName: build-sb-chroma
-                  traceChanged: true
-                  onlyChanged: true # TurboSnap
+                  traceChanged: true 
+                  onlyChanged: '!(master)' # only turbosnap on non-main branches
                   skip: ${{ github.event.pull_request.draft == true }}
