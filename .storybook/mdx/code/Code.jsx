@@ -1,4 +1,4 @@
-import { Snippet } from "@stories/components";
+import { Snippet } from "@stories/components/snippet";
 import { components } from "@storybook/components";
 
 const StorybookCode = components.code;
