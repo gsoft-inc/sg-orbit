@@ -1,12 +1,9 @@
-@import "./styling/index.css";
-
 /*
 NOTE: Importing all the components CSS files in a root file is not our preferred solution. Ideally, every components would import is own CSS file.
 Sadly, we encountered CSS ordering issues when the components are bundled in our apps.
 */
 
 /* Must be imported first */
-@import "./html/index.css";
 @import "./input/index.css";
 
 @import "./accordion/index.css";
@@ -25,6 +22,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
 @import "./dot/index.css";
 @import "./field/index.css";
 @import "./form/index.css";
+@import "./html/index.css";
 @import "./icons/index.css";
 @import "./illustrated-message/index.css";
 @import "./illustration/index.css";
@@ -43,6 +41,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
 @import "./radio/index.css";
 @import "./select/index.css";
 @import "./spinner/index.css";
+@import "./styling/index.css";
 @import "./switch/index.css";
 @import "./tabs/index.css";
 @import "./tag/index.css";
