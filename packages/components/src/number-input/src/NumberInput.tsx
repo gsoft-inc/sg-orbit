@@ -161,7 +161,7 @@ function toFixed(value: number, precision: number) {
 export function InnerNumberInput(props: InnerNumberInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
-    const [inputGroupProps, isInGroup] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupProps();
 
     const contextualProps = mergeProps(
         {},
@@ -383,11 +383,9 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                             "o-ui-input",
                             iconMarkup && "has-icon",
                             disabled && "disabled",
-                            isInGroup && "in-group"
                         ),
                         cssModule(
                             "o-ui-number-input",
-                            isInGroup && "in-group"
                         )
                     )
                 },

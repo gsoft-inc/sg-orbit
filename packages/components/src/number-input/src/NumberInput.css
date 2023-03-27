@@ -111,6 +111,6 @@
 }
 
 /* IN GROUP */
-.o-ui-number-input-in-group {
+.o-ui-input-group-input.o-ui-number-input {
     width: 100px;
 }

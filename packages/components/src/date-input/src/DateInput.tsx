@@ -70,7 +70,7 @@ export interface InnerDateInputProps extends Omit<AbstractInputProps<typeof Defa
 }
 
 const Input = forwardRef<any, any>((props, ref) => {
-    const [inputGroupProps, isInGroup] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupProps();
 
     const {
         className,
@@ -108,8 +108,7 @@ const Input = forwardRef<any, any>((props, ref) => {
                             className: mergeClasses(
                                 className,
                                 cssModule(
-                                    "o-ui-date-input",
-                                    isInGroup && "in-group"
+                                    "o-ui-date-input"
                                 )
                             ),
                             style
