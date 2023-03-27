@@ -1,3 +1,6 @@
+/* test, o-ui-input and o-ui-date-input are competing for width priority */
+@import "../../input/index.css";
+
 .o-ui-date-input {
     width: 160px;
 }

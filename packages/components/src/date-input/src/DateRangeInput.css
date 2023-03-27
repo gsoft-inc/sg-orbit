@@ -1,3 +1,6 @@
+/* test, o-ui-input and o-ui-date-input are competing for width priority */
+@import "../../input/index.css";
+
 .o-ui-date-range-input {
     --o-ui-date-range-input-padding: var(--o-ui-sp-3);
     --o-ui-date-range-input-border-color: var(--o-ui-b-alias-mid-break);
