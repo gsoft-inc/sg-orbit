@@ -1,7 +1,4 @@
-/* test, o-ui-input and o-ui-date-input are competing for width priority */
-@import "../../input/index.css";
-
-.o-ui-date-input {
+.o-ui-input.o-ui-date-input {
     width: 160px;
 }
 
@@ -25,6 +22,6 @@
 }
 
 /* IN GROUP */
-.o-ui-date-input-in-group {
+.o-ui-input.o-ui-date-input.o-ui-date-input-in-group {
     width: 140px;
 }
