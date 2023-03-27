@@ -169,7 +169,7 @@ const DateInput = forwardRef<HTMLInputElement, any>(({
 const RangeInput = forwardRef<any, any>((props, ref) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, isInField] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
         active,
@@ -321,6 +321,7 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
                         active && "active",
                         hasFocus && "focus",
                         hover && "hover",
+                        isInGroup && "in-group"
                     ),
                     onKeyDown: handleContainerKeyDown,
                     ref: containerRef,
@@ -377,7 +378,7 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
 export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
         active,
@@ -542,6 +543,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 rest,
                 {
                     as,
+                    className: isInGroup ? "o-ui-date-range-input-in-group" : undefined,
                     ref: containerRef
                 }
             ))}

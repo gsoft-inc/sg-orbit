@@ -95,7 +95,7 @@ export function InnerInputGroup({
     }, [children]);
 
     const hasTextInput = useHasChild(".o-ui-input-group-text-input", ref);
-    const hasDateInput = useHasChild(".o-ui-date-input", ref);
+    const hasDateInput = useHasChild(".o-ui-date-input-in-group", ref);
 
     return (
         <Box

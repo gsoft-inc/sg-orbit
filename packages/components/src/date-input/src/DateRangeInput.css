@@ -1,3 +1,6 @@
+/* test, o-ui-input and o-ui-date-input are competing for width priority */
+@import "../../input/index.css";
+
 .o-ui-date-range-input {
     --o-ui-date-range-input-padding: var(--o-ui-sp-3);
     --o-ui-date-range-input-border-color: var(--o-ui-b-alias-mid-break);
@@ -128,7 +131,7 @@
 }
 
 /* IN GROUP */
-.o-ui-input-group-input.o-ui-date-range-input:not(.o-ui-date-range-input-fluid) {
+.o-ui-date-range-input-in-group:not(.o-ui-date-range-input-fluid) {
     width: 100%;
     max-width: 300px;
 }
