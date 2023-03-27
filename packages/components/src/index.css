@@ -1,11 +1,3 @@
-/*
-NOTE: Importing all the components CSS files in a root file is not our preferred solution. Ideally, every components would import is own CSS file.
-Sadly, we encountered CSS ordering issues when the components are bundled in our apps.
-*/
-
-/* Must be imported first */
-@import "./input/index.css";
-
 @import "./accordion/index.css";
 @import "./alert/index.css";
 @import "./autocomplete/index.css";
@@ -27,6 +19,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
 @import "./illustrated-message/index.css";
 @import "./illustration/index.css";
 @import "./image/index.css";
+@import "./input/index.css";
 @import "./input-group/index.css";
 @import "./link/index.css";
 @import "./listbox/index.css";
