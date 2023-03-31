@@ -46,6 +46,7 @@
     "chromatic": "chromatic -b=build-sb-chroma --debug"
   },
   "devDependencies": {
+    "stylelint-config-standard": "31.0.0",
     "@changesets/cli": "2.26.0",
     "@sharegate/eslint-plugin": "3.1.0",
     "@sharegate/stylelint-plugin": "1.0.1",
@@ -97,7 +98,7 @@
     "rimraf": "4.4.0",
     "serve": "14.2.0",
     "shelljs": "0.8.5",
-    "stylelint": "14.16.1",
+    "stylelint": "15.3.0",
     "svgo": "3.0.2",
     "type-fest": "2.9.0",
     "typescript": "4.5.4",
