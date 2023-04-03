@@ -80,7 +80,6 @@ test("when loading is true, the spinner should have an aria-label", async () => 
         <IconButton
             loading
             aria-label="Add"
-            data-testid="button"
         >
             <AddMajorIcon />
         </IconButton>
