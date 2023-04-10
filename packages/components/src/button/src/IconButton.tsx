@@ -128,6 +128,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
 
     const loadingMarkup = loading && (
         <Spinner
+            aria-label="Loading..."
             className="o-ui-button-spinner"
             color={variant === "primary" ? "alias-static-white" : undefined}
             role="presentation"

@@ -73,6 +73,23 @@ test("when loading is true, the button should prevent onClick", async () => {
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
+// ***** Aria *****
+
+test("when loading is true, the spinner should have an aria-label", async () => {
+    renderWithTheme(
+        <IconButton
+            loading
+            aria-label="Add"
+        >
+            <AddMajorIcon />
+        </IconButton>
+    );
+
+    const spinner = screen.getByRole("presentation");
+
+    expect(spinner).toHaveAttribute("aria-label");
+});
+
 // ***** Api *****
 
 test("can focus the button with the focus api", async () => {
