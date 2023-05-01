@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 34.3.2
+
+### Patch Changes
+
+- c290582df: Fix missing aria-label on IconButton's Spinner when loading is true
+
 ## 34.3.1
 
 ### Patch Changes
