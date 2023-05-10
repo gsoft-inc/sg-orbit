@@ -92,6 +92,24 @@ test("when hovering the tooltip, do not close if hovering the trigger", async ()
     expect(screen.getByRole("tooltip")).toBeInTheDocument();
 });
 
+test("when unhovering the tooltip, close tooltip", async () => {
+    renderWithTheme(
+        <TooltipTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Tooltip>Content</Tooltip>
+        </TooltipTrigger>
+    );
+
+    await userEvent.hover(screen.getByTestId("trigger"), { });
+
+    expect(screen.getByRole("tooltip")).toBeInTheDocument();
+
+    await userEvent.unhover(screen.getByRole("tooltip"));
+
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+});
+
+
 // ***** Aria *****
 
 test("when an id is provided for the tooltip, it is used as the tooltip id", async () => {
