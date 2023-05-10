@@ -101,9 +101,8 @@ export function InnerTooltipTrigger({
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         // Ideally, we would only update the state if we transition from open
         // to closed and vice-versa, but comparing the current value of
-        // `isOpen` with the `newValue` results in a stale closure issues,
-        // which can result in the tooltip being left open after moving the
-        // cursor away.
+        // `isOpen` with the `newValue` results in a stale closure, which can
+        // result in the tooltip being left open after moving the cursor away.
         setIsOpen(newValue);
 
         if (!isNil(onOpenChange)) {
