@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 34.3.3
+
+### Patch Changes
+
+- 8fccf96aa: Fix tooltip staying open when moving the mouse quickly
+
 ## 34.3.2
 
 ### Patch Changes
