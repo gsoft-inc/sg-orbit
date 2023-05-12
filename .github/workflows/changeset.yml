@@ -8,6 +8,10 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required for provenance https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v3
