@@ -1,7 +1,10 @@
 import { Content } from "@components/placeholders";
 import { Div } from "@components/html";
 import { Heading } from "@components/typography";
+import { Illustration } from "@components/illustration";
+import { Image } from "@components/image";
 import { Inline, Stack } from "@components/layout";
+import { Nasa } from "./assets";
 import { cloneElement } from "react";
 
 function TileLink({ element, ...rest }) {
@@ -61,6 +64,15 @@ export function createTileLinkTestSuite(element, stories) {
                     </TileLink>
                 </Inline>
             </Stack>
+        )
+        .add("illustration", () =>
+            <TileLink element={element} href="https://www.google.com">
+                <Illustration backgroundColor="red">
+                    <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                </Illustration>
+                <Heading>Fuel</Heading>
+                <Content>Fuel configuration and level</Content>
+            </TileLink>
         )
         .add("zoom", () =>
             <Stack>
