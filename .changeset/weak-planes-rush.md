@@ -2,4 +2,4 @@
 "@orbit-ui/components": patch
 ---
 
-fix for tileLink borderRadius
+fix: Illustrations in a TileLink now have proper border radius
