@@ -207,3 +207,14 @@
     grid-template-areas: "image aside";
     grid-template-columns: max-content auto;
 }
+
+/* LINK */
+.o-ui-tile-link.o-ui-tile-vertical .o-ui-tile-illustration {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.o-ui-tile-link.o-ui-tile-horizontal .o-ui-tile-illustration {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
