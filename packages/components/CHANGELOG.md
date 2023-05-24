@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 35.0.0
+
+### Major Changes
+
+- 5974212e2: Modified the XL responsive viewport value
+
 ## 34.3.4
 
 ### Patch Changes

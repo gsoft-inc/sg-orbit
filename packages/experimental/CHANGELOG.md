@@ -1,5 +1,11 @@
 # @orbit-ui/experimental
 
+## 6.0.0
+
+### Patch Changes
+
+- @sharegate/orbit-ui@35.0.0
+
 ## 5.1.0
 
 ### Minor Changes

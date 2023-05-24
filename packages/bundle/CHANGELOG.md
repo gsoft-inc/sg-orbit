@@ -1,5 +1,12 @@
 # @sharegate/orbit-ui
 
+## 35.0.0
+
+### Patch Changes
+
+- Updated dependencies [5974212e2]
+  - @orbit-ui/components@35.0.0
+
 ## 34.3.4
 
 ### Patch Changes
