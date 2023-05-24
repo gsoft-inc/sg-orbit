@@ -95,9 +95,9 @@ export const parameters = {
                 }
             },
             xl: {
-                name: "xl (1536px)",
+                name: "xl (1440px)",
                 styles: {
-                    width: "1536px",
+                    width: "1440px",
                     height: "100%"
                 }
             }
