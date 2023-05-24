@@ -2,7 +2,7 @@ import { Div } from "@components/html";
 import { Grid, Inline, Stack, fitContent, minmax, repeat } from "@components/layout";
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 
-const viewports = [640, 768, 1024, 1280, 1536];
+const viewports = [640, 768, 1024, 1280, 1440];
 
 export default {
     title: "Chromatic/Grid",

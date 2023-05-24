@@ -1,7 +1,7 @@
 import { Box } from "@components/box";
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 
-const viewports = [640, 768, 1024, 1280, 1536];
+const viewports = [640, 768, 1024, 1280, 1440];
 
 // eslint-disable-next-line storybook/csf-component
 export default {
