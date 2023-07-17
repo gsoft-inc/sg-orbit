@@ -758,7 +758,7 @@ exports[`breakpoints lg 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "initial",
+        "--o-ui-o-active": "initial",
       }
     }
   />,
@@ -766,7 +766,7 @@ exports[`breakpoints lg 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "initial",
+        "--o-ui-o-focus": "initial",
       }
     }
   />,
@@ -774,7 +774,7 @@ exports[`breakpoints lg 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "initial",
+        "--o-ui-o-hover": "initial",
       }
     }
   />,
@@ -796,7 +796,7 @@ exports[`breakpoints lg 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "green solid 3px",
+        "--o-ui-ol-focus": "green solid 3px",
       }
     }
   />,
@@ -1781,7 +1781,7 @@ exports[`breakpoints md 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "inherit",
+        "--o-ui-o-active": "inherit",
       }
     }
   />,
@@ -1789,7 +1789,7 @@ exports[`breakpoints md 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "inherit",
+        "--o-ui-o-focus": "inherit",
       }
     }
   />,
@@ -1797,7 +1797,7 @@ exports[`breakpoints md 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "inherit",
+        "--o-ui-o-hover": "inherit",
       }
     }
   />,
@@ -1819,7 +1819,7 @@ exports[`breakpoints md 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "inset thick",
+        "--o-ui-ol-focus": "inset thick",
       }
     }
   />,
@@ -2816,7 +2816,7 @@ exports[`breakpoints sm 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "90%",
+        "--o-ui-o-active": "90%",
       }
     }
   />,
@@ -2824,7 +2824,7 @@ exports[`breakpoints sm 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "90%",
+        "--o-ui-o-focus": "90%",
       }
     }
   />,
@@ -2832,7 +2832,7 @@ exports[`breakpoints sm 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "90%",
+        "--o-ui-o-hover": "90%",
       }
     }
   />,
@@ -2854,7 +2854,7 @@ exports[`breakpoints sm 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "#f66 dashed",
+        "--o-ui-ol-focus": "#f66 dashed",
       }
     }
   />,
@@ -3838,7 +3838,7 @@ exports[`breakpoints xl 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "revert",
+        "--o-ui-o-active": "revert",
       }
     }
   />,
@@ -3846,7 +3846,7 @@ exports[`breakpoints xl 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "revert",
+        "--o-ui-o-focus": "revert",
       }
     }
   />,
@@ -3854,7 +3854,7 @@ exports[`breakpoints xl 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "revert",
+        "--o-ui-o-hover": "revert",
       }
     }
   />,
@@ -3876,7 +3876,7 @@ exports[`breakpoints xl 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "inherit",
+        "--o-ui-ol-focus": "inherit",
       }
     }
   />,
@@ -4873,7 +4873,7 @@ exports[`breakpoints xs 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "0.9",
+        "--o-ui-o-active": "0.9",
       }
     }
   />,
@@ -4881,7 +4881,7 @@ exports[`breakpoints xs 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "0.9",
+        "--o-ui-o-focus": "0.9",
       }
     }
   />,
@@ -4889,7 +4889,7 @@ exports[`breakpoints xs 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "0.9",
+        "--o-ui-o-hover": "0.9",
       }
     }
   />,
@@ -4911,7 +4911,7 @@ exports[`breakpoints xs 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "solid",
+        "--o-ui-ol-focus": "solid",
       }
     }
   />,
@@ -42314,7 +42314,7 @@ exports[`props opacity/active 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "0.9",
+        "--o-ui-o-active": "0.9",
       }
     }
   />,
@@ -42322,7 +42322,7 @@ exports[`props opacity/active 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "90%",
+        "--o-ui-o-active": "90%",
       }
     }
   />,
@@ -42330,7 +42330,7 @@ exports[`props opacity/active 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "inherit",
+        "--o-ui-o-active": "inherit",
       }
     }
   />,
@@ -42338,7 +42338,7 @@ exports[`props opacity/active 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "initial",
+        "--o-ui-o-active": "initial",
       }
     }
   />,
@@ -42346,7 +42346,7 @@ exports[`props opacity/active 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "revert",
+        "--o-ui-o-active": "revert",
       }
     }
   />,
@@ -42354,7 +42354,7 @@ exports[`props opacity/active 1`] = `
     className="o-ui-o-active"
     style={
       {
-        "o-ui-o-active": "unset",
+        "--o-ui-o-active": "unset",
       }
     }
   />,
@@ -42367,7 +42367,7 @@ exports[`props opacity/focus 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "0.9",
+        "--o-ui-o-focus": "0.9",
       }
     }
   />,
@@ -42375,7 +42375,7 @@ exports[`props opacity/focus 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "90%",
+        "--o-ui-o-focus": "90%",
       }
     }
   />,
@@ -42383,7 +42383,7 @@ exports[`props opacity/focus 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "inherit",
+        "--o-ui-o-focus": "inherit",
       }
     }
   />,
@@ -42391,7 +42391,7 @@ exports[`props opacity/focus 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "initial",
+        "--o-ui-o-focus": "initial",
       }
     }
   />,
@@ -42399,7 +42399,7 @@ exports[`props opacity/focus 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "revert",
+        "--o-ui-o-focus": "revert",
       }
     }
   />,
@@ -42407,7 +42407,7 @@ exports[`props opacity/focus 1`] = `
     className="o-ui-o-focus"
     style={
       {
-        "o-ui-o-focus": "unset",
+        "--o-ui-o-focus": "unset",
       }
     }
   />,
@@ -42420,7 +42420,7 @@ exports[`props opacity/hover 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "0.9",
+        "--o-ui-o-hover": "0.9",
       }
     }
   />,
@@ -42428,7 +42428,7 @@ exports[`props opacity/hover 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "90%",
+        "--o-ui-o-hover": "90%",
       }
     }
   />,
@@ -42436,7 +42436,7 @@ exports[`props opacity/hover 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "inherit",
+        "--o-ui-o-hover": "inherit",
       }
     }
   />,
@@ -42444,7 +42444,7 @@ exports[`props opacity/hover 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "initial",
+        "--o-ui-o-hover": "initial",
       }
     }
   />,
@@ -42452,7 +42452,7 @@ exports[`props opacity/hover 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "revert",
+        "--o-ui-o-hover": "revert",
       }
     }
   />,
@@ -42460,7 +42460,7 @@ exports[`props opacity/hover 1`] = `
     className="o-ui-o-hover"
     style={
       {
-        "o-ui-o-hover": "unset",
+        "--o-ui-o-hover": "unset",
       }
     }
   />,
@@ -42581,7 +42581,7 @@ exports[`props outline/focus 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "solid",
+        "--o-ui-ol-focus": "solid",
       }
     }
   />,
@@ -42589,7 +42589,7 @@ exports[`props outline/focus 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "#f66 dashed",
+        "--o-ui-ol-focus": "#f66 dashed",
       }
     }
   />,
@@ -42597,7 +42597,7 @@ exports[`props outline/focus 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "inset thick",
+        "--o-ui-ol-focus": "inset thick",
       }
     }
   />,
@@ -42605,7 +42605,7 @@ exports[`props outline/focus 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "green solid 3px",
+        "--o-ui-ol-focus": "green solid 3px",
       }
     }
   />,
@@ -42613,7 +42613,7 @@ exports[`props outline/focus 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "inherit",
+        "--o-ui-ol-focus": "inherit",
       }
     }
   />,
@@ -42621,7 +42621,7 @@ exports[`props outline/focus 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "initial",
+        "--o-ui-ol-focus": "initial",
       }
     }
   />,
@@ -42629,7 +42629,7 @@ exports[`props outline/focus 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "revert",
+        "--o-ui-ol-focus": "revert",
       }
     }
   />,
@@ -42637,7 +42637,7 @@ exports[`props outline/focus 1`] = `
     className="o-ui-ol-focus"
     style={
       {
-        "o-ui-ol-focus": "unset",
+        "--o-ui-ol-focus": "unset",
       }
     }
   />,
