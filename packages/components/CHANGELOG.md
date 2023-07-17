@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 35.0.1
+
+### Patch Changes
+
+- cbe03ecf7: Fix for hover/focus opacity StyledSystem utilites
+
 ## 35.0.0
 
 ### Major Changes
