@@ -1,5 +1,11 @@
 # @orbit-ui/icons
 
+## 12.2.1
+
+### Patch Changes
+
+- 1fddfa29b: Fix EyeSlashMajor icon color
+
 ## 12.2.0
 
 ### Minor Changes
