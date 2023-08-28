@@ -1,5 +1,4 @@
 import { Box } from "../../box";
-import { CheckMajorIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     InteractionProps,
@@ -128,7 +127,6 @@ export function InnerTile(props: InnerTileProps) {
             )}
         >
             {markup}
-            <CheckMajorIcon aria-hidden="true" className="o-ui-tile-checkmark" />
         </Box>
     );
 }
