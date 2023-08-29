@@ -1,4 +1,5 @@
 import { Div } from "../../html";
+import { CheckMajorIcon } from "../../icons";
 import { InteractionProps, cssModule, useSlots } from "../../shared";
 import { ReactNode, useMemo } from "react";
 import { Text } from "../../typography";
@@ -55,6 +56,7 @@ export function useTile({
                 <Div className="o-ui-tile-main">
                     {heading}
                     {content}
+                    <CheckMajorIcon aria-hidden="true" className="o-ui-tile-checkmark" />
                 </Div>
             </>
         ),
