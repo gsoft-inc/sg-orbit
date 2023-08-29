@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 35.0.3
+
+### Patch Changes
+
+- 04c5dc562: Fix misaligned checkmark background when a tile has an illustration.
+
 ## 35.0.2
 
 ### Patch Changes
