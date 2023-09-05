@@ -15,7 +15,7 @@ export function isNil(value: any): value is null | undefined {
 }
 
 export function isNilOrEmpty(value: any) {
-    return isNil(value) || value === "";
+    return isNil(value) || value.length === 0;
 }
 
 export function isString(value: any): value is string {

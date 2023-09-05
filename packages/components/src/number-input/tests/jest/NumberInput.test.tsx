@@ -1,8 +1,13 @@
 import { Field, Label } from "@components/field";
 import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 import { NumberInput } from "@components/number-input";
+import { Text } from "@components/typography";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
+
+afterEach(() => {
+    jest.clearAllMocks();
+});
 
 // ***** Behaviors *****
 
@@ -574,3 +579,53 @@ test("set ref once", async () => {
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
+
+// ***** Accessibility *****
+
+test("logs an error when label is missing", async () => {
+    const spy = jest.spyOn(console, "error");
+
+    renderWithTheme(<NumberInput />);
+
+    expect(spy).toHaveBeenCalled();
+});
+
+test("does not log an error when a label is present", async () => {
+    const spy = jest.spyOn(console, "error");
+
+    renderWithTheme(
+        <Label>
+            Label
+            <NumberInput />
+        </Label>
+    );
+
+    expect(spy).not.toHaveBeenCalled();
+
+    renderWithTheme(
+        <>
+            <Label htmlFor="test">Label</Label>
+            <NumberInput id="test" />
+        </>
+    );
+
+    expect(spy).not.toHaveBeenCalled();
+
+    renderWithTheme(<NumberInput id="test" aria-label="Label" />);
+
+    expect(spy).not.toHaveBeenCalled();
+
+    renderWithTheme(<NumberInput id="test" placeholder="Label" />);
+
+    expect(spy).not.toHaveBeenCalled();
+
+    renderWithTheme(
+        <>
+            <Text id="label">Label</Text>
+            <NumberInput aria-labelledby="label" />
+        </>
+    );
+
+    expect(spy).not.toHaveBeenCalled();
+});
+

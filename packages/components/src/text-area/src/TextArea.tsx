@@ -1,7 +1,7 @@
 import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus, useInputSpinner } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useMemo, useState } from "react";
-import { OmitInternalProps, cssModule, getBodyElement, isNil, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
+import { OmitInternalProps, cssModule, getBodyElement, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
@@ -139,10 +139,6 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         ...rest
     } = adaptInputStylingProps(props, fieldProps);
 
-    if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
-        console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
-    }
-
     const fluidValue = useResponsiveValue(fluid);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
@@ -176,6 +172,14 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         type,
         validationState,
         value: inputValue
+    });
+
+    useEffect(() => {
+        const input = inputRef.current;
+
+        if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder) && isNilOrEmpty(input.labels)) {
+            console.error("An input component must either have a <label> element, a \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
+        }
     });
 
     const lineHeight = useCalculateLineHeight(inputRef.current);

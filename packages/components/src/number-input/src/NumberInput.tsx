@@ -1,6 +1,6 @@
 import { AbstractInputProps, adaptInputStylingProps, useInput, useInputIcon, useInputSpinner } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
+import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useEffect, useMemo } from "react";
 import { Div, HtmlButton } from "../../html";
 import {
     OmitInternalProps,
@@ -201,10 +201,6 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         ...rest
     } = adaptInputStylingProps(props, contextualProps);
 
-    if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
-        console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
-    }
-
     const fluidValue = useResponsiveValue(fluid);
 
     const [inputValueRef, setInputValue] = useRefState("");
@@ -333,6 +329,14 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         type: "number",
         validationState,
         value: inputValueRef.current
+    });
+
+    useEffect(() => {
+        const input = inputRef.current;
+
+        if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder) && isNilOrEmpty(input.labels)) {
+            console.error("An input component must either have a <label> element, a \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
+        }
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
