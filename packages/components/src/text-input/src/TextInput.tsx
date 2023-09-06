@@ -96,6 +96,10 @@ export function InnerTextInput(props: InnerTextInputProps) {
         ...rest
     } = adaptInputStylingProps(props, contextProps);
 
+    if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
+        console.error("An input component must either be wrapped inside a `<Field>` component with a `<Label>`, have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
+    }
+
     const fluidValue = useResponsiveValue(fluid);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
@@ -128,14 +132,6 @@ export function InnerTextInput(props: InnerTextInputProps) {
         type,
         validationState,
         value: inputValue
-    });
-
-    useEffect(() => {
-        const input = inputRef.current;
-
-        if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder) && isNilOrEmpty(input.labels)) {
-            console.error("An input component must either have a <label> element, a \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
-        }
     });
 
     const { hasFocus, inputProps: inputFocusProps } = useInputHasFocus();

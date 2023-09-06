@@ -594,24 +594,6 @@ test("does not log an error when a label is present", async () => {
     const spy = jest.spyOn(console, "error");
 
     renderWithTheme(
-        <Label>
-            Label
-            <NumberInput />
-        </Label>
-    );
-
-    expect(spy).not.toHaveBeenCalled();
-
-    renderWithTheme(
-        <>
-            <Label htmlFor="test">Label</Label>
-            <NumberInput id="test" />
-        </>
-    );
-
-    expect(spy).not.toHaveBeenCalled();
-
-    renderWithTheme(
         <Field>
             <Label>Label</Label>
             <NumberInput />
