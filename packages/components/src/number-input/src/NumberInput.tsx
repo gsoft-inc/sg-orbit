@@ -1,6 +1,6 @@
 import { AbstractInputProps, adaptInputStylingProps, useInput, useInputIcon, useInputSpinner } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useEffect, useMemo } from "react";
+import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
 import { Div, HtmlButton } from "../../html";
 import {
     OmitInternalProps,
