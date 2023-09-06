@@ -216,6 +216,15 @@ test("does not log an error when a label is present", async () => {
     expect(spy).not.toHaveBeenCalled();
 
     renderWithTheme(
+        <Field>
+            <Label>Label</Label>
+            <TextInput />
+        </Field>
+    );
+
+    expect(spy).not.toHaveBeenCalled();
+
+    renderWithTheme(
         <>
             <Label htmlFor="test">Label</Label>
             <TextInput id="test" />

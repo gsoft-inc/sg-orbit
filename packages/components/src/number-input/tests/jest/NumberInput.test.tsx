@@ -611,6 +611,15 @@ test("does not log an error when a label is present", async () => {
 
     expect(spy).not.toHaveBeenCalled();
 
+    renderWithTheme(
+        <Field>
+            <Label>Label</Label>
+            <NumberInput />
+        </Field>
+    );
+
+    expect(spy).not.toHaveBeenCalled();
+
     renderWithTheme(<NumberInput id="test" aria-label="Label" />);
 
     expect(spy).not.toHaveBeenCalled();
