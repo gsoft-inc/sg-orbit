@@ -20,18 +20,9 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
-            - name: Cache yarn dependencies
-              uses: actions/cache@v3
-              id: cache-dependencies
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                    ${{ runner.ox }}-yarn-
+                  cache: "yarn"
             - name: Install Dependencies
-              if: steps.cache-dependencies.outputs.cache-hit != 'true'
-              run: |
-                yarn install --frozen-lockfile
+              run: yarn install --frozen-lockfile
             - name: Build Packages
               run: yarn build
             - name: Publish to Chromatic
@@ -40,4 +31,4 @@ jobs:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
                   buildScriptName: build-sb-chroma
 
-            
+
