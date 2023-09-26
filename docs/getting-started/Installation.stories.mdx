@@ -51,14 +51,13 @@ First, add the ESlint plugin to your dependencies:
 
 <PackageInstallationSnippet workspaceFolder="tooling" packageName="eslint-plugin" />
 
-Second, add the plugin to your ESlint config. For example, your .eslintrc.json file may look like this:
+Then, add the plugin to your ESlint config. For example, your `.eslintrc.json` file may look like this:
 
 ```json
 {
     "$schema": "https://json.schemastore.org/eslintrc",
     "plugins": ["@orbit-ui"],
     "extends": [
-        // ...
         "plugin:@orbit-ui/recommended"
     ]
 }
