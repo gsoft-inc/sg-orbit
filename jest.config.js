@@ -3,7 +3,10 @@ const { compilerOptions } = require("./tsconfig");
 
 module.exports = {
     roots: ["<rootDir>"],
-    testMatch: ["**/tests/jest/*.test.ts?(x)"],
+    testMatch: [
+        "**/tests/jest/*.test.ts?(x)",
+        "**/tooling/eslint-plugin/tests/*.test.ts?(x)"
+    ],
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
     },
