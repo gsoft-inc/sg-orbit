@@ -5,13 +5,14 @@ import { useState } from "react";
 
 interface PackageInstallationSnippetProps extends SnippetProps {
     packageName: string;
+    workspaceFolder?: "packages" | "tooling";
 }
 
-export function PackageInstallationSnippet({ packageName, ...rest }: PackageInstallationSnippetProps) {
+export function PackageInstallationSnippet({ packageName, workspaceFolder = "packages", ...rest }: PackageInstallationSnippetProps) {
     const [dependencies, setDependencies] = useState<string>();
 
     if (isNil(dependencies)) {
-        import(/* webpackMode: "eager" */ `@root/packages/${packageName}/package.json`)
+        import(/* webpackMode: "eager" */ `@root/${workspaceFolder}/${packageName}/package.json`)
             .then(module => {
                 const json = module.default;
                 const peerDependencies = !isNil(json.peerDependencies) ? Object.keys(json.peerDependencies).filter(x => x !== "react" && x !== "react-dom") : [];

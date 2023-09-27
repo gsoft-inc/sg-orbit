@@ -1,0 +1,8 @@
+{
+    "extends": "@workleap/typescript-configs/library",
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "module": "CommonJS"
+    },
+    "exclude": ["dist", "node_modules"]
+}

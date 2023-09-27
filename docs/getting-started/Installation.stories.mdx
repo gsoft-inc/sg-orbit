@@ -43,6 +43,30 @@ To import Orbit experimental components styles, also add the following import de
 @import "@orbit-ui/experimental/index.css";
 ```
 
+## Set up your tooling environment
+
+Orbit offer an ESLint plugin to see in-context help in your IDE. This includes accessibility pointers, deprecation notices, and other helpful tips.
+
+> This config is designed to complement the [suggested Workleap ESLint Configuration](https://github.com/gsoft-inc/wl-web-configs).
+
+First, add the ESlint plugin to your dependencies:
+
+<PackageInstallationSnippet workspaceFolder="tooling" packageName="eslint-plugin" />
+
+Then, add the plugin to your ESlint config. For example, your `.eslintrc.json` file may look like this:
+
+```json
+{
+    "$schema": "https://json.schemastore.org/eslintrc",
+    "plugins": ["@orbit-ui"],
+    "extends": [
+        "plugin:@orbit-ui/recommended"
+    ]
+}
+```
+
+More about [ESlint configuration](https://eslint.org/docs/latest/use/configure/configuration-files)
+
 ## Configure your application
 
 Below is an example of how to configure an application with a [pre-constructed](?path=/story/theming--page#option-3-retrieve-a-pre-constructed-theme-from-orbit) ShareGate theme object:
