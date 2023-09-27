@@ -2,7 +2,7 @@
     "name": "@orbit-ui/eslint-plugin",
     "author": "Workleap",
     "description": "Workleap recommended ESLint rules and configurations when using Orbit.",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "keywords": [
         "workleap",
         "eslint",
