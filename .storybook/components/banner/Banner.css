@@ -1,0 +1,4 @@
+.o-ui-sb-banner {
+    background: var(--o-ui-bg-alias-warning-light);
+    border-radius: var(--o-ui-br-3);
+}
