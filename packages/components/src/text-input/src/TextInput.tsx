@@ -97,7 +97,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
     } = adaptInputStylingProps(props, contextProps);
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
-        console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
+        console.error("An input component must either be wrapped inside a `<Field>` component with a `<Label>`, have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
     const fluidValue = useResponsiveValue(fluid);

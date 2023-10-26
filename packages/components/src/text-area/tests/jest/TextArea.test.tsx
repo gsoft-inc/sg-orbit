@@ -2,8 +2,13 @@ import { Field, Label } from "@components/field";
 import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 
 import { TextArea } from "@components/text-area";
+import { Text } from "@components/typography";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
+
+afterEach(() => {
+    jest.clearAllMocks();
+});
 
 // ***** Behaviors *****
 
@@ -146,4 +151,45 @@ test("set ref once", async () => {
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+
+// ***** Accessibility *****
+
+test("logs an error when label is missing", async () => {
+    const spy = jest.spyOn(console, "error");
+
+    renderWithTheme(<TextArea />);
+
+    expect(spy).toHaveBeenCalled();
+});
+
+test("does not log an error when a label is present", async () => {
+    const spy = jest.spyOn(console, "error");
+
+    renderWithTheme(
+        <Field>
+            <Label>Label</Label>
+            <TextArea />
+        </Field>
+    );
+
+    expect(spy).not.toHaveBeenCalled();
+
+    renderWithTheme(<TextArea id="test" aria-label="Label" />);
+
+    expect(spy).not.toHaveBeenCalled();
+
+    renderWithTheme(<TextArea id="test" placeholder="Label" />);
+
+    expect(spy).not.toHaveBeenCalled();
+
+    renderWithTheme(
+        <>
+            <Text id="label">Label</Text>
+            <TextArea aria-labelledby="label" />
+        </>
+    );
+
+    expect(spy).not.toHaveBeenCalled();
 });
