@@ -93,9 +93,9 @@ export function lineHeightRenderer(token) {
 
 export function radiiRenderer(token) {
     if (token === "circular") {
-        return <Div height={4} width={4} borderRadius={token} border="alias-accent"></Div>;
+        return <Div height={4} width={4} borderRadius={token} border="alias-accent-active"></Div>;
     } else {
-        return <Div height={4} width={8} borderRadius={token} border="alias-accent"></Div>;
+        return <Div height={4} width={8} borderRadius={token} border="alias-accent-active"></Div>;
     }
 }
 
